@@ -1,7 +1,7 @@
 REM clean
 rmdir /S /Q build
 rmdir /S /Q output
-	
+
 REM install
 mkdir -p output
 mkdir -p build
