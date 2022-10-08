@@ -12,7 +12,7 @@ all: clean build
 build: $(main_file_path)
 	mkdir -p $(out_dir) $(build_dir)
 	latexmk -pdf -bibtex -outdir=../$(build_dir) -cd $^
-	mv $(built_file) $(out_dir)
+	cp $(built_file) $(out_dir)
 
 clean:
 	rm -rf $(out_dir)/* $(build_dir)/*

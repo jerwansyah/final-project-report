@@ -1,8 +1,8 @@
 # Tesis Informatika ITB dalam LaTeX
 
-Oleh: Jeane Mikha Erwansyah <13519116@std.stei.itb.ac.id>
-Original repo: https://github.com/petrabarus/if-itb-latex/
-Dimodifikasi(1): Faris Rizki Ekananda <work@farisekananda.dev>
+Oleh: Jeane Mikha Erwansyah <13519116@std.stei.itb.ac.id> \
+Original repo: https://github.com/petrabarus/if-itb-latex/ \
+Dimodifikasi(1): Faris Rizki Ekananda <work@farisekananda.dev> \
 Dimodifikasi(2): Josep Marcello <13519164@std.stei.itb.ac.id>
 
 Dokumen ini merupakan laporan tesis program studi Teknik Informatika IT yang ditulis menggunakan LaTeX.
@@ -20,7 +20,7 @@ perangkat lunak yang dibutuhkan, eksekusi perintah berikut.
 sudo apt-get -qq update && sudo apt-get install -y --no-install-recommends \
     texlive-fonts-recommended texlive-latex-extra texlive-fonts-extra \
     dvipng texlive-latex-recommended texlive-lang-other \
-    texlive-bibtex-extra biber xzdec
+    texlive-bibtex-extra biber xzdec latexmk
 ```
 
 Program ini juga telah diuji pada sistem operasi Fedora Linux 36
