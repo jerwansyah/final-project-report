@@ -1,21 +1,35 @@
 \chapter{Studi Literatur}
 
 Bab ini membahas hasil studi literatur yang diperlukan untuk melakukan
-penyusunan Tugas Akhir ini. Bab ini membahas tentang \dots .
+penyusunan Tugas Akhir ini. Bab ini membahas tentang kendaraan otonom, simulator
+CARLA, Blender, dan penelitian terkait.
 
 \section{Kendaraan Otonom}
 Kendaraan otonom atau \textit{Autonomous Vehicle} merupakan kendaraan yang
 dirancang untuk memonitor keadaan jalan dan berkemudi sendiri tanpa bantuan
-pengemudi. Kendaraan otonom dibuat dengan tujuan mengurangi jumlah
-kecelakaan, mengurangi penggunaan energi, mengurangi polusi, mengurangi
-kemacetan, dan meningkatkan akses transportasi \parencite{av-bagloee}.
+pengemudi. Kendaraan otonom dibuat dengan tujuan mengurangi jumlah kecelakaan,
+mengurangi penggunaan energi, mengurangi polusi, mengurangi kemacetan, dan
+meningkatkan akses transportasi \parencite{av-bagloee}. Trem otonom sangat mirip
+dengan mobil otonom, keduanya beroperasi di lingkungan yang sama dan
+berinteraksi dengan objek-objek yang sama pula. Perbedaan keduanya adalah trem
+otonom terikat dengan rel trem sehingga trem tidak dapat berbelok keluar dari
+rel untuk menghindari objek yang berpotensi menjadi halangan ataupun berhenti
+mendadak karena terbatasi secara fisik dan berhenti mendadak dapat mencelakai
+penumpang \parencite{at-palmer}.
+
+Trem otonom secara umum memiliki perangkat keras berupa kendaraan fisik,
+komputer, dan berbagai sensor. Komputer pada tram digunakan untuk mengoperasikan
+trem secara otonom. Komputer juga memiliki kartu grafis untuk melakukan deteksi
+objek hasil deteksi dari sensor-sensor di trem. Sensor-sensor tersebut adalah,
+kamera, lidar, dan radar. Sedangkan pada sisi perangkat lunak, trem otonom pada
+umumnya memiliki aplikasi untuk mengolah data sensor \parencite{at-palmer}.
 
 Model pemilihan keputusan oleh kendaraan otonom perlu dilatih sehingga kendaraan
 otonom tersebut dapat diandalkan. Oleh karena itu, diperlukan penelitian dan
 percobaan lebih lanjut untuk memngembangkan algoritma, kemampuan evaluasi, dan
 protokol kendaraan otonom. Penelitan dan eksperimen kendaraan otonom dapat
 dilakukan dengan melakukan simulasi detil yang banyak. Simulasi-simulasi
-tersebut bergantung kepada model yang ada di dunia nyata  \parencite{av-berger}.
+tersebut bergantung kepada model yang ada di dunia nyata \parencite{av-berger}.
 
 Simulasi kendaraan otonom akan memudahkan pelatihan dan proses validasi strategi
 kemudi kendaraan otonom. Simulasi mencegah terjadinya kejadian yang berbahaya
@@ -45,8 +59,8 @@ purwarupa, dan pengujian strategi kemudi otonom, baik dari sisi persepsi maupun
 sisi pengontrolan. CARLA menyediakan model dasar untuk lingkungan simulasi,
 sejumlah kendaraan, rambu lalu lintas, dan pejalan kaki. Selain itu, CARLA juga
 menyediakan keluaran sensor-sensor dan sinyal-sinyal yang dapat digunakan untuk
-melatih strategi kemudi seperti koordinat GPS, kecepatan, percepatan, data
-rinci mengenai tabrakan yang terjadi pada model kendaraan, dan lain-lain.
+melatih strategi kemudi seperti koordinat GPS, kecepatan, percepatan, data rinci
+mengenai tabrakan yang terjadi pada model kendaraan, dan lain-lain.
 Sensor-sensor dan kondisi lingkungan simulasi tersebut dapat diatur sesuai
 dengan kebutuhan \parencite{carla-dosovitskiy}.
 
@@ -80,10 +94,13 @@ cepat. Aset-aset yang telah disediakan CARLA sangat dapat disesuaikan
 \parencite{carla-dosovitskiy}. Aset baru juga dapat ditambahkan
 \parencite{carla-documentation-intro}.
 
-\section{Pembuatan Aset Baru untuk Simulasi di CARLA}
+% \section{Pembuatan Aset Baru untuk Simulasi di CARLA}
+% isi pengantar?
 % \subsection{\textit{3D Modelling}}
+% \blindtext
 
-\subsection{Blender}
+% \subsection{Blender}
+\section{Blender}
 Blender adalah sebuah perangkat lunak \textit{open-source} untuk pembuatan model
 3D. Blender dapat digunakan di berbagai sistem operasi dan berjalan lancar pada
 Linux, Windows, dan Macintosh. Blender menyediakan berbagai fitur yang mendukung
@@ -95,35 +112,31 @@ yang dapat digunakan untuk penyesuaian Blender sendiri dan pembuatan alat
 pengeditan khusus. API Blender dapat digunakan menggunakan bahasa pemrograman
 Python \parencite{blender-about}.
 
-\subsection{CARLA Unreal Engine 4 Editor}
-\dots
+% \subsection{CARLA Unreal Engine 4}
+% \section{CARLA Unreal Engine 4}
 % CARLA editor, editing objects, adding new objects, customizations
+% loading new and custom assets into CARLA
 
-% \subsection{\textit{Traffic Manager}}
-% untuk objek lokal yang dinamis seperti kendaraan dan NPC
-
-% API / aplikasi / metode otomatisasi ?
 
 \section{Penelitian Terkait}
-Subbab ini membahas beberapa penelitian terkait dengan Tugas Akhir ini.
-Penelitian-penelitian tersebut menjadi rujukan dalam penelitian dan pengembangan
-Tugas Akhir ini.
+% Subbab ini membahas beberapa penelitian terkait dengan Tugas Akhir ini.
+% Penelitian-penelitian berikut menjadi rujukan dalam penelitian dan pengembangan
+% Tugas Akhir ini.
 
-\subsection{Pengembangan Sistem Otonomi dengan Menggunakan Kecerdasan Artificial untuk Trem}
-% \blindtext
-\dots
+% \subsection{Pengembangan Sistem Otonomi dengan Menggunakan Kecerdasan Artificial untuk Trem}
+% \dots
 
-Penelitian ini mengembangkan sistem otonomi untuk Trem menggunakan kecerdasan
-buatan. Tugas Akhir ini merupakan bagian dari penelitian pada sisi simulasi
-untuk pengujian dan validasi strategi kemudi.
+% Penelitian ini mengembangkan sistem otonomi untuk Trem menggunakan kecerdasan
+% buatan. Tugas Akhir ini merupakan bagian dari penelitian pada sisi simulasi
+% untuk pengujian dan validasi strategi kemudi.
 
-\dots
+% \dots
 
-\subsection{\textit{KIT Bus: A Shuttle Model for CARLA Simulator}}
-
-Penelitian ini merupakan penelitian membuat model \textit{shuttle bus} untuk
-CARLA yang dilakukan oleh \cite{related-work-xiang}. Proses pembuatan model tersebut
-dilakukan dalam tiga tahap, yaitu sebagai berikut:
+% \subsection{\textit{KIT Bus: A Shuttle Model for CARLA Simulator}}
+Penelitian \textit{KIT Bus: A Shuttle Model for CARLA Simulator}  ini merupakan
+penelitian membuat model \textit{shuttle bus} untuk CARLA yang dilakukan oleh
+\cite{related-work-xiang}. Proses pembuatan model tersebut dilakukan dalam tiga
+tahap, yaitu sebagai berikut:
 \begin{enumerate}
     \item Membuat model 3D dari bus menggunakan aplikasi 3ds Max.
 
