@@ -6,54 +6,192 @@
 
 \section{Latar Belakang}
 
-% Latar Belakang berisi dasar pemikiran, kebutuhan atau alasan yang menjadi ide
-% dari topik tugas akhir. Tujuan utamanya adalah untuk memberikan informasi
-% secukupnya kepada pembaca agar memahami topik yang akan dibahas.  Saat
-% menuliskan bagian ini, posisikan anda sebagai pembaca – apakah anda tertarik
-% untuk terus membaca?
+Perkembangan teknologi yang pesat memungkinkan terjadinya perkembangan teknologi
+pada industri otomotif. Salah satu inovasi teknologi otomotif adalah kendaraan
+yang dapat berjalan sendiri secara otonom tanpa adanya pengemudi manusia.
+Kendaraan otonom tersebut dapat berkemudi sendiri dengan adanya kecerdasan
+buatan. Teknologi kendaraan otonom ini tidak terbatas pada kendaraan pribadi
+saja, tetapi dapat diaplikasikan juga pada kendaraan umum seperti trem.
+
+Pengembangan kendaraan otonom untuk penggunaan secara komersial perlu dilakukan
+dengan teliti sehingga kendaraan otonom tersebut dapat beroperasi dengan baik,
+dapat diandalkan, dapat nyaman digunakan, dapat meminimalisasikan biaya bahan
+bakar karena menggunakan listrik, dan dapat memimalisasi kecelakaan lalu lintas.
+Kendaraan otonom yang diharapkan tersebut membutuhkan pengembangan kecerdasan
+buatan yang dapat mengoperasikan kendaraan yang spesifik. Oleh karena itu,
+pengembangan kendaraan otonom membutuhkan biaya yang besar dan waktu yang lama
+sebab dibutuhkan data yang banyak dan bervariasi untuk melatih kecerdasan
+buatan. Selain itu, dibutuhkan juga pengujian kendaraan otonom untuk melakukan
+validasi kecerdasan buatan yang telah dibuat. Pengumpulan data untuk pelatihhan
+dapat membutuhkan waktu yang lama sebab terdapat banyak faktor eksternal yang
+tidak dapat diprediksi atau dikontrol yang membuat data yang dikumpulkan tidak
+bervariasi. Proses untuk mencari data yang bervariasi dapat memakan waktu juga
+sebab harus menunggu saat yang tepat untuk pengumpulan data. Selain pengumpulan
+data, pengujian kendaraan otonom juga membutuhkan waktu yang lama dan biaya yang
+besar sebab untuk memastikan kendaraan otonom dapat beroperasi dengan baik,
+pengujian harus dilakukan berulang-ulang dan dalam berbagai skenario yang kadang
+tidak dapat diatur sesuai dengan keinginan di saat yang diinginkan.
+
+Pelatihan dan pengujian kendaraan otonom yang mahal ini dapat diatasi dengan
+melakukannya secara virtual menggunakan aplikasi simulasi. Pelatihan dan
+pengujian dengan menggunakan simulasi dapat menghemat biaya dan waktu karena
+aktor, lingkungan, dan parameter simulasi untuk pengujian dapat diatur sesuai
+dengan keinginan relatif lebih mudah dan lebih cepat. Lingkungan simulasi yang
+identik dengan lingkungan nyata diperlukan sehingga kecerdasan buatan kendaraan
+otonom cocok digunakan untuk lingkungan pada kenyataan. Oleh karena itu,
+dibutuhkan implementasi aktor, objek, dan lingkungan simulasi.
+
+Tugas akhir ini membahas implementasi objek trem, implementasi objek lalu lintas
+khas Indonesia, dan implementasi lingkungan simulasi yang serupa dengan
+Indonesia menggunakan simulator Car Learning to Act (CARLA).
 
 \section{Rumusan Masalah}
 
-% Rumusan Masalah berisi masalah utama yang dibahas dalam tugas akhir. Rumusan
-% masalah yang baik memiliki struktur sebagai berikut:
-
-% \begin{enumerate} \item Penjelasan ringkas tentang kondisi/situasi yang ada
-%         sekarang terkait dengan topik utama yang dibahas Tugas Akhir. \item
-%             Pokok persoalan dari kondisi/situasi yang ada, dapat dilihat dari
-%             kelemahan atau kekurangannya. \textbf{Bagian ini merupakan inti
-%             dari rumusan masalah}. \item Elaborasi lebih lanjut yang menekankan
-% pentingnya untuk menyelesaikan pokok persoalan tersebut. \item Usulan singkat
-% terkait dengan solusi yang ditawarkan untuk menyelesaikan persoalan.
-% \end{enumerate}
-
-% Penting untuk diperhatikan bahwa persoalan yang dideskripsikan pada subbab ini
-% akan dipertanggungjawabkan di bab Evaluasi apakah terselesaikan atau tidak.
+Berdasarkan latar belakang yang telah dibahas, rumusan masalah yang akan dibahas
+dalam tugas akhir ini adalah sebagai berikut.
+\begin{enumerate}
+	\item Bagaimana cara mengimplementasikan objek trem, objek lokal khas
+	Indonesia di lingkungan simulator CARLA?
+	\item Bagaimana cara mengimplementasikan lingkungan simulasi yang serupa
+	dengan lingkungan Indonesia di simulator?
+\end{enumerate}
 
 \section{Tujuan}
 
-% Tuliskan tujuan utama dan/atau tujuan detil yang akan dicapai dalam pelaksanaan
-% tugas akhir. Fokuskan pada hasil akhir yang ingin diperoleh setelah tugas akhir
-% diselesaikan, terkait dengan penyelesaian persoalan pada rumusan masalah.
-% Penting untuk diperhatikan bahwa tujuan yang dideskripsikan pada subbab ini
-% akan dipertanggungjawabkan di akhir pelaksanaan tugas akhir apakah tercapai
-% atau tidak.
+Tujuan dari tugas akhir ini adalah untuk mengimplentasikan objek trem, objek
+lokal khas Indonesia, dan lingkungan khas Indonesia di simulator CARLA untuk
+memudahkan validasi algortima \textit{decision making} trem otonom.
 
 \section{Batasan Masalah}
 
-% Tuliskan batasan-batasan yang diambil dalam pelaksanaan tugas akhir. Batasan
-% ini dapat dihindari (tidak perlu ada) jika topik/judul tugas akhir dibuat cukup
-% spesifik.
+Penelititan untuk tugas akhir ini memiliki batasan masalah yaitu
+pengimplementasian objek trem, objek lokal khas Indonesia, dan lingkungan
+simulasi hanya terbatas pada lingkungan kota Solo. Kota Solo dipilih sebagai
+lingkungan pengujian trem otonom karena di Solo sudah terdapat trem konvensional
+yang beroperasi. Pengambilan data untuk pelatihan telah dan sedang dilakukan di
+Solo. Pengujian trem otonom di luar simulasi pun akan dilakukan di Solo.
+Tingkat kemiripan simulasi terbatas pada aplikasi CARLA.
 
 \section{Metodologi}
 
-% Tuliskan semua tahapan yang akan dilalui selama pelaksanaan tugas akhir.
-% Tahapan ini spesifik untuk menyelesaikan persoalan tugas akhir. Tahapan studi
-% literatur tidak perlu dituliskan karena ini adalah pekerjaan yang harus Anda
-% lakukan selama proses pelaksanaan tugas akhir.
+Metodologi yang digunakan dalam pengerjaan tugas akhir ini adalah sebagai
+berikut.
+
+\begin{enumerate}
+	\item Analisis masalah
+
+	Melakukan analisis terhadap rumusan masalah mengenai simulasi trem otonom.
+	Analisis dilakukan dengan melakukan studi literatur mengenai simulasi
+	kendaraan otonom.
+
+	\item Eksplorasi kakas untuk mengimplementasikan solusi
+
+	Melakukan eksplorasi kakas yang akan digunakan untuk implementasi dan
+	validasi untuk menyelesaikan masalah yang telah dirumuskan.
+
+	\item Implementasi solusi
+
+	Melakukan implementasi objek trem, objek lokal khas Indonesia, dan
+	lingkungan simulasi di \textit{editor} simulator CARLA (CARLA Unreal Engine
+	4 Editor) agar dapat digunakan di simulator CARLA.
+
+	\item Validasi dan analisis implementasi solusi
+
+	Pada tahap ini dilakukan validasi dan analisis solusi yang sudah
+	implementasi. Tahap ini dilakukan untuk memastikan bahwa objek trem, objek
+	lokal khas Indonesia, dan lingkungan simulasi yang diimplementasikan
+	berperilaku normal, stabil untuk digunakan dalam simulasi, dan dapat
+	memenuhi kebutuhan simulasi.
+
+\end{enumerate}
 
 \section{Jadwal Pelaksanaan Tugas Akhir}
 
-% Tuliskan rencana kegiatan dan jadwal (dirinci sampai per minggu) mulai dari
-% awal pelaksanaan Tugas Akhir I s.d. sidang tugas akhir berikut milestones dan
-% deliverables yang harus diberikan. Jadwal ini dapat dibantu dengan membuat
-% sebuah tabel timeline.
+Berikut adalah jadwal pelaksanaan Tugas Akhir I perminggunya.
+
+% TODO: add gantt chart
+\newgeometry{left=1cm,,right=1cm,top=3cm,bottom=3cm}
+\begin{landscape}
+    \begin{figure}[h]
+        \begin{center}
+            \begin{ganttchart}[
+                    y unit title=0.5cm,
+                    y unit chart=1.3cm,
+                    vgrid,hgrid,
+                    title label anchor/.style={below=-1.6ex},
+                    title left shift=.05,
+                    title right shift=-.05,
+                    title height=1,
+                    bar label font=\tiny,
+                    bar/.style={fill=gray!50},
+                    bar label node/.style={
+                            text width=4.25cm,
+                            align=right,
+                            anchor=east,
+                            font=\raggedleft
+                        },
+                    bar top shift=0.15,
+                    bar height=0.7,
+                    incomplete/.style={fill=white},
+                    progress label text={},
+                    group right shift=0,
+                    group top shift=.6,
+                    group height=.3,
+                    group peaks width=.2
+                ]{1}{44}
+                %labels
+                \gantttitle{September}{4}
+                \gantttitle{Oktober}{4}
+                \gantttitle{November}{4}
+                \gantttitle{Desember}{4}
+                \gantttitle{Januari}{4}
+                \gantttitle{Februari}{4}
+                \gantttitle{Maret}{4}
+                \gantttitle{April}{4}
+                \gantttitle{Mei}{4}
+                \gantttitle{Juni}{4}
+                \gantttitle{Juli}{4} \\
+                \gantttitlelist{1,...,4}{1}
+                \gantttitlelist{1,...,4}{1}
+                \gantttitlelist{1,...,4}{1}
+                \gantttitlelist{1,...,4}{1}
+                \gantttitlelist{1,...,4}{1}
+                \gantttitlelist{1,...,4}{1}
+                \gantttitlelist{1,...,4}{1}
+                \gantttitlelist{1,...,4}{1}
+                \gantttitlelist{1,...,4}{1}
+                \gantttitlelist{1,...,4}{1}
+                \gantttitlelist{1,...,4}{1} \\
+                %tasks
+                \ganttbar{Menentukan topik dan\\[-10pt] calon pembimbing}{1}{1} \\
+                \ganttbar{Alokasi topik dan\\[-10pt] pembimbing TA\\[-10pt] oleh tim TA}{2}{2} \\
+                \ganttbar{Bab II: Studi Literatur}{3}{6} \\
+                \ganttbar{Bab I: Pendahuluan}{7}{9} \\
+                % \ganttbar{Feasibility study: Mina}{7}{9} \\
+                % \ganttbar{Mencoba implementasi\\[-10pt] seluruh smart contract\\[-10pt] yang dibutuhkan}{10}{11} \\
+                \ganttbar{Membuat rancangan\\[-10pt] konkrit sistem}{12}{12} \\
+                \ganttbar{Bab III}{13}{13} \\
+                \ganttbar{Seminar TA I}{17}{18} \\
+                \ganttbar{Implementasi sistem}{13}{34} \\
+                \ganttbar{Menyususun Bab III:\\[-10pt] Deskripsi Solusi}{25}{34} \\
+                \ganttbar{Evaluasi}{35}{40} \\
+                \ganttbar{Menyusun Bab IV:\\[-10pt] Evaluasi}{35}{40} \\
+                \ganttbar{Seminar TA 2}{41}{42}
+                % \ganttbar[progress=0]{task 8}{21}{24}
+
+                %relations
+                % \ganttlink{elem0}{elem1}
+                % \ganttlink{elem0}{elem3}
+                % \ganttlink{elem1}{elem2}
+                % \ganttlink{elem3}{elem4}
+                % \ganttlink{elem1}{elem5}
+                % \ganttlink{elem3}{elem5}
+                % \ganttlink{elem2}{elem6}
+                % \ganttlink{elem3}{elem6}
+                % \ganttlink{elem5}{elem7}
+            \end{ganttchart}
+        \end{center}
+        \caption{Jadwal Pelaksanaan Tugas Akhir}
+    \end{figure}
+\end{landscape}
+\restoregeometry
