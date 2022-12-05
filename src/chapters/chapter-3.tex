@@ -27,22 +27,91 @@ Modul simulasi ini merupakan bagian dari pengembangan sistem otonom dengan
 menggunakan kecerdasan buatan untuk trem. Modul ini bertujuan untuk memenuhi
 kebutuhan pengujian virtual strategi kemudi trem otonom dengan simulasi.
 Simulasi ini bertujuan untuk melakukan validasi strategi kemudi kecerdasan
-buatan trem otonom yang telah dikembangkan.
+buatan trem otonom yang telah dikembangkan. Validasi diperlukan agar kecerdasan
+buatan yang dikembangkan dapat beroperasi dengan lancar di lingkungan Indonesia.
+Oleh karena itu, dibutuhkan aset simulasi yang sesuai dengan keadaan Indonesia.
 
 \section{Analisis Solusi}
+Permasalahan yang telah dibahas dapat diselesaikan dengan mengubah aset yang
+sudah ada atau menambahkan aset baru. Aset seperti peta kota harus dibuat
+langsung menggunakan CARLAUE4. Aset baru yang lain dapat dibuat menggunakan
+aplikasi \textit{3D modelling} seperti Blender. Aset dibuat secara lengkap dan
+rinci agar perilaku aset sesuai dengan yang asli.
 
-% 2. Analisis solusi dan rencana penyelesaian masalah
-%% - Pilhan solusi, berdasarkan hasil studi literatur
+Aset yang telah jadi selanjutnya dimasukkan ke dalam CARLAUE4. Proses impor aset
+ini dilakukan dengan mengikuti panduan yang telah tersedia di dokumentasi CARLA.
+Proses impor aset harus dilakukan dengan benar agar perilaku aset baik dan
+stabil untuk simulasi. Terdapat aset khusus yang harus ditambahkan ke dalam file
+3d model kendaraan dan diatur ke model kendaraan. Aset khusus tersebut merupakan
+aset \textit{bone} untuk roda kendaraan.
 
-%% - Analisis dan deskripsi pilihan solusi
+% cara import aset yang lain (yang khusus, yang detail di bawah aja)
+% adding details maybe
 
-%% - Langkah-langkah menuju solusi dan penjelasan
+Implementasi objek dan lingkungan Indonesia yang akan dilakukan adalah dengan
+menambahkan aset dan membuat aset baru. Implementasi yang menambahkan aset
+meliputi kendaraan, rambu lalu lintas, dan lingkungan sederhana. Kendaraan yang
+akan diimplementasikan adalah trem otonom, angkot, becak, gerobak, motor, dan
+sepeda onthel. Trem akan dipasangkan berbagai sensor seperti Lidar, kamera RGB,
+dan Radar untuk menangkap lingkungan sekitar.
 
-%% - Modul/subsistem/komponen yang akan dikembangkan (jelaskan)
+% - Langkah-langkah menuju solusi dan penjelasan
 
-%% - Alur umum algoritma / langkah-langkah pengembangan sistem (jelaskan)
+% - Alur umum algoritma / langkah-langkah pengembangan sistem (jelaskan)
+%   a. cara import/nambahin aset lain:
+%      - props: signs, gedung?
+%      - peta baru/buat?
+%      - testing/validating asetnya udah masuk dan behave bener atau belum
+%   b. cara nambahin sensor di trem
+%   c. asset customization
 
 %% - Kakas yang diperlukan
+Proses implementasi ini membutuhkan simulator CARLA dan CARLAUE4 yang dibangun
+atau di-\textit{compile} sendiri bukan menggunakan program atau \textit{binary}
+yang sudah di-\textit{compile}.
+% Proses membangun kedua program ini membutuhkan program ...
+Dibutuhkan aplikasi \textit{3D modelling} seperti Blender untuk membuat aset.
+Aplikasi RoadRunner akan digunakan untuk membuat aset peta.
 
-% Diagram blok bisa digunakan
-% Bisa menggunakan lampiran
+\section{Rancangan Implementasi Objek dan Lingkungan Indonesia di Simulator}
+Proses implementasi objek dan lingkungan di simulator CARLA dilakukan dengan
+langkah-langkah sebagai berikut.
+\begin{enumerate}
+	\item Membuat aset baru dengan Blender dan RoadRunner jika diperlukan.
+
+	Aset dibuat mengikuti panduan yang sudah ada di dokumentasi CARLA.
+	% Hal tersebut meliputi bentuk poligon, jumlah poligon, dan lain-lain.
+
+	\item Melakukan impor dan edit aset ke dalam CARLAUE4.
+
+	Aset yang ingin dimasukkan ke lingkungan simulasi dan diedit harus dilakukan
+	dengan aplikasi CARLAUE4.
+
+	% untuk import vehicles:
+	% https://carla.readthedocs.io/en/0.9.13/tuto_A_add_vehicle/#bind-and-model-the-vehicle
+	% untuk buat peta:
+	% https://carla.readthedocs.io/en/0.9.13/tuto_M_generate_map/
+
+	% links:
+	% https://carla.readthedocs.io/en/0.9.13/tuto_A_add_props/
+	% https://carla.readthedocs.io/en/0.9.13/tuto_A_material_customization/
+
+	\item Melakukan validasi aset yang telah diimpor.
+
+	Validasi aset dapat dilakukan dengan menjalankan simulator dan mengamati
+	aset dalam simulasi. Validasi ini dilakukan untuk memastikan aset yang
+	diimpor sudah sesuai dengan yang diinginkan dan stabil dalam simulasi.
+
+	\item Melakukan ekspor aset agar dapat didistribusikan.
+
+	Aset yang ingin digunakan oleh pengguna lain dapat diekspor sehingga
+	\textit{portable}. Hal ini dapat dilakukan dengan menjalankan perintah di
+	terminal.
+
+	% untuk trem:
+	% https://carla.readthedocs.io/en/0.9.13/tuto_G_retrieve_data/#spawn-the-ego-vehicle
+\end{enumerate}
+
+% jelasin per langkah
+% - siapin aset
+% - impor aset
