@@ -43,7 +43,12 @@ dibutuhkan implementasi aktor, objek, dan lingkungan simulasi.
 
 Tugas akhir ini membahas implementasi objek trem, implementasi objek lalu lintas
 khas Indonesia, dan implementasi lingkungan simulasi yang serupa dengan
-Indonesia menggunakan simulator Car Learning to Act (CARLA).
+Indonesia menggunakan simulator Car Learning to Act (CARLA). Aset bawaan dari
+CARLA seperti kendaraan, jalan, kota, lingkungan, dan aset lainnya mencerminkan
+objek dan lingkungan di Amerika Serikat pada umumnya. Oleh karena itu, perlu
+dibuat aset yang mencerminkan objek dan lingkungan di Indonesia. Lalu lintas
+\textit{default} di CARLA adalah jalur kanan. Hal tersebut juga perlu
+disesuaikan agar sama seperti lalu lintas di Indonesia.
 
 \section{Rumusan Masalah}
 
@@ -109,89 +114,84 @@ berikut.
 
 Berikut adalah jadwal pelaksanaan Tugas Akhir I perminggunya.
 
-% TODO: add gantt chart
-\newgeometry{left=1cm,,right=1cm,top=3cm,bottom=3cm}
-\begin{landscape}
-    \begin{figure}[h]
-        \begin{center}
-            \begin{ganttchart}[
-                    y unit title=0.5cm,
-                    y unit chart=1.3cm,
-                    vgrid,hgrid,
-                    title label anchor/.style={below=-1.6ex},
-                    title left shift=.05,
-                    title right shift=-.05,
-                    title height=1,
-                    bar label font=\tiny,
-                    bar/.style={fill=gray!50},
-                    bar label node/.style={
-                            text width=4.25cm,
-                            align=right,
-                            anchor=east,
-                            font=\raggedleft
-                        },
-                    bar top shift=0.15,
-                    bar height=0.7,
-                    incomplete/.style={fill=white},
-                    progress label text={},
-                    group right shift=0,
-                    group top shift=.6,
-                    group height=.3,
-                    group peaks width=.2
-                ]{1}{44}
-                %labels
-                \gantttitle{September}{4}
-                \gantttitle{Oktober}{4}
-                \gantttitle{November}{4}
-                \gantttitle{Desember}{4}
-                \gantttitle{Januari}{4}
-                \gantttitle{Februari}{4}
-                \gantttitle{Maret}{4}
-                \gantttitle{April}{4}
-                \gantttitle{Mei}{4}
-                \gantttitle{Juni}{4}
-                \gantttitle{Juli}{4} \\
-                \gantttitlelist{1,...,4}{1}
-                \gantttitlelist{1,...,4}{1}
-                \gantttitlelist{1,...,4}{1}
-                \gantttitlelist{1,...,4}{1}
-                \gantttitlelist{1,...,4}{1}
-                \gantttitlelist{1,...,4}{1}
-                \gantttitlelist{1,...,4}{1}
-                \gantttitlelist{1,...,4}{1}
-                \gantttitlelist{1,...,4}{1}
-                \gantttitlelist{1,...,4}{1}
-                \gantttitlelist{1,...,4}{1} \\
-                %tasks
-                \ganttbar{Menentukan topik dan\\[-10pt] calon pembimbing}{1}{1} \\
-                \ganttbar{Alokasi topik dan\\[-10pt] pembimbing TA\\[-10pt] oleh tim TA}{2}{2} \\
-                \ganttbar{Bab II: Studi Literatur}{3}{6} \\
-                \ganttbar{Bab I: Pendahuluan}{7}{9} \\
-                % \ganttbar{Feasibility study: Mina}{7}{9} \\
-                % \ganttbar{Mencoba implementasi\\[-10pt] seluruh smart contract\\[-10pt] yang dibutuhkan}{10}{11} \\
-                \ganttbar{Membuat rancangan\\[-10pt] konkrit sistem}{12}{12} \\
-                \ganttbar{Bab III}{13}{13} \\
-                \ganttbar{Seminar TA I}{17}{18} \\
-                \ganttbar{Implementasi sistem}{13}{34} \\
-                \ganttbar{Menyususun Bab III:\\[-10pt] Deskripsi Solusi}{25}{34} \\
-                \ganttbar{Evaluasi}{35}{40} \\
-                \ganttbar{Menyusun Bab IV:\\[-10pt] Evaluasi}{35}{40} \\
-                \ganttbar{Seminar TA 2}{41}{42}
-                % \ganttbar[progress=0]{task 8}{21}{24}
+\begin{figure}[ht]
+	\linespread{0.8}
+	\resizebox{\textwidth}{!}{
+		\begin{ganttchart}[
+				y unit title=0.5cm,
+				y unit chart=1.3cm,
+				bar height=0.7,
+				vgrid,
+				title height=1,
+				bar label font=\tiny,
+				bar label node/.style={
+						text width=4cm,
+						align=right,
+						anchor=east,
+						font=\raggedleft
+					},
+			]{1}{20}
+			%labels
+			\gantttitle{September}{4}
+			\gantttitle{Oktober}{4}
+			\gantttitle{November}{4}
+			\gantttitle{Desember}{4}
+			\gantttitle{Januari}{4} \\
+			\gantttitlelist{1,...,4}{1}
+			\gantttitlelist{1,...,4}{1}
+			\gantttitlelist{1,...,4}{1}
+			\gantttitlelist{1,...,4}{1}
+			\gantttitlelist{1,...,4}{1} \\
 
-                %relations
-                % \ganttlink{elem0}{elem1}
-                % \ganttlink{elem0}{elem3}
-                % \ganttlink{elem1}{elem2}
-                % \ganttlink{elem3}{elem4}
-                % \ganttlink{elem1}{elem5}
-                % \ganttlink{elem3}{elem5}
-                % \ganttlink{elem2}{elem6}
-                % \ganttlink{elem3}{elem6}
-                % \ganttlink{elem5}{elem7}
-            \end{ganttchart}
-        \end{center}
-        \caption{Jadwal Pelaksanaan Tugas Akhir}
-    \end{figure}
-\end{landscape}
-\restoregeometry
+			% tasks
+			\ganttbar{Mempelajari Dokumentasi CARLA}{4}{4} \\
+			\ganttbar{Eksplorasi CARLA}{5}{7} \\
+			\ganttbar{Implementasi Objek Angkot}{7}{10} \\
+			\ganttbar{Implementasi Objek Tram}{10}{12} \\
+			\ganttbar{Implementasi Objek Kendaraan}{10}{14} \\
+            \ganttbar{Implementasi Lingkungan Baru}{14}{20} \\
+		\end{ganttchart}
+	}
+	\caption{Jadwal Pelaksanaan Tugas Akhir (bagian 1)}
+\end{figure}
+
+\begin{figure}[ht]
+	\begin{center}
+		\linespread{0.8}
+		\resizebox{\textwidth}{!}{
+			\begin{ganttchart}[
+					y unit title=0.5cm,
+					y unit chart=1.3cm,
+					bar height=0.7,
+					vgrid,
+					title height=1,
+					bar label font=\tiny,
+					bar label node/.style={
+							text width=4cm,
+							align=right,
+							anchor=east,
+							font=\raggedleft
+						},
+				]{1}{24}
+				%labels
+				\gantttitle{Februari}{4}
+				\gantttitle{Maret}{4}
+				\gantttitle{April}{4}
+				\gantttitle{Mei}{4}
+				\gantttitle{Juni}{4}
+				\gantttitle{Juli}{4} \\
+				\gantttitlelist{1,...,4}{1}
+				\gantttitlelist{1,...,4}{1}
+				\gantttitlelist{1,...,4}{1}
+				\gantttitlelist{1,...,4}{1}
+				\gantttitlelist{1,...,4}{1}
+				\gantttitlelist{1,...,4}{1} \\
+
+				% tasks
+				\ganttbar{Perancangan kerangka kerja pengujian}{1}{8} \\
+				\ganttbar{Implementasi kerangka kerja pengujian}{9}{16} \\
+			\end{ganttchart}
+		}
+	\end{center}
+	\caption{Jadwal Pelaksanaan Tugas Akhir (bagian 2)}
+\end{figure}
