@@ -2,7 +2,7 @@
 
 Bab ini membahas hasil studi literatur yang diperlukan untuk melakukan
 penyusunan Tugas Akhir ini. Bab ini membahas tentang kendaraan otonom, simulator
-CARLA, Blender, dan penelitian terkait.
+CARLA, Unreal Engine, Blender, RoadRunner, dan penelitian terkait.
 
 \section{Kendaraan Otonom}
 Kendaraan otonom atau \textit{Autonomous Vehicle} merupakan kendaraan yang
@@ -95,12 +95,18 @@ cepat. Aset-aset yang telah disediakan CARLA sangat dapat disesuaikan
 \parencite{carla-dosovitskiy}. Aset baru juga dapat ditambahkan
 \parencite{carla-documentation-intro}.
 
-% \section{Pembuatan Aset Baru untuk Simulasi di CARLA}
-% isi pengantar?
-% \subsection{\textit{3D Modelling}}
-% \blindtext
+\section{Unreal Engine}
+Unreal Engine merupakan sebuah \textit{game engine} yang dikembangkan oleh Epic
+Games. Unreal Engine merupakan sebuah perangkat lunak yang dapat digunakan untuk
+membuat permainan, simulasi, dan aplikasi multimedia lainnya. Unreal Engine
+memiliki fitur-fitur untuk membuat konten tiga dimensi yang sangat lengkap
+\parencite{ue-5}. Jika fitur atau ekosistem Unreal Engine kurang sesuai dengan
+kebutuhan pengembang, Unreal Engine menyediakan \textit{source code} yang dapat
+dimodifikasi \parencite{ue-4}. CARLA menggunakan Unreal Engine untuk
+pengembangan lingkungan simulasi \parencite{carla-documentation-build}.
+% TODO about unreal engine 4 about carla unreal engine (+editor)
+% maybe how to add objects?
 
-% \subsection{Blender}
 \section{Blender}
 Blender adalah sebuah perangkat lunak \textit{open-source} untuk pembuatan model
 3D. Blender dapat digunakan di berbagai sistem operasi dan berjalan lancar pada
@@ -114,29 +120,26 @@ pengeditan khusus. API Blender dapat digunakan menggunakan bahasa pemrograman
 Python \parencite{blender-about}.
 
 \section{RoadRunner}
-\dots
-% TODO
-% https://carla.readthedocs.io/en/0.9.13/tuto_M_generate_map/
-
-\section{Unreal Engine 4}
-\dots
-% TODO
-% about unreal engine 4
-% about carla unreal engine (+editor), maybe how to add objects?
+RoadRunner merupakan sebuah \textit{interactive editor} yang digunakan untuk
+membuat konten desain 3D untuk simulasi dan pengujian sistem kendaraan otomatis.
+Pengguna dapat membuat desain jalanan dengan mengedit lingkungan dan menambahkan
+rambu lalu lintas, sinyal lalu lintas, persimpangan, dan batas kendaraan. Selain
+itu, RoadRunner dapat digunakan untuk membuat desain kota.
 
 \section{Penelitian Terkait}
 Subbab ini membahas beberapa penelitian terkait dengan Tugas Akhir ini.
 Penelitian-penelitian berikut menjadi rujukan dalam penelitian dan pengembangan
 Tugas Akhir ini.
 
-\subsection{Pengembangan Sistem Otonomi dengan Menggunakan Kecerdasan Artificial untuk Trem}
-% TODO: referensi papernya
+% \subsection{Pengembangan Sistem Otonomi dengan Menggunakan Kecerdasan Artificial untuk Trem}
+% % TODO: referensi papernya
+% % yang "published" baru persepsinya?
 
-Penelitian ini mengembangkan sistem otonomi untuk Trem menggunakan kecerdasan
-buatan. Tugas Akhir ini merupakan bagian dari penelitian pada sisi simulasi
-untuk pengujian dan validasi strategi kemudi.
+% Penelitian ini mengembangkan sistem otonomi untuk Trem menggunakan kecerdasan
+% buatan. Tugas Akhir ini merupakan bagian dari penelitian pada sisi simulasi
+% untuk pengujian dan validasi strategi kemudi.
 
-\dots
+% \dots
 
 \subsection{\textit{KIT Bus: A Shuttle Model for CARLA Simulator}}
 Penelitian \textit{KIT Bus: A Shuttle Model for CARLA Simulator} ini merupakan
@@ -175,6 +178,15 @@ tahap, yaitu sebagai berikut:
 \end{enumerate}
 
 \subsection{\textit{The Autonomous Siemens Tram}}
-\dots
-
-% TODO
+Penelitian ini membahas trem otonom Siemens yang telah didemonstrasikan di
+Potsdam, Jerman pada tahun 2018. Sistem trem otonom tersebut dibangun di atas
+trem Siemens Combino dan menggunakan sensor-sensor multi-modal untuk
+mengidentifikasi lokasi kendaraan serta mendeteksi dan merespon lampu lalu
+lintas dan objek lain. Trem otonom memiliki beberapa komputer yang memiliki
+\textit{Graphic Processing Unit} (GPU) yang memadai untuk memroses data dari
+sensor Lidar, sensor radar, kamera pendeteksi objek, dan kamera pendekteksi
+sinyal. Trem otonom tersebut dapat beroperasi dengan lancar namun memiliki
+kendala ketika melakukan lokalisasi trem hanya dengan Global Navigation
+Satellite System (GNSS). Penelitian masih dilakukan untuk mengatasi kendala
+tersebut, misalnya dengan melakukan lokalisasi dengan persepsi atau visual
+\parencite{at-palmer}.
