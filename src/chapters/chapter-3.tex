@@ -34,16 +34,24 @@ Oleh karena itu, dibutuhkan aset simulasi yang sesuai dengan keadaan Indonesia.
 \section{Analisis Solusi}
 Permasalahan yang telah dibahas dapat diselesaikan dengan mengubah aset yang
 sudah ada atau menambahkan aset baru. Aset seperti peta kota harus dibuat
-langsung menggunakan CARLAUE4. Aset baru yang lain dapat dibuat menggunakan
-aplikasi \textit{3D modelling} seperti Blender. Aset dibuat secara lengkap dan
-rinci agar perilaku aset sesuai dengan yang asli.
+langsung menggunakan CARLAUE4 atau menggunakan RoadRunner yang kemudian diimpor
+ke dalam CARLAUE4. Aset baru yang lain dapat dibuat menggunakan aplikasi
+\textit{3D modelling}. Aset dibuat secara lengkap dan rinci agar perilaku aset
+sesuai dengan yang asli.
 
-Aset yang telah jadi selanjutnya dimasukkan ke dalam CARLAUE4. Proses impor aset
-ini dilakukan dengan mengikuti panduan yang telah tersedia di dokumentasi CARLA.
-Proses impor aset harus dilakukan dengan benar agar perilaku aset baik dan
-stabil untuk simulasi. Terdapat aset khusus yang harus ditambahkan ke dalam file
-3d model kendaraan dan diatur ke model kendaraan. Aset khusus tersebut merupakan
-aset \textit{bone} untuk roda kendaraan.
+Aset yang telah jadi model 3D-nya selanjutnya dimasukkan ke dalam CARLAUE4.
+Proses impor aset ini dilakukan dengan mengikuti panduan yang telah tersedia di
+dokumentasi CARLA. Proses impor aset harus dilakukan dengan benar agar perilaku
+aset baik dan stabil untuk simulasi. Terdapat aset khusus yang harus ditambahkan
+ke dalam file 3D model kendaraan dan diatur ke model kendaraan. Aset khusus
+tersebut merupakan aset \textit{bone} untuk \textit{rigging} roda kendaraan.
+Setelah pengaturan aset dalam CARLAUE4 selesai, dilakukan verifikasi aset dengan
+cara menjalankan simulasi dan mengamati cara kendaraan beroperasi. Implementasi
+aset berupa kendaraan bus telah berhasil dilakukan pada penelitian lain
+\parencite{related-work-xiang}. Proses implementasi kendaraan bus dilakukan
+dengan membuat model 3D bus, mengimpor model 3D bus ke dalam CARLAUE4, mengedit
+aset bus tersebut dalam CARLAUE4, dan memverifikasi hasil impor aset bus
+tersebut.
 
 % cara import aset yang lain (yang khusus, yang detail di bawah aja)
 % adding details maybe
@@ -66,9 +74,9 @@ dan Radar untuk menangkap lingkungan sekitar.
 %   c. asset customization
 
 %% - Kakas yang diperlukan
-Proses implementasi ini membutuhkan simulator CARLA dan CARLAUE4 yang dibangun
-atau di-\textit{compile} sendiri bukan menggunakan program atau \textit{binary}
-yang sudah di-\textit{compile}.
+Pada Proses implementasi aset membutuhkan simulator CARLA dan CARLAUE4 yang
+dibangun atau di-\textit{compile} sendiri bukan menggunakan program atau
+\textit{binary} yang sudah di-\textit{compile}.
 % Proses membangun kedua program ini membutuhkan program ...
 Dibutuhkan aplikasi \textit{3D modelling} seperti Blender untuk membuat aset.
 Aplikasi RoadRunner akan digunakan untuk membuat aset peta.
