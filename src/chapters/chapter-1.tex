@@ -1,7 +1,7 @@
 \chapter{Pendahuluan}
 
 % Bab Pendahuluan secara umum yang dijadikan landasan kerja dan arah kerja
-% penulis tugas akhir, berfungsi mengantar pembaca untuk membaca laporan tugas
+% penulis Tugas Akhir, berfungsi mengantar pembaca untuk membaca laporan tugas
 % akhir secara keseluruhan.
 
 \section{Latar Belakang}
@@ -22,7 +22,7 @@ buatan yang dapat mengoperasikan kendaraan yang spesifik. Oleh karena itu,
 pengembangan kendaraan otonom membutuhkan biaya yang besar dan waktu yang lama
 sebab dibutuhkan data yang banyak dan bervariasi untuk melatih kecerdasan
 buatan. Selain itu, dibutuhkan juga pengujian kendaraan otonom untuk melakukan
-validasi kecerdasan buatan yang telah dibuat. Pengumpulan data untuk pelatihhan
+validasi kecerdasan buatan yang telah dibuat. Pengumpulan data untuk pelatihan
 dapat membutuhkan waktu yang lama sebab terdapat banyak faktor eksternal yang
 tidak dapat diprediksi atau dikontrol yang membuat data yang dikumpulkan tidak
 bervariasi. Proses untuk mencari data yang bervariasi dapat memakan waktu juga
@@ -41,7 +41,7 @@ identik dengan lingkungan nyata diperlukan sehingga kecerdasan buatan kendaraan
 otonom cocok digunakan untuk lingkungan pada kenyataan. Oleh karena itu,
 dibutuhkan implementasi aktor, objek, dan lingkungan simulasi.
 
-Tugas akhir ini membahas implementasi objek trem, implementasi objek lalu lintas
+Tugas Akhir ini membahas implementasi objek trem, implementasi objek lalu lintas
 khas Indonesia, dan implementasi lingkungan simulasi yang serupa dengan
 Indonesia menggunakan simulator Car Learning to Act (CARLA). Aset bawaan dari
 CARLA seperti kendaraan, jalan, kota, lingkungan, dan aset lainnya mencerminkan
@@ -53,23 +53,27 @@ disesuaikan agar sama seperti lalu lintas di Indonesia.
 \section{Rumusan Masalah}
 
 Berdasarkan latar belakang yang telah dibahas, rumusan masalah yang akan dibahas
-dalam tugas akhir ini adalah sebagai berikut.
+dalam Tugas Akhir ini adalah sebagai berikut.
+
 \begin{enumerate}
+
 	\item Bagaimana cara mengimplementasikan objek trem, objek lokal khas
 	Indonesia di lingkungan simulator CARLA?
+
 	\item Bagaimana cara mengimplementasikan lingkungan simulasi yang serupa
 	dengan lingkungan Indonesia di simulator CARLA?
+
 \end{enumerate}
 
 \section{Tujuan}
 
-Tujuan dari tugas akhir ini adalah untuk mengimplentasikan objek trem, objek
+Tujuan dari Tugas Akhir ini adalah untuk mengimplentasikan objek trem, objek
 lokal khas Indonesia, dan lingkungan khas Indonesia di simulator CARLA untuk
 memudahkan validasi algortima \textit{decision making} trem otonom.
 
 \section{Batasan Masalah}
 
-Penelititan untuk tugas akhir ini memiliki batasan masalah yaitu
+Penelititan untuk Tugas Akhir ini memiliki batasan masalah yaitu
 pengimplementasian objek trem, objek lokal khas Indonesia, dan lingkungan
 simulasi hanya terbatas pada lingkungan kota Solo. Kota Solo dipilih sebagai
 lingkungan pengujian trem otonom karena di Solo sudah terdapat trem konvensional
@@ -79,10 +83,11 @@ Tingkat kemiripan simulasi terbatas pada aplikasi simulator CARLA.
 
 \section{Metodologi}
 
-Metodologi yang digunakan dalam pengerjaan tugas akhir ini adalah sebagai
+Metodologi yang digunakan dalam pengerjaan Tugas Akhir ini adalah sebagai
 berikut.
 
 \begin{enumerate}
+
 	\item Analisis masalah
 
 	Melakukan analisis terhadap rumusan masalah mengenai simulasi trem otonom.
@@ -110,91 +115,119 @@ berikut.
 
 \end{enumerate}
 
-\section{Jadwal Pelaksanaan Tugas Akhir}
+% \section{Jadwal Pelaksanaan Tugas Akhir}
 
-Berikut adalah jadwal pelaksanaan Tugas Akhir I perminggunya.
+% Berikut adalah jadwal pelaksanaan Tugas Akhir I perminggunya.
 
-\begin{figure}[ht]
-	\linespread{0.8}
-	\resizebox{\textwidth}{!}{
-		\begin{ganttchart}[
-				y unit title=0.5cm,
-				y unit chart=1.3cm,
-				bar height=0.7,
-				vgrid,
-				title height=1,
-				bar label font=\tiny,
-				bar label node/.style={
-						text width=4cm,
-						align=right,
-						anchor=east,
-						font=\raggedleft
-					},
-			]{1}{20}
-			%labels
-			\gantttitle{September}{4}
-			\gantttitle{Oktober}{4}
-			\gantttitle{November}{4}
-			\gantttitle{Desember}{4}
-			\gantttitle{Januari}{4} \\
-			\gantttitlelist{1,...,4}{1}
-			\gantttitlelist{1,...,4}{1}
-			\gantttitlelist{1,...,4}{1}
-			\gantttitlelist{1,...,4}{1}
-			\gantttitlelist{1,...,4}{1} \\
-
-			% tasks
-			\ganttbar{Mempelajari Dokumentasi CARLA}{4}{4} \\
-			\ganttbar{Eksplorasi CARLA}{5}{7} \\
-			\ganttbar{Implementasi Objek Angkot}{8}{10} \\
-			\ganttbar{Implementasi Objek Tram}{11}{13} \\
-			\ganttbar{Implementasi Objek Kendaraan}{14}{16} \\
-            \ganttbar{Implementasi Lingkungan Baru}{17}{20} \\
-            \ganttbar{Sidang Tugas Akhir 1}{17}{18} \\
-		\end{ganttchart}
-	}
-	% \caption{Jadwal Pelaksanaan Tugas Akhir (bagian 1)}
-	\caption{Jadwal Pelaksanaan Tugas Akhir}
-\end{figure}
-
-% TODO
 % \begin{figure}[ht]
-% 	\begin{center}
-% 		\linespread{0.8}
-% 		\resizebox{\textwidth}{!}{
-% 			\begin{ganttchart}[
-% 					y unit title=0.5cm,
-% 					y unit chart=1.3cm,
-% 					bar height=0.7,
-% 					vgrid,
-% 					title height=1,
-% 					bar label font=\tiny,
-% 					bar label node/.style={
-% 							text width=4cm,
-% 							align=right,
-% 							anchor=east,
-% 							font=\raggedleft
-% 						},
-% 				]{1}{24}
-% 				%labels
-% 				\gantttitle{Februari}{4}
-% 				\gantttitle{Maret}{4}
-% 				\gantttitle{April}{4}
-% 				\gantttitle{Mei}{4}
-% 				\gantttitle{Juni}{4}
-% 				\gantttitle{Juli}{4} \\
-% 				\gantttitlelist{1,...,4}{1}
-% 				\gantttitlelist{1,...,4}{1}
-% 				\gantttitlelist{1,...,4}{1}
-% 				\gantttitlelist{1,...,4}{1}
-% 				\gantttitlelist{1,...,4}{1}
-% 				\gantttitlelist{1,...,4}{1} \\
+% 	\linespread{0.8}
+% 	\resizebox{\textwidth}{!}{
+% 		\begin{ganttchart}[
+% 				y unit title=0.5cm,
+% 				y unit chart=1.3cm,
+% 				bar height=0.7,
+% 				vgrid,
+% 				title height=1,
+% 				bar label font=\tiny,
+% 				bar label node/.style={
+% 						text width=4cm,
+% 						align=right,
+% 						anchor=east,
+% 						font=\raggedleft
+% 					},
+% 			]{1}{20}
+% 			%labels
+% 			\gantttitle{September}{4}
+% 			\gantttitle{Oktober}{4}
+% 			\gantttitle{November}{4}
+% 			\gantttitle{Desember}{4}
+% 			\gantttitle{Januari}{4} \\
+% 			\gantttitlelist{1,...,4}{1}
+% 			\gantttitlelist{1,...,4}{1}
+% 			\gantttitlelist{1,...,4}{1}
+% 			\gantttitlelist{1,...,4}{1}
+% 			\gantttitlelist{1,...,4}{1} \\
 
-% 				% tasks
-% 				\ganttbar{Perancangan kerangka kerja pengujian}{1}{8} \\
-% 				\ganttbar{Implementasi kerangka kerja pengujian}{9}{16} \\
-% 			\end{ganttchart}
-% 		}
-% 	\end{center}
-% 	\caption{Jadwal Pelaksanaan Tugas Akhir (bagian 2)}
+% 			% tasks
+% 			\ganttbar{Mempelajari Dokumentasi CARLA}{4}{4} \\
+% 			\ganttbar{Eksplorasi CARLA}{5}{7} \\
+% 			\ganttbar{Implementasi Objek Angkot}{8}{10} \\
+% 			\ganttbar{Implementasi Objek Tram}{11}{13} \\
+% 			\ganttbar{Implementasi Objek Kendaraan}{14}{16} \\
+%             \ganttbar{Implementasi Lingkungan Baru}{17}{20} \\
+%             \ganttbar{Sidang Tugas Akhir 1}{17}{18} \\
+% 		\end{ganttchart}
+% 	}
+% 	% \caption{Jadwal Pelaksanaan Tugas Akhir (bagian 1)}
+% 	\caption{Jadwal Pelaksanaan Tugas Akhir}
 % \end{figure}
+
+% % TODO
+% % \begin{figure}[ht]
+% % 	\begin{center}
+% % 		\linespread{0.8}
+% % 		\resizebox{\textwidth}{!}{
+% % 			\begin{ganttchart}[
+% % 					y unit title=0.5cm,
+% % 					y unit chart=1.3cm,
+% % 					bar height=0.7,
+% % 					vgrid,
+% % 					title height=1,
+% % 					bar label font=\tiny,
+% % 					bar label node/.style={
+% % 							text width=4cm,
+% % 							align=right,
+% % 							anchor=east,
+% % 							font=\raggedleft
+% % 						},
+% % 				]{1}{24}
+% % 				%labels
+% % 				\gantttitle{Februari}{4}
+% % 				\gantttitle{Maret}{4}
+% % 				\gantttitle{April}{4}
+% % 				\gantttitle{Mei}{4}
+% % 				\gantttitle{Juni}{4}
+% % 				\gantttitle{Juli}{4} \\
+% % 				\gantttitlelist{1,...,4}{1}
+% % 				\gantttitlelist{1,...,4}{1}
+% % 				\gantttitlelist{1,...,4}{1}
+% % 				\gantttitlelist{1,...,4}{1}
+% % 				\gantttitlelist{1,...,4}{1}
+% % 				\gantttitlelist{1,...,4}{1} \\
+
+% % 				% tasks
+% % 				\ganttbar{Perancangan kerangka kerja pengujian}{1}{8} \\
+% % 				\ganttbar{Implementasi kerangka kerja pengujian}{9}{16} \\
+% % 			\end{ganttchart}
+% % 		}
+% % 	\end{center}
+% % 	\caption{Jadwal Pelaksanaan Tugas Akhir (bagian 2)}
+% % \end{figure}
+
+\section{Sistematika Pembahasan}
+% Subbab ini berisi penjelasan ringkas isi per bab. Penjelasan ditulis satu
+% paragraf per bab buku.
+Sistematika pembahasan laporan Tugas Akhir ini adalah sebagai berikut.
+
+\begin{enumerate}
+
+	\item Bab I Pendahuluan menjelaskan latar belakang masalah, rumusan masalah
+	berdasarkan latar belakang, tujuan Tugas Akhir, batasan masalah dari
+	implementasi tujuan, metodologi pengerjaan Tugas Akhir, dan sistematika
+	pembahasan laporan Tugas Akhir.
+
+	\item Bab II Studi literatur menjelaskan mengenai hasil studi yang
+	dibutuhkan untuk menganalisis masalah dan mengimplementasikan solusi untuk
+	menyelesaikan masalah. Penelitian terkait mengenai Tugas Akhir ini.
+
+	\item Bab III Analisis dan Rancangan Implementasi Objek dan Lingkungan
+	menjelaskan analisis masalah, analisis solusi, dan rancangan implementasi
+	solusi.
+
+	\item Bab IV Implementasi Objek dan Lingkungan menjelaskan implementasi
+	solusi yang dibuat.
+
+	\item Bab V Kesimpulan dan Saran menjelaskan mengenai kesimpulan dan saran
+	pengerjaan tugas akhir dan penyusunan laporan tugas akhir.
+
+\end{enumerate}
