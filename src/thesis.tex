@@ -24,18 +24,19 @@
 
 % Basic configuration
 % date and times
-\date{23 Desember 2022}
-\newcommand{\monthyear}{Desember 2022}
+\newcommand{\thedate}{\date{23 Juni 2023}}
+\newcommand{\monthyear}{Juni 2023}
 
 % titles
 \newcommand{\capstonetitle}{Pengembangan Sistem Simulasi \textit{Autonomous Tram} dengan Simulator CARLA}
+\newcommand{\thetitle}{Pengimplementasian Objek Lokal dan Lingkungan Indonesia untuk Simulasi
+Trem Otonom Menggunakan Simulator CARLA}
 
-\title{Pengimplementasian Objek Lokal dan Lingkungan Indonesia untuk Simulasi
-    Trem Otonom Menggunakan Simulator CARLA}
+\title{\thetitle}
 
 \newcommand{\subtitle}{
     \bfseries \Large
-    Laporan Tugas Akhir I - Capstone
+    Laporan Tugas Akhir - Capstone
 
     \capstonetitle
 }
@@ -61,7 +62,7 @@
 \newcommand{\advisorapproval}{
     \centering
     \normalsize \normalfont
-    Bandung, \date \\
+    Bandung, \thedate \\
     Mengetahui,
 
     \vspace{0.5cm}
@@ -86,6 +87,7 @@
 
 \pagestyle{plain}
 
+% \input{chapters/statement}
 % \input{chapters/abstract-id}
 % \input{chapters/abstract-en}
 % \input{chapters/forewords}
@@ -103,6 +105,8 @@
 \listofappendices
 \listoffigures
 % \listoftables
+\input{chapters/list-of-terms}
+\input{chapters/list-of-abbreviations}
 
 \newpage
 
@@ -126,7 +130,7 @@
 \input{chapters/chapter-2}
 % \blankpage
 \input{chapters/chapter-3}
-% \input{chapters/chapter-4}
+\input{chapters/chapter-4}
 % \input{chapters/chapter-5}
 %----------------------------------------------------------------%
 
