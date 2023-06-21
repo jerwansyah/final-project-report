@@ -62,8 +62,9 @@ Trem Otonom Menggunakan Simulator CARLA}
 \newcommand{\advisorapproval}{
     \centering
     \normalsize \normalfont
-    Bandung, \thedate \\
-    Mengetahui,
+    % commented out because of differences between capstone-team and approval-2
+    % Bandung, \thedate \\
+    % Mengetahui,
 
     \vspace{0.5cm}
     \setlength{\tabcolsep}{12pt}
@@ -87,13 +88,14 @@ Trem Otonom Menggunakan Simulator CARLA}
 
 \pagestyle{plain}
 
-% \input{chapters/statement}
-% \input{chapters/abstract-id}
-% \input{chapters/abstract-en}
-% \input{chapters/forewords}
-
 \titleformat*{\section}{\centering\bfseries\Large\MakeUpperCase}
 \titlespacing*{\chapter}{0pt}{0pt}{3pc}
+
+\input{chapters/statement}
+\input{chapters/abstract-id}
+% \input{chapters/abstract-en}
+\input{chapters/forewords}
+
 
 % Setting judul toc, lot, lof, bib
 \renewcommand{\contentsname}{DAFTAR ISI}

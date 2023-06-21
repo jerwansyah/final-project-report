@@ -13,9 +13,11 @@
 	\raggedright
 	\begin{table}[h!]
 		\large \bfseries
+		\begin{onehalfspace}
 		\begin{tabular}{p{0.3\textwidth} p{0.63\textwidth}}
-			Judul Proyek TA : & \capstonetitle
+			Judul Proyek TA : & \capstonetitle \\
 		\end{tabular}
+		\end{onehalfspace}
 	\end{table}
 
 	\normalsize \normalfont
@@ -23,6 +25,9 @@
 	Anggota tim dan pembagian peran:
 
 	\begin{table}[h!]
+		\begin{onehalfspace}
+		\begingroup
+		\def\arraystretch{1.25}
 		\begin{tabular}{|p{0.05\textwidth} | p{0.13\textwidth} | p{0.19\textwidth} | p{0.50\textwidth}|}
 			\hline
 			\textbf{No.} & \textbf{NIM} & \textbf{Nama}         & \textbf{Peran}                                                                                                 \\
@@ -34,9 +39,16 @@
 			3.           & 13519188     & Jeremia Axel Bachtera & Pembangunan Skenario Pengujian Simulasi Trem Otonom di Indonesia                                               \\
 			\hline
 		\end{tabular}
+		\endgroup
+		\end{onehalfspace}
 	\end{table}
 
 	\vfill
+	\begin{center}
+		\normalsize \normalfont
+		Bandung, \thedate \\
+		Mengetahui,
+	\end{center}
 	\advisorapproval
 
 \end{center}
