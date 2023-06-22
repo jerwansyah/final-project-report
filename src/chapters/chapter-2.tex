@@ -2,7 +2,8 @@
 
 Bab ini membahas hasil studi literatur yang diperlukan untuk melakukan
 penyusunan Tugas Akhir ini. Bab ini membahas tentang kendaraan otonom, simulator
-CARLA, Unreal Engine, Blender, RoadRunner, dan penelitian terkait.
+CARLA, Unreal Engine, Blender, dan penelitian terkait.
+%RoadRunner,
 
 \section{Kendaraan Otonom}
 Kendaraan otonom atau \textit{Autonomous Vehicle} merupakan kendaraan yang
@@ -21,7 +22,7 @@ Trem otonom secara umum memiliki perangkat keras berupa kendaraan fisik,
 komputer, dan berbagai sensor. Komputer pada tram digunakan untuk mengoperasikan
 trem secara otonom. Komputer juga memiliki kartu grafis untuk melakukan deteksi
 objek hasil deteksi dari sensor-sensor di trem. Sensor-sensor tersebut adalah,
-kamera, lidar, dan radar. Sedangkan pada sisi perangkat lunak, trem otonom pada
+kamera, LIDAR, dan radar. Sedangkan pada sisi perangkat lunak, trem otonom pada
 umumnya memiliki aplikasi untuk mengolah data sensor \parencite{at-palmer}.
 
 Model pemilihan keputusan oleh kendaraan otonom perlu dilatih sehingga kendaraan
@@ -42,7 +43,7 @@ tes. Pengumpulan data juga membutuhkan waktu yang lama karena dibutuhkannya data
 yang banyak, data yang valid, dan data yang mencakup kasus-kasus tidak terduga
 untuk melatih kendaraan otonom \parencite{carla-dosovitskiy}.
 
-% TODO
+% TODO:
 % autonomous vehicles \subsection{Kendaraan Otonom di Indonesia}
 % \subsection{Trem Otonom di Indonesia}
 % \subsection{Lingkungan Berkendara di Indonesia ?}
@@ -95,6 +96,9 @@ cepat. Aset-aset yang telah disediakan CARLA sangat dapat disesuaikan
 \parencite{carla-dosovitskiy}. Aset baru juga dapat ditambahkan
 \parencite{carla-documentation-intro}.
 
+% TODO: ? add about how to import or make new assets
+% TODO: ? istilah ? add about collision? bounding box blablabla
+
 \section{Unreal Engine}
 Unreal Engine merupakan sebuah \textit{game engine} yang dikembangkan oleh Epic
 Games. Unreal Engine merupakan sebuah perangkat lunak yang dapat digunakan untuk
@@ -104,7 +108,6 @@ memiliki fitur-fitur untuk membuat konten tiga dimensi yang sangat lengkap
 kebutuhan pengembang, Unreal Engine menyediakan \textit{source code} yang dapat
 dimodifikasi \parencite{ue-4}. CARLA menggunakan Unreal Engine untuk
 pengembangan lingkungan simulasi \parencite{carla-documentation-build}.
-% TODO about unreal engine 4 about carla unreal engine (+editor)
 % maybe how to add objects?
 
 \section{Blender}
@@ -119,31 +122,174 @@ yang dapat digunakan untuk penyesuaian Blender sendiri dan pembuatan alat
 pengeditan khusus. API Blender dapat digunakan menggunakan bahasa pemrograman
 Python \parencite{blender-about}.
 
-\section{RoadRunner}
-RoadRunner merupakan sebuah \textit{interactive editor} yang digunakan untuk
-membuat konten desain 3D untuk simulasi dan pengujian sistem kendaraan otonom.
-Pengguna dapat membuat desain jalanan dengan mengedit lingkungan dan menambahkan
-rambu lalu lintas, sinyal lalu lintas, persimpangan, dan batas kendaraan. Selain
-itu, RoadRunner dapat digunakan untuk membuat desain kota \parencite{roadrunner}.
+\subsection{Animasi dan \textit{Rigging}}
+Animasi adalah membuat sebuah objek
+bergerak atau berubah bentuk dari waktu ke waktu. \textit{Rigging} adalah
+istilah untuk menambahkan kontrol ke sebuah objek dengan tujuan untuk
+menganimasikan objek tersebut. \textit{Rigging} pada umumnya melibatkan komponen
+\textit{armature} dan komponen \textit{constraints}. \textit{Armature} berguna
+agar objek memiliki sendi yang fleksibel dan sering digunakan untuk animasi
+skeletal. \textit{Constraints} adalah batasan dari gerakan objek.
+\parencite{blender-animation-and-rigging}.
+
+\subsection{\textit{Armature}}
+
+\textit{Armature} pada Blender merupakan objek yang serupa dengan sistem
+kerangka manusia (sistem skeletal) terutama fungsionalitasnya. \textit{Armature}
+terdiri atas kumpulan tulang atau \textit{bone} yang memiliki struktur/hierarki
+dan berfungsi untuk memberi gerakan ke sebuah objek/model 3D. \textit{Armature}
+didesain untuk diberi pose. Gambar \ref{fig:basic-armature} menunjukkan contoh
+struktur \textit{armature} sederhana pada Blender. Kumpulan \textit{bone} pada
+sebuah \textit{armature} tidak perlu berhubungan satu sama lain sehingga
+struktur dari \textit{armature} dapat berupa-rupa, misalnya seperti rantai
+tulang atau \textit{chains of bones} yang dapat dilihat pada Gambar
+\ref{fig:chains-of-bones} \parencite{blender-armature-introduction,
+blender-armature-structure}. Setelah pembuatan \textit{armature} selesai, perlu
+dilakukan \textit{skinning} agar pergerakan dari \textit{armature} berdampak
+pada objek lain. Proses \textit{skinning} merupakan penghubungan antara objek
+\textit{armature} dengan sebuah objek atau objek model/\textit{mesh}
+\parencite{blender-skinning-introduction}.
+
+% TODO: find a better way to set counter
+\setcounter{section}{1}
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=1.0\textwidth]{resources/chapter-2-basic-armature.png}
+    \caption{\textit{Armature} \parencite{blender-armature-structure}}
+    \label{fig:basic-armature}
+\end{figure}
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=1.0\textwidth]{resources/chapter-2-chain-of-bones.png}
+    \caption{\textit{Armature} \parencite{blender-armature-structure}}
+    \label{fig:chains-of-bones}
+\end{figure}
+
+\subsection{\textit{Bone}}
+\textit{Bone} merupakan komponen dari \textit{armature}
+\parencite{blender-bones-introduction}. Struktur sebuah \textit{bone} dapat
+dilihat pada Gambar \ref{fig:bone-structure}. Sebuah \textit{bone} terdiri atas
+3 subkomponen adalah sebagai berikut:
+\parencite{blender-armature-structure,blender-glossary}:
+\begin{enumerate}
+    \item Sendi awal (\textit{root}/\textit{head})
+
+    Sendi awal memiliki koordinat pada sumbu X, Y, dan Z di ruang lokal
+    (\textit{local space}) objek \textit{armature}. Sendi awal merupakan titik
+    acuan untuk rotasi \textit{bone} pada sumbu X dan Z pada (\textit{local
+    space}). Rotasi ini disebut juga sebagai \textit{roll angle}.
+
+    \item Sendi akhir (\textit{tip}/\textit{tail})
+
+    Sendi akhir memiliki koordinat pada sumbu X, Y, dan Z relatif terhadap sendi
+    awal.
+
+    \item Badan (\textit{body})
+
+    Badan oktahedral dari \textit{bone} terbentuk untuk menghubungkan sendi awal
+    dan sendi akhir. Bagian sudut oktahedral yang lebih besar berhubungan
+    dengan sendi awal. Sebaliknya, bagian sudut oktahedral yang lebih kecil
+    berhubungan dengan sendi akhir. Badan \textit{bone} menentukan arah sumbu Y
+    lokal dan rotasi \textit{bone} objek ketika diposekan.
+
+\end{enumerate}
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=1.0\textwidth]{resources/chapter-2-bone-structure.png}
+    \caption{\textit{Armature} \parencite{blender-armature-structure}}
+    \label{fig:bone-structure}
+\end{figure}
+
+% \section{RoadRunner}
+% RoadRunner merupakan sebuah \textit{interactive editor} yang digunakan untuk
+% membuat konten desain 3D untuk simulasi dan pengujian sistem kendaraan otonom.
+% Pengguna dapat membuat desain jalanan dengan mengedit lingkungan dan menambahkan
+% rambu lalu lintas, sinyal lalu lintas, persimpangan, dan batas kendaraan. Selain
+% itu, RoadRunner dapat digunakan untuk membuat desain kota \parencite{roadrunner}.
 
 \section{Penelitian Terkait}
 Subbab ini membahas beberapa penelitian terkait dengan Tugas Akhir ini.
 Penelitian-penelitian berikut menjadi rujukan dalam penelitian dan pengembangan
 Tugas Akhir ini.
 
-% \subsection{Pengembangan Sistem Otonomi dengan Menggunakan Kecerdasan Artificial untuk Trem}
-% % TODO: referensi papernya
-% % yang "published" baru persepsinya?
+\subsection{Pengembangan Sistem Otonomi dengan Menggunakan Kecerdasan Artificial untuk Trem}
 
-% Penelitian ini mengembangkan sistem otonomi untuk Trem menggunakan kecerdasan
-% buatan. Tugas Akhir ini merupakan bagian dari penelitian pada sisi simulasi
-% untuk pengujian dan validasi strategi kemudi.
+Penelitian oleh \cite{rispro-trilaksono} merupakan penelitian mengenai inovasi
+bidang otomotif yang mengembangkan sistem otonomi untuk Trem menggunakan
+kecerdasan buatan. Penelitian tersebut memiliki tiga tahap (dalam tiga tahun)
+yaitu, pengembangan \textit{tram driving assistance}, pengembangan trem otonom,
+dan pengujian trem otonom di \textit{mixed traffic} (lalu lintas yang melibatkan
+berbagai pihak dan/atau kendaraan) serta persiapan komersialisasi.
+
+Berikut Indikator Kinerja Riset (IKR)  atau luaran penelitian tersebut adalah
+sebagai berikut \parencite{rispro-trilaksono}:
+\begin{enumerate}
+    \item Pengembangan algoritma persepsi untuk mengenali objek dan
+    \textit{tracking} di lingkungan trem pada cuaca normal dan implementasi
+    dalam bentuk \textit{software}.
+
+    % Algoritma persepsi yang dikembangkan berupa \textit{panoptic segmentation},
+    % \textit{camera object detection}, \textit{LIDAR object detection},
+    % \textit{camera-LIDAR fusion object detection}, dan \textit{camera-radar
+    % fusion object detection}
+
+    \item Pengembangan algoritma perencanaan jalur untuk \textit{decision
+    making} kendali kecepatan trem dan implementasi dalam bentuk
+    \textit{software}.
+
+    % Algoritma persepsi yang dikembangkan berupa \textit{railway estimator},
+    % \textit{trajectory prediction}, dan \textit{safety assessment}
+
+    \item Pengambilan \textit{dataset} lingkungan trem
+
+    \textit{Dataset} yang diambil bentuk gambar citra kamera biasa, gambar citra
+    LIDAR, dan data lainnya kemudian diolah dengan penambahan anotasi
+    seperlunya.
+
+    \item Pengembangan \textit{Driving Assistance System} untuk trem berupa:
+    \textit{object detection & collision-avoidance assist},
+    \textit{speed limit assist}, \textit{face recognition & driver
+    attention warning}.
+
+    \item Pengujian, analisis, dan desain ulang algoritma yang dikembangkan pada
+    \textit{Software-in-the-Loop Simulation} (SILS) dan
+    \textit{Hardware-in-the-Loop Simulation} (HILS).
+
+    Menguji dan menganalisis \textit{platform} simulasi yaitu simulator CARLA
+    versi 0.9.12, uji coba beragam semsor, dan uji coba beberapa algoritma yang
+    sudah dikembangkan. Melakukan konversi kode program/algoritma yang telah
+    dikembangkan ke bahasa pemrograman C++ untuk dimasukkan ke NVIDIA drive
+    Pegasus dan membuat \textit{web-service} untuk menghubungkan server simulasi
+    (SILS) dengan NVIDIA drive Pegasus (HILS). NVIDIA drive Pegasus merupakan
+    \textit{hardware} untuk memroses algoritma  \textit{adaptive cruise control}
+    (ACC), \textit{emergency braking system} (EBS), dan \textit{collision
+    avoidance}. Dari pengujian dan analisis tersebut, dibutuhkan penyempurnaan
+    algoritma persepsi berbasis sensor, perbaikan arsitekstur (HILS), dan
+    integrasi objek lokal pada skenario simulasi.
+
+    \item Pengembangan dan manufaktur \textit{platform} trem, sistem
+    \textit{drive-by-wire} pada trem, dan integrasi sensor.
+
+    \item Publikasi ilmiah.
+    \item Draf kekayaan intelektual.
+    \item \textit{Self-assessment} Tingkat Kesiapan Teknologi.
+    \item Penyusunan poster ilmiah populer atas pelaksanaan dan hasil riset.
+
+\end{enumerate}
+
+Penelitian tersebut sedang dalam tahap kedua yaitu pengembangan trem otonom.
+Masing-masing indikator telah atau sedang dalam perkembangan
+\parencite{rispro-trilaksono}. Tugas Akhir \textit{Capstone} ini merupakan
+bagian dari penelitian tersebut, khususnya pada indikator mengenai pengembangan
+SILS dan HILS.
 
 \subsection{\textit{KIT Bus: A Shuttle Model for CARLA Simulator}}
 Penelitian \textit{KIT Bus: A Shuttle Model for CARLA Simulator} ini merupakan
 penelitian membuat model \textit{shuttle bus} untuk CARLA yang dilakukan oleh
 \cite{related-work-xiang}. Proses pembuatan model tersebut dilakukan dalam tiga
-tahap, yaitu sebagai berikut:
+tahap, yaitu sebagai berikut \parencite{related-work-xiang}:
 \begin{enumerate}
     \item Membuat model 3D dari bus menggunakan aplikasi 3ds Max.
 
@@ -176,15 +322,15 @@ tahap, yaitu sebagai berikut:
 \end{enumerate}
 
 \subsection{\textit{The Autonomous Siemens Tram}}
-Penelitian ini membahas trem otonom Siemens yang telah didemonstrasikan di
-Potsdam, Jerman pada tahun 2018. Sistem trem otonom tersebut dibangun di atas
-trem Siemens Combino dan menggunakan sensor-sensor multi-modal untuk
-mengidentifikasi lokasi kendaraan serta mendeteksi dan merespon lampu lalu
-lintas dan objek lain. Trem otonom memiliki beberapa komputer yang memiliki
-\textit{Graphics Processing Unit} (GPU) yang memadai untuk memroses data dari
-sensor Lidar, sensor radar, kamera pendeteksi objek, dan kamera pendekteksi
-sinyal. Trem otonom tersebut dapat beroperasi dengan lancar namun memiliki
-kendala ketika melakukan lokalisasi trem hanya dengan Global Navigation
-Satellite System (GNSS). Penelitian masih dilakukan untuk mengatasi kendala
-tersebut, misalnya dengan melakukan lokalisasi dengan persepsi atau visual
-\parencite{at-palmer}.
+Penelitian \textit{The Autonomous Siemens Tram} membahas trem otonom Siemens
+yang telah didemonstrasikan di Potsdam, Jerman pada tahun 2018. Sistem trem
+otonom tersebut dibangun di atas trem Siemens Combino dan menggunakan
+sensor-sensor multi-modal untuk mengidentifikasi lokasi kendaraan serta
+mendeteksi dan merespon lampu lalu lintas dan objek lain. Trem otonom memiliki
+beberapa komputer yang memiliki \textit{Graphics Processing Unit} (GPU) yang
+memadai untuk memroses data dari sensor LIDAR, sensor radar, kamera pendeteksi
+objek, dan kamera pendekteksi sinyal. Trem otonom tersebut dapat beroperasi
+dengan lancar namun memiliki kendala ketika melakukan lokalisasi trem hanya
+dengan Global Navigation Satellite System (GNSS). Penelitian masih dilakukan
+untuk mengatasi kendala tersebut, misalnya dengan melakukan lokalisasi dengan
+persepsi atau visual \parencite{at-palmer}.
