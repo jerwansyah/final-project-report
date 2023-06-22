@@ -6,6 +6,7 @@ CARLA, Unreal Engine, Blender, dan penelitian terkait.
 %RoadRunner,
 
 \section{Kendaraan Otonom}
+
 Kendaraan otonom atau \textit{Autonomous Vehicle} merupakan kendaraan yang
 dirancang untuk memonitor keadaan jalan dan berkemudi sendiri tanpa bantuan
 pengemudi. Kendaraan otonom dibuat dengan tujuan mengurangi jumlah kecelakaan,
@@ -54,6 +55,7 @@ untuk melatih kendaraan otonom \parencite{carla-dosovitskiy}.
 % traffic rules in Indonesia
 
 \section{Simulator CARLA}
+
 \textit{Car Learning to Act} atau CARLA merupakan sebuah perangkat lunak
 \textit{open-source} yang berguna untuk melakukan simulasi kendaraan otonom dan
 lingkungan urban. CARLA telah dikembangkan untuk mendukung pelatihan, pembuatan
@@ -100,6 +102,7 @@ cepat. Aset-aset yang telah disediakan CARLA sangat dapat disesuaikan
 % TODO: ? istilah ? add about collision? bounding box blablabla
 
 \section{Unreal Engine}
+
 Unreal Engine merupakan sebuah \textit{game engine} yang dikembangkan oleh Epic
 Games. Unreal Engine merupakan sebuah perangkat lunak yang dapat digunakan untuk
 membuat permainan, simulasi, dan aplikasi multimedia lainnya. Unreal Engine
@@ -108,9 +111,11 @@ memiliki fitur-fitur untuk membuat konten tiga dimensi yang sangat lengkap
 kebutuhan pengembang, Unreal Engine menyediakan \textit{source code} yang dapat
 dimodifikasi \parencite{ue-4}. CARLA menggunakan Unreal Engine untuk
 pengembangan lingkungan simulasi \parencite{carla-documentation-build}.
-% maybe how to add objects?
+
+% TODO: maybe how to add objects?
 
 \section{Blender}
+
 Blender adalah sebuah perangkat lunak \textit{open-source} untuk pembuatan model
 3D. Blender dapat digunakan di berbagai sistem operasi dan berjalan lancar pada
 Linux, Windows, dan Macintosh. Blender menyediakan berbagai fitur yang mendukung
@@ -123,6 +128,7 @@ pengeditan khusus. API Blender dapat digunakan menggunakan bahasa pemrograman
 Python \parencite{blender-about}.
 
 \subsection{Animasi dan \textit{Rigging}}
+
 Animasi adalah membuat sebuah objek
 bergerak atau berubah bentuk dari waktu ke waktu. \textit{Rigging} adalah
 istilah untuk menambahkan kontrol ke sebuah objek dengan tujuan untuk
@@ -167,11 +173,13 @@ pada objek lain. Proses \textit{skinning} merupakan penghubungan antara objek
 \end{figure}
 
 \subsection{\textit{Bone}}
+
 \textit{Bone} merupakan komponen dari \textit{armature}
 \parencite{blender-bones-introduction}. Struktur sebuah \textit{bone} dapat
 dilihat pada Gambar \ref{fig:bone-structure}. Sebuah \textit{bone} terdiri atas
 3 subkomponen adalah sebagai berikut:
 \parencite{blender-armature-structure,blender-glossary}:
+
 \begin{enumerate}
     \item Sendi awal (\textit{root}/\textit{head})
 
@@ -210,6 +218,7 @@ dilihat pada Gambar \ref{fig:bone-structure}. Sebuah \textit{bone} terdiri atas
 % itu, RoadRunner dapat digunakan untuk membuat desain kota \parencite{roadrunner}.
 
 \section{Penelitian Terkait}
+
 Subbab ini membahas beberapa penelitian terkait dengan Tugas Akhir ini.
 Penelitian-penelitian berikut menjadi rujukan dalam penelitian dan pengembangan
 Tugas Akhir ini.
@@ -225,7 +234,9 @@ berbagai pihak dan/atau kendaraan) serta persiapan komersialisasi.
 
 Berikut Indikator Kinerja Riset (IKR)  atau luaran penelitian tersebut adalah
 sebagai berikut \parencite{rispro-trilaksono}:
+
 \begin{enumerate}
+
     \item Pengembangan algoritma persepsi untuk mengenali objek dan
     \textit{tracking} di lingkungan trem pada cuaca normal dan implementasi
     dalam bentuk \textit{software}.
@@ -286,11 +297,14 @@ bagian dari penelitian tersebut, khususnya pada indikator mengenai pengembangan
 SILS dan HILS.
 
 \subsection{\textit{KIT Bus: A Shuttle Model for CARLA Simulator}}
+
 Penelitian \textit{KIT Bus: A Shuttle Model for CARLA Simulator} ini merupakan
 penelitian membuat model \textit{shuttle bus} untuk CARLA yang dilakukan oleh
 \cite{related-work-xiang}. Proses pembuatan model tersebut dilakukan dalam tiga
 tahap, yaitu sebagai berikut \parencite{related-work-xiang}:
+
 \begin{enumerate}
+
     \item Membuat model 3D dari bus menggunakan aplikasi 3ds Max.
 
     Model bus dibuat sesuai dengan referensi dan dimensi asli. Model bus yang
@@ -322,6 +336,7 @@ tahap, yaitu sebagai berikut \parencite{related-work-xiang}:
 \end{enumerate}
 
 \subsection{\textit{The Autonomous Siemens Tram}}
+
 Penelitian \textit{The Autonomous Siemens Tram} membahas trem otonom Siemens
 yang telah didemonstrasikan di Potsdam, Jerman pada tahun 2018. Sistem trem
 otonom tersebut dibangun di atas trem Siemens Combino dan menggunakan
