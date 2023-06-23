@@ -32,21 +32,71 @@ besar sebab untuk memastikan kendaraan otonom dapat beroperasi dengan baik,
 pengujian harus dilakukan berulang-ulang dan dalam berbagai skenario yang kadang
 tidak dapat diatur sesuai dengan keinginan di saat yang diinginkan.
 
-Pelatihan dan pengujian kendaraan otonom yang mahal ini dapat diatasi dengan
-melakukannya secara virtual menggunakan aplikasi simulasi. Pelatihan dan
+Pelatihan dan pengujian kendaraan otonom yang mahal tersebut dapat diatasi
+dengan melakukannya secara virtual menggunakan aplikasi simulasi. Pelatihan dan
 pengujian dengan menggunakan simulasi dapat menghemat biaya dan waktu karena
 aktor, lingkungan, dan parameter simulasi untuk pengujian dapat diatur sesuai
-dengan keinginan relatif lebih mudah dan lebih cepat. Lingkungan simulasi yang
-identik dengan lingkungan nyata diperlukan sehingga kecerdasan buatan kendaraan
-otonom cocok digunakan untuk lingkungan pada kenyataan. Oleh karena itu,
-dibutuhkan implementasi aktor, objek, dan lingkungan simulasi.
+dengan keinginan relatif lebih mudah dan lebih cepat.
 
-Tugas Akhir ini membahas implementasi objek trem, implementasi objek lalu lintas
-khas Indonesia, dan implementasi lingkungan simulasi yang serupa dengan
-Indonesia menggunakan simulator Car Learning to Act (CARLA). Aset bawaan dari
-CARLA seperti kendaraan, jalan, kota, lingkungan, dan aset lainnya mencerminkan
-objek dan lingkungan di Amerika Serikat pada umumnya. Oleh karena itu, perlu
-dibuat aset yang mencerminkan objek dan lingkungan di Indonesia. Lalu lintas
+Penelitian "Pengembangan Sistem Otonomi dengan Menggunakan Kecerdasan
+\textit{Artificial} untuk Trem" (selanjutnya akan dirujuk sebagai proyek trem
+otonom) merupakan penelitian mengenai pengembangan trem otonom (lihat subbab
+\ref{subsec:rispro-trilaksono}). Penelitian ini menggunakan simulasi untuk
+mengembangkan pembelajaran mesin (\textit{Machine Learning}) dan/atau kecerdasan
+buatan (\textit{Artificial Intelligence}), menguji operasi, dan memvalidasi
+operasi trem otonom pada tahap-tahap awal atau sebelum diuji dan divalidasi di
+lingkungan nyata dengan tujuan mendukung pengembangan trem otonom agar lebih
+cepat, lebih mudah dan lebih hemat biaya. Terdapat empat tim yang bekerja sama
+untuk mengembangkan kecerdasan buatan trem otonom yaitu:
+
+\begin{enumerate}
+    \item Tim persepsi
+
+    Tim persepsi merupakan tim yang bertanggung jawab untuk mengembangkan model
+    persepsi yang berfungsi untuk mengolah data sensor-sensor (kamera, radar,
+    LIDAR).
+
+    \item Tim \textit{localization} dan \textit{mapping}
+
+    Tim \textit{localization} dan \textit{mapping} merupakan tim yang
+    bertanggung jawab untuk memetakan data lokasi tram dari sensor GPS.
+
+    \item Tim \textit{decision making}
+
+    Tim \textit{decision making} merupakan tim yang bertanggung jawab untuk
+    mengembangkan modul pengambilan keputusan. Modul tersebut berfungsi untuk
+    melakukan \textit{risk assessment} dari hasil persepsi,
+    \textit{localization}, dan \textit{mapping} kemudian menentukan keputusan
+    dan \textit{planning}. Hasil dari modul tersebut adalah perintah aktuator
+    untuk mengendalikan/mengemudikan trem.
+
+    \item Tim simulasi
+
+    Tim simulasi merupakan tim yang bertanggung jawab untuk mengembangkan
+    \textit{Software-in-the-Loop Simulation} (SILS) dan
+    \textit{Hardware-in-the-Loop Simulation} (HILS). Simulasi yang dilakukan
+    berskema HILS dengan perangkat keras NVIDIA drive AGX Pegasus untuk memroses
+    \textit{decision making}, memroses persepsi, memroses \textit{localization},
+    dan memroses \textit{mapping}. Simulasinya sendiri menggunakan simulator
+    CARLA yang berada di komputer/perangkat keras yang berbeda. Simulator ini
+    digunakan untuk menyimulasikan trem dan lingkungan virtual untuk mendapatkan
+    data sensor virtual. Tim \textit{capstone} Tugas Akhir ini merupakan bagian
+    dari tim simulasi.
+
+\end{enumerate}
+
+Lingkungan simulasi yang identik dengan lingkungan nyata diperlukan sehingga
+kecerdasan buatan kendaraan otonom cocok digunakan untuk lingkungan pada
+kenyataan. Oleh karena itu, dibutuhkan integrasi atau implementasi aktor, objek,
+dan lingkungan simulasi.
+
+Tugas Akhir ini membahas mengenai implementasi objek trem, implementasi objek
+lalu lintas khas Indonesia, dan implementasi lingkungan simulasi yang serupa
+dengan Indonesia menggunakan simulator Car Learning to Act (CARLA) untuk
+pengembangan trem otonom pada proyek trem otonom. Aset bawaan dari CARLA seperti
+kendaraan, jalan, kota, lingkungan, dan aset lainnya mencerminkan objek dan
+lingkungan di Amerika Serikat pada umumnya. Oleh karena itu, perlu dibuat aset
+yang mencerminkan objek dan lingkungan di Indonesia. Lalu lintas
 \textit{default} di CARLA adalah jalur kanan. Hal tersebut juga perlu
 disesuaikan agar sama seperti lalu lintas di Indonesia.
 
@@ -73,13 +123,14 @@ memudahkan validasi algortima \textit{decision making} trem otonom.
 
 \section{Batasan Masalah}
 
-Penelititan untuk Tugas Akhir ini memiliki batasan masalah yaitu
-pengimplementasian objek trem, objek lokal khas Indonesia, dan lingkungan
-simulasi hanya terbatas pada lingkungan kota Solo. Kota Solo dipilih sebagai
-lingkungan pengujian trem otonom karena di Solo sudah terdapat trem konvensional
-yang beroperasi. Pengambilan data untuk pelatihan telah dan sedang dilakukan di
-Solo. Pengujian trem otonom di luar simulasi pun akan dilakukan di Solo.
-Tingkat kemiripan simulasi terbatas pada aplikasi simulator CARLA.
+Penelititan untuk Tugas Akhir ini memiliki batasan masalah yaitu implementasi
+objek trem, objek lokal khas Indonesia, dan lingkungan simulasi hanya terbatas
+pada lingkungan kota Solo. Kota Solo dipilih sebagai lingkungan pengujian trem
+otonom karena di Solo sudah terdapat trem konvensional yang beroperasi.
+Pengambilan data untuk pelatihan telah dan sedang dilakukan di Solo. Pengujian
+trem otonom di luar simulasi pun akan dilakukan di Solo. Tingkat kemiripan
+simulasi terbatas pada aplikasi simulator CARLA versi 0.9.12 dan/atau versi
+0.9.13.
 
 \section{Metodologi}
 

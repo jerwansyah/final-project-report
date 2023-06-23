@@ -45,6 +45,7 @@ yang banyak, data yang valid, dan data yang mencakup kasus-kasus tidak terduga
 untuk melatih kendaraan otonom \parencite{carla-dosovitskiy}.
 
 % TODO:
+% about tram?
 % autonomous vehicles \subsection{Kendaraan Otonom di Indonesia}
 % \subsection{Trem Otonom di Indonesia}
 % \subsection{Lingkungan Berkendara di Indonesia ?}
@@ -225,16 +226,17 @@ Penelitian-penelitian berikut menjadi rujukan dalam penelitian dan pengembangan
 Tugas Akhir ini.
 
 \subsection{Pengembangan Sistem Otonomi dengan Menggunakan Kecerdasan Artificial untuk Trem}
+\label{subsec:rispro-trilaksono}
 
 Penelitian oleh \cite{rispro-trilaksono} merupakan penelitian mengenai inovasi
 bidang otomotif yang mengembangkan sistem otonomi untuk Trem menggunakan
 kecerdasan buatan. Penelitian tersebut memiliki tiga tahap (dalam tiga tahun)
 yaitu, pengembangan \textit{tram driving assistance}, pengembangan trem otonom,
-dan pengujian trem otonom di \textit{mixed traffic} (lalu lintas yang melibatkan
-berbagai pihak dan/atau kendaraan) serta persiapan komersialisasi.
+dan pengujian trem otonom di \textit{mixed traffic} serta persiapan
+komersialisasi.
 
-Berikut Indikator Kinerja Riset (IKR)  atau luaran penelitian tersebut adalah
-sebagai berikut \parencite{rispro-trilaksono}:
+Berikut Indikator Kinerja Riset (IKR) atau luaran penelitian tersebut
+\parencite{rispro-trilaksono}:
 
 \begin{enumerate}
 
@@ -270,23 +272,24 @@ sebagai berikut \parencite{rispro-trilaksono}:
     \textit{Hardware-in-the-Loop Simulation} (HILS).
 
     Menguji dan menganalisis \textit{platform} simulasi yaitu simulator CARLA
-    versi 0.9.12, uji coba beragam semsor, dan uji coba beberapa algoritma yang
+    versi 0.9.12, uji coba beragam sensor, dan uji coba beberapa algoritma yang
     sudah dikembangkan. Melakukan konversi kode program/algoritma yang telah
-    dikembangkan ke bahasa pemrograman C++ untuk dimasukkan ke NVIDIA drive
+    dikembangkan ke bahasa pemrograman C++ untuk dimasukkan ke NVIDIA drive AGX
     Pegasus dan membuat \textit{web-service} untuk menghubungkan server simulasi
-    (SILS) dengan NVIDIA drive Pegasus (HILS). NVIDIA drive Pegasus merupakan
-    \textit{hardware} untuk memroses algoritma  \textit{adaptive cruise control}
-    (ACC), \textit{emergency braking system} (EBS), dan \textit{collision
-    avoidance}. Dari pengujian dan analisis tersebut, dibutuhkan penyempurnaan
-    algoritma persepsi berbasis sensor, perbaikan arsitekstur (HILS), dan
-    integrasi objek lokal pada skenario simulasi.
+    (SILS) dengan NVIDIA drive AGX Pegasus (HILS). NVIDIA drive AGX Pegasus
+    merupakan \textit{hardware} untuk memroses algoritma \textit{Adaptive Cruise
+    Control} (ACC), \textit{Emergency Braking System} (EBS), dan
+    \textit{Collision Avoidance} (\textit{decision making}). Dari pengujian dan
+    analisis tersebut, dibutuhkan penyempurnaan algoritma persepsi berbasis
+    sensor, perbaikan arsitekstur (HILS), dan integrasi objek lokal pada
+    skenario simulasi.
 
     \item Pengembangan dan manufaktur \textit{platform} trem, sistem
     \textit{drive-by-wire} pada trem, dan integrasi sensor.
 
     \item Publikasi ilmiah.
     \item Draf kekayaan intelektual.
-    \item \textit{Self-assessment} Tingkat Kesiapan Teknologi.
+    \item \textit{Self-assessment} Tingkat Kesiapan Teknologi (TKT).
     \item Penyusunan poster ilmiah populer atas pelaksanaan dan hasil riset.
 
 \end{enumerate}
