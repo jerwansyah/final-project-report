@@ -74,22 +74,22 @@ untuk mengembangkan kecerdasan buatan trem otonom yaitu:
 
     Tim simulasi merupakan tim yang bertanggung jawab untuk mengembangkan
     \textit{Software-in-the-Loop Simulation} (SILS) dan
-    \textit{Hardware-in-the-Loop Simulation} (HILS). Simulasi yang dilakukan
-    berskema HILS dengan perangkat keras NVIDIA drive AGX Pegasus untuk memroses
-    \textit{decision making}, memroses persepsi, memroses \textit{localization},
-    dan memroses \textit{mapping}. Simulasinya sendiri menggunakan simulator
-    CARLA yang berada di komputer/perangkat keras yang berbeda. Simulator ini
-    digunakan untuk menyimulasikan trem dan lingkungan virtual untuk mendapatkan
-    data sensor virtual. Tim \textit{capstone} Tugas Akhir ini merupakan bagian
-    dari tim simulasi.
+    \textit{Hardware-in-the-Loop Simulation} (HILS). Simulasi berskema HILS
+    dilakukan menggunakan perangkat keras NVIDIA drive AGX Pegasus untuk
+    memroses \textit{decision making}, memroses persepsi, memroses
+    \textit{localization}, dan memroses \textit{mapping}. Simulasi menggunakan
+    simulator CARLA yang berada di komputer/perangkat keras yang berbeda.
+    Simulator ini digunakan untuk menyimulasikan trem dan lingkungan virtual
+    untuk mendapatkan data sensor virtual. Tim \textit{capstone} Tugas Akhir ini
+    merupakan bagian dari tim simulasi.
 
 \end{enumerate}
 
 Lingkungan simulasi yang identik dengan lingkungan nyata diperlukan sehingga
 kecerdasan buatan kendaraan otonom cocok digunakan untuk lingkungan pada
 kenyataan. Oleh karena itu, dibutuhkan integrasi atau implementasi aktor, objek,
-dan lingkungan simulasi. Lingkungan simulasi saat ini belum terintegrasi dengan
-objek khas Indonesia.
+dan lingkungan simulasi. Lingkungan simulasi saat ini belum serupa dengan
+lingkungan Indonesia.
 
 Tugas Akhir ini membahas mengenai implementasi objek trem, implementasi objek
 lalu lintas khas Indonesia, dan implementasi lingkungan simulasi yang serupa
@@ -120,7 +120,8 @@ dalam Tugas Akhir ini adalah sebagai berikut.
 
 Tujuan dari Tugas Akhir ini adalah untuk mengimplentasikan objek trem, objek
 lokal khas Indonesia, dan lingkungan khas Indonesia di simulator CARLA untuk
-memudahkan validasi algortima \textit{decision making} trem otonom.
+memudahkan pengujian dan validasi algortima \textit{decision making} trem
+otonom.
 
 \section{Batasan Masalah}
 
@@ -136,7 +137,7 @@ simulasi terbatas pada aplikasi simulator CARLA versi 0.9.12 dan/atau versi
 \section{Metodologi}
 
 Metodologi yang digunakan dalam pengerjaan Tugas Akhir ini adalah sebagai
-berikut.
+berikut:
 
 \begin{enumerate}
 
@@ -168,9 +169,8 @@ berikut.
 \end{enumerate}
 
 \section{Sistematika Pembahasan}
-% Subbab ini berisi penjelasan ringkas isi per bab. Penjelasan ditulis satu
-% paragraf per bab buku.
-Sistematika pembahasan laporan Tugas Akhir ini adalah sebagai berikut.
+
+Sistematika pembahasan laporan Tugas Akhir ini adalah sebagai berikut:
 
 \begin{enumerate}
 
