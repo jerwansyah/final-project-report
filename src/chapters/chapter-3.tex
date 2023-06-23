@@ -1,20 +1,84 @@
-\chapter{Analisis dan Rancangan Implementasi Objek dan Lingkungan}
+\chapter{Deskripsi Solusi}
 
-% Tujuan utama penulisan bab ini adalah untuk menguraikan rencana penyelesaian
-% masalah tugas akhir yang akan dieksekusi secara utuh pada saat pelaksanaan
-% Tugas Akhir II. Bab ini merupakan bab penutup Laporan Tugas Akhir I yang dapat
-% dipandangsebagai bab yang akan menjembatani perpindahan ke proses pelaksanaan
-% Tugas Akhir II. Pengembangan lebih lanjut dari bab ini dapat menjadi bagian
-% dari bab Deskripsi Solusi pada Laporan Tugas Akhir.
+Bab ini membahas deskripsi umum permasalahan \textit{capstone}, analisis masalah
+simulasi yang sudah ada, analisis terhadap objek dan lingkungan yang akan
+diimplementasi, analisis solusi yang akan diterapkan untuk mengatasi masalah.
 
-Bab ini membahas analisis permasalah pada aplikasi simulasi yang sudah ada,
-analisis terhadap objek dan lingkungan yang akan diimplementasi, analisis solusi
-yang akan diterapkan untuk mengatasi masalah.
+\section{Deskripsi Umum Permasalahan \textit{Capstone}}
+
+Proyek trem otonom menggunakan simulasi untuk mempercepat dan mempermudah
+pengujian dan validasi pengembangan model/algoritma \textit{decision making},
+persepsi, \textit{localization}, dan \textit{mapping} trem otonom. Tim
+\textit{capstone} Tugas Akhir ini merupakan bagian dari tim simulasi yang
+bertugas untuk mengembangkan simulasi yang sudah ada. Kemajuan
+pengembangan simulasi atau pengembangan SILS dan HILS adalah sebagai berikut:
+
+\begin{enumerate}
+
+	\item Eksplorasi kakas CARLA sebagai simulator.
+
+	CARLA versi 0.9.12 di-\textit{install}. Model angkot dan becak telah diimpor
+	sebagai objek statis (bukan kendaraan). Kendaraan model \textit{FireTruck}
+	digunakan sebagai kendaraan utama (\textit{ego vehicle}) pengganti trem
+	karena model trem belum diintegrasi sebagai kendaraan.
+
+	\item \textit{Web service} telah diimplementasi sebagai jalur komunikasi
+	antara simulator CARLA dan Pegasus pada HILS.
+
+	Komunikasi menggunakan \textit{web service} lambat karena jumlah transaksi
+	per detik kecil dan simulasi juga lambat. Eksplorasi CARLA ROS Bridge
+	dilakukan namun masih belum selesai.
+
+	\item Menguji sensor virtual, mencoba menjalankan algoritma \textit{decision
+	making} dan persepsi.
+
+	Sensor virtual diuji apakah layak untuk digunakan sebagai pengganti sensor
+	asli. Algoritma \textit{decision making} dan persepsi diuji juga pada HILS.
+
+	\item Membuat rancangan skenario simulasi.
+
+	Rancangan daftar skenario simulasi untuk menguji berbagai skenario dengan
+	variabel cuaca, waktu, kecepatan tram, dan lalu lintas yang berbeda.
+
+\end{enumerate}
+
+Dari kemajuan proyek dari tahun sebelumnya dibutuhkan  penyempurnaan algoritma
+persepsi berbasis sensor, perbaikan arsitekstur (HILS) atau komunikasi yang
+memadai, dan integrasi objek lokal pada skenario simulasi. Tim \textit{capstone}
+yang beranggotakan 3 orang bertanggungjawab untuk:
+
+\begin{enumerate}
+
+	\item Mengembangkan mekanisme komunikasi antara HILS yang lebih lancar dan
+	lebih cepat.
+	\item Membuat implementasi skenario pengujian simulasi.
+	\item Mengintegrasikan atau mengimplementasikan objek lokal ke skenario
+	simulasi.
+
+\end{enumerate}
+
+% tugas akhir ini bertujuan untuk mengintegrasikan atau mengimplementasikan
+% ... agar menyerupai lingkungan di Indonesia
 
 \section{Analisis Masalah Simulasi dan Aset Simulasi}
+
 Simulasi trem otonom untuk saat ini telah diinisiasi namun baru sebatas
 eksplorasi simulator CARLA dengan menambahkan beberapa kendaraan dan mengetes
-kendaraan dalam simulasi. Aset simulasi untuk saat ini baru berupa aset bawaan
+kendaraan dalam simulasi.
+
+%  berdasarkan / kemajuann riset, sudah dbibuat model blabla
+% ada model ini dari sebelumnya jadi objek statis
+% 1. Model Tram, firetruck jadi ego vehicle
+% 2. Becak +
+% 3. Sepeda
+% 4. Rambu-rambu lokal
+% 5. Angkot +
+% 6. Gerobak
+% 7. Sepeda Motor
+
+% pake carla 0.9.12, di town 02 coba2 ego vehicle menggunakan fire truck
+
+Aset simulasi untuk saat ini baru berupa aset bawaan
 dari CARLA. Aset bawaan CARLA seperti peta kota, kendaraan, bangungan, rambu
 lalu lintas, dan lain-lain merupakan aset yang mencerminkan kota-kota di Amerika
 Serikat pada umumnya. Implementasi objek dan lingkungan Indonesia dibutuhkan
@@ -32,6 +96,9 @@ buatan yang dikembangkan dapat beroperasi dengan lancar di lingkungan Indonesia.
 Oleh karena itu, dibutuhkan aset simulasi yang sesuai dengan keadaan Indonesia.
 
 \section{Analisis Solusi}
+
+% eksplorasi kakas ?
+
 Permasalahan yang telah dibahas dapat diselesaikan dengan mengubah aset yang
 sudah ada atau menambahkan aset baru. Aset seperti peta kota harus dibuat
 langsung menggunakan CARLAUE4 atau menggunakan RoadRunner yang kemudian diimpor
@@ -53,14 +120,14 @@ dengan membuat model 3D bus, mengimpor model 3D bus ke dalam CARLAUE4, mengedit
 aset bus tersebut dalam CARLAUE4, dan memverifikasi hasil impor aset bus
 tersebut.
 
-% cara import aset yang lain (yang khusus, yang detail di bawah aja)
+% TODO: ? cara import aset yang lain (yang khusus, yang detail di bawah aja)
 % adding details maybe
 
 Implementasi objek dan lingkungan Indonesia yang akan dilakukan adalah dengan
 menambahkan aset dan membuat aset baru. Implementasi yang menambahkan aset
 meliputi kendaraan, rambu lalu lintas, dan lingkungan sederhana. Kendaraan yang
 akan diimplementasikan adalah trem otonom, angkot, becak, gerobak, motor, dan
-sepeda onthel. Trem akan dipasangkan berbagai sensor seperti Lidar, kamera RGB,
+sepeda onthel. Trem akan dipasangkan berbagai sensor seperti LIDAR, kamera RGB,
 dan Radar untuk menangkap lingkungan sekitar.
 
 % - Langkah-langkah menuju solusi dan penjelasan
@@ -82,6 +149,7 @@ Dibutuhkan aplikasi \textit{3D modelling} seperti Blender untuk membuat aset.
 Aplikasi RoadRunner akan digunakan untuk membuat aset peta.
 
 \section{Rancangan Implementasi Objek dan Lingkungan Indonesia di Simulator CARLA}
+
 Proses implementasi objek dan lingkungan di simulator CARLA dilakukan dengan
 langkah-langkah sebagai berikut.
 
@@ -122,8 +190,8 @@ langkah-langkah sebagai berikut.
 	% https://carla.readthedocs.io/en/0.9.13/tuto_G_retrieve_data/#spawn-the-ego-vehicle
 \end{enumerate}
 
+% TODO
+
 % jelasin per langkah
 % - siapin aset
 % - impor aset
-
-% TODO
