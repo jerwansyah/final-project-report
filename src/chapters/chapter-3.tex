@@ -1,8 +1,5 @@
 \chapter{Deskripsi Solusi}
 
-% % TODO: find a better way to set counter
-% \setcounter{section}{1}
-
 Bab ini membahas deskripsi umum permasalahan \textit{capstone}, analisis masalah
 simulasi yang sudah ada, analisis terhadap objek dan lingkungan yang akan
 diimplementasi, analisis solusi yang akan diterapkan untuk mengatasi masalah.
@@ -68,13 +65,13 @@ validasi \textit{decision making} dan persepsi dengan menggunakan simulasi.
 \section{Analisis Masalah Simulasi dan Aset Simulasi}
 
 Simulasi trem otonom untuk saat ini telah diinisiasi namun baru sebatas
-eksplorasi simulator CARLA dengan menambahkan beberapa kendaraan (angkot dan
-becak) sebagai objek statis (bukan kendaraan) dan mengetes kendaraan pengganti
-trem sebagai \textit{ego vehicle} dalam simulasi. Aset dalam bentuk model 3D
-sudah dibangun namun belum diimplementasikan ke dalam simulasi. Aset model 3D
-tersebut adalah: trem, angkot, becak, sepeda onthel, sepeda motor, beberapa
-rambu lokal, dan gerobak. Gambar \ref{fig:3d-model-assets} menunjukkan aset
-model 3D yang telah dibuat.
+eksplorasi simulator CARLA dengan menambahkan kendaraan angkot dan becak sebagai
+objek statis (bukan kendaraan) dan mengetes kendaraan pengganti trem sebagai
+kendaraan utama yang dipasangkan sensor (\textit{ego vehicle}) dalam simulasi.
+Aset model 3D sudah dibangun namun belum diimplementasikan ke dalam simulasi.
+Aset model 3D tersebut adalah: trem, angkot, becak, sepeda onthel, sepeda motor,
+beberapa rambu lokal, dan gerobak. Gambar \ref{fig:3d-model-assets} menunjukkan
+aset model 3D yang telah dibuat.
 
 % \begin{figure}[!tbp]
 \begin{figure}[ht]
@@ -118,17 +115,20 @@ Oleh karena itu, dibutuhkan aset simulasi yang sesuai dengan keadaan Indonesia.
 \section{Analisis Solusi}
 
 Permasalahan yang telah dibahas dapat diselesaikan dengan mengubah aset yang
-sudah ada dan/atau menambahkan aset baru. Aset seperti peta kota harus dibuat
-langsung menggunakan CARLAUE4 atau menggunakan RoadRunner yang kemudian diimpor
-ke dalam CARLAUE4. Aset baru yang lain dapat dibuat menggunakan aplikasi
-\textit{3D modelling}. Aset dibuat secara lengkap dan rinci agar perilaku aset
-sesuai dengan yang asli.
+sudah ada dan menambahkan aset baru. Aset baru yang lain dapat dibuat
+menggunakan aplikasi \textit{3D modelling}. Aset dibuat secara lengkap dan rinci
+agar perilaku aset sesuai dengan yang asli.
 
-Aset model 3D yang telah jadi selanjutnya diimpor/dimasukkan ke dalam CARLAUE4.
+% the sentence below goes after the first sentence
+% Aset seperti peta kota harus dibuat langsung menggunakan CARLAUE4 atau
+% menggunakan RoadRunner kemudian diimpor ke dalam CARLAUE4 jika aset peta
+% diperlukan.
+
+Aset model 3D yang telah jadi selanjutnya diimpor ke dalam CARLAUE4.
 Proses impor aset ini dilakukan dengan mengikuti panduan yang telah tersedia di
 dokumentasi CARLA. Proses impor aset harus dilakukan dengan benar agar perilaku
 aset baik dan stabil untuk simulasi. Terdapat aset khusus yang harus ditambahkan
-ke dalam file 3D model kendaraan dan diatur ke model kendaraan. Aset khusus
+ke dalam berkas 3D model kendaraan dan diatur ke model kendaraan. Aset khusus
 tersebut merupakan aset \textit{armature} untuk \textit{rigging} roda kendaraan.
 Setelah pengaturan aset dalam CARLAUE4 selesai, dilakukan verifikasi aset dengan
 cara menjalankan simulasi dan mengamati cara kendaraan beroperasi. Implementasi
@@ -142,21 +142,21 @@ Implementasi objek dan lingkungan Indonesia yang akan dilakukan adalah dengan
 menambahkan aset dan membuat aset baru. Implementasi yang menambahkan aset
 meliputi kendaraan, rambu lalu lintas, dan lingkungan sederhana. Kendaraan yang
 akan diimplementasikan adalah trem otonom, angkot, becak, gerobak, motor, dan
-sepeda onthel. Trem akan dipasangkan berbagai sensor seperti LIDAR, kamera RGB,
+sepeda onthel. Trem akan dipasangkan berbagai sensor, seperti LIDAR, kamera RGB,
 dan Radar untuk menangkap lingkungan sekitar.
 
 Pada proses implementasi aset membutuhkan simulator CARLA dan CARLAUE4 yang
 dibangun atau di-\textit{compile} sendiri bukan menggunakan program atau
 \textit{binary} yang sudah di-\textit{compile}. Dibutuhkan aplikasi \textit{3D
-modelling} seperti Blender untuk membuat aset. Aplikasi RoadRunner akan
-digunakan untuk membuat aset peta.
+modelling} seperti Blender untuk membuat aset.
+% Aplikasi RoadRunner akan digunakan untuk membuat aset peta.
 
 \section{Rancangan Implementasi Objek dan Lingkungan Indonesia di Simulator CARLA}
 
 Proses implementasi objek dan lingkungan di simulator CARLA dilakukan dengan
 langkah-langkah sebagai berikut:
 
-% TODO: ? cara import aset yang lain (yang khusus, yang detail di bawah aja)
+% TODO: ? rencana import aset yang lain (yang khusus, yang detail di bawah aja)
 % TODO: ? BP, factory, spline
 % TODO: jelasin how to? but where
 
@@ -171,18 +171,18 @@ langkah-langkah sebagai berikut:
 
 \begin{enumerate}
 
-	\item Eksplorasi CARLAUE4 editor 0.9.12 dan CARLAUE4 editor versi 0.9.13.
+	\item Eksplorasi CARLAUE4 editor versi 0.9.12 dan versi 0.9.13.
 
-	Eksplorasi dilakukan untuk mengetahui fitur-fitur yang telah dikembangkan
-	oleh tim pengembang CARLA.
+	Eksplorasi dilakukan untuk memelajari cara menggunakan CARLAUE4 dan
+	mengetahui fitur-fitur yang telah dikembangkan oleh tim pengembang CARLA.
 
-	\item Membuat aset baru dengan Blender dan RoadRunner jika diperlukan.
+	\item Membuat aset baru dengan Blender.
 
 	Aset baru yang dibutuhkan dibuat mengikuti dokumentasi CARLA mengenai
 	penambahan aset-aset yang bersangkutan. Aset baru yang butuh
 	diimplementasikan adalah stasiun trem, rel trem, dan rambu lalu lintas.
 	% Hal tersebut meliputi bentuk poligon, jumlah poligon, jumlah VEF, dan
-	% lain-lain.
+	% lain-lain. (yang sesuai dengan petunjuk)
 
 	\item Melakukan impor dan edit aset ke dalam CARLAUE4.
 
@@ -200,11 +200,12 @@ langkah-langkah sebagai berikut:
 	% https://carla.readthedocs.io/en/0.9.13/tuto_A_add_props/
 	% https://carla.readthedocs.io/en/0.9.13/tuto_A_material_customization/
 
-	\item Melakukan validasi aset yang telah diimpor.
+	\item Melakukan penambahan dan validasi aset yang telah diimpor.
 
-	Validasi aset dapat dilakukan dengan menjalankan simulator dan mengamati
-	aset dalam simulasi. Validasi ini dilakukan untuk memastikan aset yang
-	diimpor sudah sesuai dengan yang diinginkan dan stabil dalam simulasi.
+	Aset yang telah diimpor dimasukkan ke dalam lingkungan simulasi. Validasi
+	aset dapat dilakukan dengan menjalankan simulator dan mengamati aset dalam
+	simulasi. Validasi ini dilakukan untuk memastikan aset yang diimpor dan
+	ditambahkan sudah sesuai dengan yang diinginkan dan stabil dalam simulasi.
 
 	\item Melakukan ekspor aset agar dapat didistribusikan.
 

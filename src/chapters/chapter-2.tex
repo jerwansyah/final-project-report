@@ -1,11 +1,8 @@
 \chapter{Studi Literatur}
 
-% % TODO: find a better way to set counter
-% \setcounter{section}{1}
-
 Bab ini membahas hasil studi literatur yang diperlukan untuk melakukan
 penyusunan Tugas Akhir ini. Bab ini membahas tentang kendaraan otonom, simulator
-CARLA, Unreal Engine, Blender, dan penelitian terkait.
+CARLA, Blender, dan penelitian terkait.
 %RoadRunner,
 
 \section{Kendaraan Otonom}
@@ -26,7 +23,7 @@ Trem otonom secara umum memiliki perangkat keras berupa kendaraan fisik,
 komputer, dan berbagai sensor. Komputer pada tram digunakan untuk mengoperasikan
 trem secara otonom. Komputer juga memiliki kartu grafis untuk melakukan deteksi
 objek hasil deteksi dari sensor-sensor di trem. Sensor-sensor tersebut adalah,
-kamera, LIDAR, dan radar. Sedangkan pada sisi perangkat lunak, trem otonom pada
+kamera, LIDAR, dan radar. Pada sisi perangkat lunak, trem otonom pada
 umumnya memiliki aplikasi untuk mengolah data sensor \parencite{at-palmer}.
 
 Model pemilihan keputusan oleh kendaraan otonom perlu dilatih sehingga kendaraan
@@ -38,17 +35,17 @@ tersebut bergantung kepada model yang ada di dunia nyata \parencite{av-berger}.
 
 Simulasi kendaraan otonom akan memudahkan pelatihan dan proses validasi strategi
 kemudi kendaraan otonom. Simulasi mencegah terjadinya kejadian yang berbahaya
-dan tidak diinginkan terjadi seperti jika penelitian fisik dilakukan. Penelitian
-kendaraan otonom di dunia nyata memiliki banyak rintangan. Penelitian fisik
-membutuhkan biaya yang besar untuk membangun kendaraan otonom tersebut,
-infrastuktur untuk pengetesan yang memadai, dan biaya lainnya. Selain
-dibutuhkannya biaya, dibutuhkan juga sumber daya manusia untuk mengoperasikan
-tes. Pengumpulan data juga membutuhkan waktu yang lama karena dibutuhkannya data
-yang banyak, data yang valid, dan data yang mencakup kasus-kasus tidak terduga
-untuk melatih kendaraan otonom \parencite{carla-dosovitskiy}.
+dan tidak diinginkan terjadi, seperti penelitian fisik. Penelitian kendaraan
+otonom di dunia nyata memiliki banyak rintangan. Penelitian fisik membutuhkan
+biaya yang besar untuk membangun kendaraan otonom tersebut, infrastuktur untuk
+pengetesan yang memadai, dan biaya lainnya. Selain dibutuhkannya biaya,
+dibutuhkan juga sumber daya manusia untuk mengoperasikan tes. Pengumpulan data
+juga membutuhkan waktu yang lama karena dibutuhkannya data yang banyak, data
+yang valid, dan data yang mencakup kasus-kasus tidak terduga untuk melatih
+kendaraan otonom \parencite{carla-dosovitskiy}.
 
 % TODO:
-% about tram?
+% about tram specifically
 % autonomous vehicles \subsection{Kendaraan Otonom di Indonesia}
 % \subsection{Trem Otonom di Indonesia}
 % \subsection{Lingkungan Berkendara di Indonesia ?}
@@ -67,7 +64,7 @@ purwarupa, dan pengujian strategi kemudi otonom, baik dari sisi persepsi maupun
 sisi pengontrolan. CARLA menyediakan model dasar untuk lingkungan simulasi,
 sejumlah kendaraan, rambu lalu lintas, dan pejalan kaki. Selain itu, CARLA juga
 menyediakan keluaran sensor-sensor dan sinyal-sinyal yang dapat digunakan untuk
-melatih strategi kemudi seperti koordinat GPS, kecepatan, percepatan, data rinci
+melatih strategi kemudi, seperti koordinat GPS, kecepatan, percepatan, data rinci
 mengenai tabrakan yang terjadi pada model kendaraan, dan lain-lain.
 Sensor-sensor dan kondisi lingkungan simulasi tersebut dapat diatur sesuai
 dengan kebutuhan \parencite{carla-dosovitskiy}.
@@ -85,15 +82,15 @@ CARLA menyimulasikan sebuah dunia yang dinamis dan juga menyediakan antarmuka
 sederhana antara dunia tersebut dan aktor atau agen yang berinteraksi dengan
 dunia tersebut. CARLA dirancang sebagai sistem \textit{server-client} sehingga
 fungsionalitas tersebut dapat direalisasikan. Server CARLA menjalankan dan
-menyimulasikan suasana. Klien bertanggung jawab untuk mengatur interaksi antara
-aktor atau agen dengan server via \textit{socket} dengan mengirimkan perintah
-untuk aktor dan perintah untuk mengatur peraturan lingkungan simulasi di server.
-Klien akan menerima umpan balik hasil rekaman sensor
-\parencite{carla-dosovitskiy}.
+menyimulasikan suasana. \textit{Client} bertanggung jawab untuk mengatur
+interaksi antara aktor atau agen dengan server via \textit{socket} dengan
+mengirimkan perintah untuk aktor dan perintah untuk mengatur peraturan
+lingkungan simulasi di server. \textit{Client} akan menerima umpan balik hasil
+rekaman sensor \parencite{carla-dosovitskiy}.
 
 Lingkungan simulasi pada CARLA terdiri atas model-model 3 dimensi (3D) yang
-statik seperti bangungan, tumbuh-tumbuhan, rambu lalu lintas, dan infrastuktur
-lainnya. Selain itu, terdapat juga model-model dinamis seperti kendaraan dan
+statik, seperti bangungan, tumbuh-tumbuhan, rambu lalu lintas, dan infrastuktur
+lainnya. Selain itu, terdapat juga model-model dinamis, seperti kendaraan dan
 pejalan kaki. Model-model 3D tersebut telah dibuat sehingga dimensi model-model
 tersebut mencerminkan dimensi objek aslinya di dunia nyata. Model-model tersebut
 dibuat menggunakan model geometrik yang ringan dan dengan tekstur yang sesuai
@@ -102,10 +99,7 @@ cepat. Aset-aset yang telah disediakan CARLA sangat dapat disesuaikan
 \parencite{carla-dosovitskiy}. Aset baru juga dapat ditambahkan
 \parencite{carla-documentation-intro}.
 
-% TODO: ? add about how to import or make new assets
-% TODO: ? istilah ? add about collision? bounding box blablabla ? factor y
-
-\section{Unreal Engine}
+\subsection{Unreal Engine}
 
 Unreal Engine merupakan sebuah \textit{game engine} yang dikembangkan oleh Epic
 Games. Unreal Engine merupakan sebuah perangkat lunak yang dapat digunakan untuk
@@ -116,7 +110,62 @@ kebutuhan pengembang, Unreal Engine menyediakan \textit{source code} yang dapat
 dimodifikasi \parencite{ue-4}. CARLA menggunakan Unreal Engine untuk
 pengembangan lingkungan simulasi \parencite{carla-documentation-build}.
 
-% TODO: maybe how to add objects?
+\subsection{Konsep Dasar CARLA}
+
+CARLA memiliki beberapa konsep dasar sebagai berikut
+\parencite{carla-documentation-core-concepts}:
+
+\begin{enumerate}
+
+    \item \textit{World} dan \textit{Client}
+    \item \textit{Actor} dan \textit{Blueprint}
+    \item Map dan Navigasi
+    \item Sensor dan Data
+
+\end{enumerate}
+
+% \subsubsection{\textit{World} dan \textit{Client}}
+
+\textit{Client} dari CARLA merupakan modul yang dijalankan pengguna untuk
+mendapatkan informasi atau untuk mengubah simulasi. Pengguna melakukan kedua hal
+tersebut melalui sebuah terminal yang terhubung dengan server simulasi.
+\textit{World} merupakan sebuah objek yang merepresentasikan simulasi. Objek
+\textit{world} merupakan sebuah abstraksi kumpulan layar yang menyimpan status
+dari dunia simulasi, memiliki metode untuk \textit{spawn} aktor, melakukan
+pengontrolan cuaca, dan lain-lain \parencite{carla-documentation-core-concepts}.
+
+% \subsubsection{\textit{Actor} dan \textit{Blueprint}}
+
+Aktor (\textit{actor}) merupakan objek yang memiliki peran dalam simulasi. Aktor
+pada CARLA berupa: kendaraan, pejalan kaki, sensor, pengamat, rambu lalu lintas,
+dan lampu lalu lintas. \textit{Blueprint} berfungsi untuk memunculkan atau
+\textit{spawn} aktor lain \parencite{carla-documentation-core-concepts}.
+
+% \subsubsection{Map dan Navigasi}
+
+Map atau peta merupakan objek yang merepresentasikan dunia atau lingkungan
+simulasi. Peta pada CARLA direpresentasikan dalam bentuk model 3D dan rincian
+jalan, persimpangan, dan jalur yang ada. CARLA menggunakan OpenDRIVE 1.4 sebagai
+standar definisi jalan. Navigasi pada CARLA dibantu dengan objek rambu lalu
+lintas dan lampu lalu lintas yang memiliki rincian informasi OpenDRIVE. Kedua
+objek tersebut membentuk balok pembatas \textit{bounding boxes} sehingga
+aktor-aktor mengetahui bagaimana cara navigasi
+\parencite{carla-documentation-core-concepts}.
+
+% \subsubsection{Sensor dan Data}
+
+Sensor merupakan aktor yang dapat mengumpulkan data dari lingkungan sekitar.
+Pengumpulan data yan efisien dilakukan dengan memasang sensor pada kendaraan
+yang dikendalikan oleh pengguna dalam simulasi atau disebut sebagai \textit{ego
+vehicle} \parencite{carla-documentation-core-concepts,
+carla-documentation-core-retrieve-simulation-data}.
+
+% TODO: ? how to import/make new/edit assets, and then add corelation about blender
+% TODO: ? how to add, edit, and remove assets in the world (world outliner, levels)
+% Objects:
+% - spline
+% - bp
+% - factory
 
 \section{Blender}
 
@@ -131,7 +180,26 @@ yang dapat digunakan untuk penyesuaian Blender sendiri dan pembuatan alat
 pengeditan khusus. API Blender dapat digunakan menggunakan bahasa pemrograman
 Python \parencite{blender-about}.
 
-% TODO: tambahin ttf mode2
+\subsection{Mode Objek}
+
+Blender memiliki berbagai mode objek yang berfungsi untuk mengedit berbagai
+aspek dari objek. Beberapa mode objek blender adalah sebagai berikut
+\parencite{blender-object-modes}.
+
+\begin{enumerate}
+
+    \item \textit{Object Mode}: Mode \textit{default} objek yang berguna untuk
+    mengedit posisi, rotasi, skala objek, dan lain-lain.
+
+    \item \textit{Edit Mode}: Mode untuk mengedit bentuk objek, seperti titik,
+    sisi, permukaan, dan lain-lain.
+
+    \item \textit{Texture Paint Mode}: Mode untuk menambahkan tekstur langsung
+    pada model 3D.
+
+    \item \textit{Pose Mode}: Mode untuk mengedit pose \textit{armature}.
+
+\end{enumerate}
 
 \subsection{Animasi dan \textit{Rigging}}
 
@@ -153,7 +221,7 @@ dan berfungsi untuk memberi gerakan ke sebuah objek/model 3D. \textit{Armature}
 didesain untuk diberi pose. Gambar \ref{fig:basic-armature} menunjukkan contoh
 struktur \textit{armature} sederhana pada Blender. Kumpulan \textit{bone} pada
 sebuah \textit{armature} tidak perlu berhubungan satu sama lain sehingga
-struktur dari \textit{armature} dapat berupa-rupa, misalnya seperti rantai
+struktur dari \textit{armature} dapat berupa-rupa, seperti rantai
 tulang atau \textit{chains of bones} yang dapat dilihat pada Gambar
 \ref{fig:chains-of-bones} \parencite{blender-armature-introduction,
 blender-armature-structure}. Setelah pembuatan \textit{armature} selesai, perlu
@@ -186,6 +254,7 @@ dilihat pada Gambar \ref{fig:bone-structure}. Sebuah \textit{bone} terdiri atas
 \parencite{blender-bones-structure,blender-glossary}:
 
 \begin{enumerate}
+
     \item Sendi awal (\textit{root}/\textit{head})
 
     Sendi awal memiliki koordinat pada sumbu X, Y, dan Z di ruang lokal
@@ -215,12 +284,12 @@ dilihat pada Gambar \ref{fig:bone-structure}. Sebuah \textit{bone} terdiri atas
     \label{fig:bone-structure}
 \end{figure}
 
-\section{RoadRunner}
-RoadRunner merupakan sebuah \textit{interactive editor} yang digunakan untuk
-membuat konten desain 3D untuk simulasi dan pengujian sistem kendaraan otonom.
-Pengguna dapat membuat desain jalanan dengan mengedit lingkungan dan menambahkan
-rambu lalu lintas, sinyal lalu lintas, persimpangan, dan batas kendaraan. Selain
-itu, RoadRunner dapat digunakan untuk membuat desain kota \parencite{roadrunner}.
+% \section{RoadRunner}
+% RoadRunner merupakan sebuah \textit{interactive editor} yang digunakan untuk
+% membuat konten desain 3D untuk simulasi dan pengujian sistem kendaraan otonom.
+% Pengguna dapat membuat desain jalanan dengan mengedit lingkungan dan menambahkan
+% rambu lalu lintas, sinyal lalu lintas, persimpangan, dan batas kendaraan. Selain
+% itu, RoadRunner dapat digunakan untuk membuat desain kota \parencite{roadrunner}.
 
 \section{Penelitian Terkait}
 
@@ -232,8 +301,8 @@ Tugas Akhir ini.
 \label{subsec:rispro-trilaksono}
 
 Penelitian oleh \cite{rispro-trilaksono} merupakan penelitian mengenai inovasi
-bidang otomotif yang mengembangkan sistem otonomi untuk Trem menggunakan
-kecerdasan buatan. Penelitian tersebut memiliki tiga tahap yaitu, pengembangan
+bidang otomotif yang mengembangkan sistem otonomi untuk trem menggunakan
+kecerdasan buatan. Penelitian tersebut memiliki tiga tahap, yaitu pengembangan
 \textit{tram driving assistance}, pengembangan trem otonom, dan pengujian trem
 otonom di \textit{mixed traffic} serta persiapan komersialisasi.
 
@@ -272,10 +341,10 @@ Berikut Indikator Kinerja Riset (IKR) atau luaran penelitian tersebut
     \textit{Software-in-the-Loop Simulation} (SILS) dan
     \textit{Hardware-in-the-Loop Simulation} (HILS).
 
-    Menguji dan menganalisis \textit{platform} simulasi yaitu simulator CARLA
+    Menguji dan menganalisis \textit{platform} simulasi, yaitu simulator CARLA
     versi 0.9.12, uji coba beragam sensor, dan uji coba beberapa algoritma yang
     sudah dikembangkan. Melakukan konversi kode program/algoritma yang telah
-    dikembangkan ke bahasa pemrograman C++ untuk dimasukkan ke NVIDIA drive AGX
+    dikembangkan ke bahasa pemrograman C++ untuk dimasukkan ke NVIDIA DRIVE AGX
     Pegasus (selanjutnya akan disebut sebagai Pegasus) dan membuat
     \textit{web-service} untuk menghubungkan server simulasi dengan NVIDIA drive
     AGX Pegasus. Pegasus merupakan \textit{hardware} untuk memroses
@@ -295,12 +364,6 @@ Berikut Indikator Kinerja Riset (IKR) atau luaran penelitian tersebut
 
 \end{enumerate}
 
-Penelitian tersebut sedang dalam tahap kedua yaitu pengembangan trem otonom.
-Masing-masing indikator telah selesai atau sedang dalam perkembangan
-\parencite{rispro-trilaksono}. Tugas Akhir \textit{Capstone} ini merupakan
-bagian dari penelitian tersebut, khususnya pada indikator mengenai pengembangan
-SILS dan HILS.
-
 \subsection{\textit{KIT Bus: A Shuttle Model for CARLA Simulator}}
 
 Penelitian \textit{KIT Bus: A Shuttle Model for CARLA Simulator} ini merupakan
@@ -314,7 +377,7 @@ tahap, yaitu sebagai berikut \parencite{related-work-xiang}:
 
     Model bus dibuat sesuai dengan referensi dan dimensi asli. Model bus yang
     dibuat secara detil dan berpermukaan mulus sehingga realistis. Model bus
-    terdiri atas 6 bagian yaitu, bagian badan, bagian roda-roda, bagian
+    terdiri atas 6 bagian, yaitu bagian badan, bagian roda-roda, bagian
     interior, bagian detil, bagian kaca, dan bagian plat kendaraan.
 
     \item Melakukan pengeditan model 3D bus dalam CARLAUE4.
@@ -322,10 +385,10 @@ tahap, yaitu sebagai berikut \parencite{related-work-xiang}:
     Model bus yang telah dibuat kemudian diimpor ke dalam CARLAUE4.
     Masing-masing bagian badan bus dan keempat roda bus dipasangkan sebuah
     \textit{collision box} yang berbentuk dan berukuran sama. Agar model bus
-    dapat menyimulasikan animasi bus yang sebenarnya, cetak biru animasi harus
-    dibuat berbagai macam bagian bus yang bergerak. Dilakukan juga penambahan
-    material atau tekstur dan fungsionalitas lainnya yang dibutuhkan seperti,
-    lampu dan tekstur-tekstur yang ada pada permukaan bus. Hal tersebut
+    dapat menyimulasikan animasi bus yang sebenarnya, \textit{Blueprint} animasi
+    harus dibuat berbagai macam bagian bus yang bergerak. Dilakukan juga
+    penambahan material atau tekstur dan fungsionalitas lainnya yang dibutuhkan
+    seperti, lampu dan tekstur-tekstur yang ada pada permukaan bus. Hal tersebut
     dilakukan sehingga model bus dapat menyerupai model bus yang sebenarnya.
     Model bus yang telah selesai diedit dimasukkan ke dalam \textit{vehicle
     factory} agar dapat bisa dimunculkan (\textit{spawn}).
