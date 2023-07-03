@@ -19,8 +19,8 @@ pengembangan simulasi atau pengembangan SILS dan HILS adalah sebagai berikut:
 
 	CARLA versi 0.9.12 di-\textit{install}. Model angkot dan becak telah diimpor
 	sebagai objek statis (bukan kendaraan). Kendaraan model \textit{FireTruck}
-	digunakan sebagai kendaraan utama (\textit{ego vehicle}) pengganti trem
-	karena model trem belum diintegrasi sebagai kendaraan.
+	digunakan sebagai \textit{ego vehicle} menggantikan trem untuk sementara
+	waktu karena model trem belum diintegrasi sebagai kendaraan.
 
 	\item \textit{Web service} telah diimplementasi sebagai jalur komunikasi
 	antara simulator CARLA dan Pegasus pada HILS.
@@ -66,15 +66,14 @@ validasi \textit{decision making} dan persepsi dengan menggunakan simulasi.
 
 Simulasi trem otonom untuk saat ini telah diinisiasi namun baru sebatas
 eksplorasi simulator CARLA dengan menambahkan kendaraan angkot dan becak sebagai
-objek statis (bukan kendaraan) dan mengetes kendaraan pengganti trem sebagai
-kendaraan utama yang dipasangkan sensor (\textit{ego vehicle}) dalam simulasi.
-Aset model 3D sudah dibangun namun belum diimplementasikan ke dalam simulasi.
-Aset model 3D tersebut adalah: trem, angkot, becak, sepeda onthel, sepeda motor,
-beberapa rambu lokal, dan gerobak. Gambar \ref{fig:3d-model-assets} menunjukkan
-aset model 3D yang telah dibuat.
+objek statis (bukan kendaraan) dan mengetes data dari sensor di \textit{ego
+vehicle} dalam simulasi. Aset model 3D sudah dibangun namun belum
+diimplementasikan ke dalam simulasi. Aset model 3D tersebut adalah: trem,
+angkot, becak, sepeda onthel, sepeda motor, beberapa rambu lokal, dan gerobak.
+Gambar \ref{fig:3d-model-assets} menunjukkan aset model 3D yang telah dibuat.
 
-% \begin{figure}[!tbp]
-\begin{figure}[ht]
+\begin{figure}[!tb]
+% \begin{figure}[ht]
 	\centering
 	\subfloat[Trem]{\includegraphics[width=0.4\textwidth]{resources/chapter-3-tram.png}}
 	\hfill
@@ -147,8 +146,8 @@ dan Radar untuk menangkap lingkungan sekitar.
 
 Pada proses implementasi aset membutuhkan simulator CARLA dan CARLAUE4 yang
 dibangun atau di-\textit{compile} sendiri bukan menggunakan program atau
-\textit{binary} yang sudah di-\textit{compile}. Dibutuhkan aplikasi \textit{3D
-modelling} seperti Blender untuk membuat aset.
+\textit{binary} yang \textit{packaged}. Dibutuhkan aplikasi \textit{3D
+modelling} seperti Blender untuk membuat aset model 3D.
 % Aplikasi RoadRunner akan digunakan untuk membuat aset peta.
 
 \section{Rancangan Implementasi Objek dan Lingkungan Indonesia di Simulator CARLA}
@@ -158,16 +157,7 @@ langkah-langkah sebagai berikut:
 
 % TODO: ? rencana import aset yang lain (yang khusus, yang detail di bawah aja)
 % TODO: ? BP, factory, spline
-% TODO: jelasin how to? but where
-
-% (lihat Gambar \ref{fig:vehicle-skeleton}), aset dapat diperoleh dari
-% \cite{blender-add-a-new-vehicle}
-% \begin{figure}[ht]
-%     \centering
-%     \includegraphics[width=0.5\textwidth]{resources/chapter-3-vehicle-skeleton.png}
-%     \caption{\textit{Vehicle skeleton}}
-%     \label{fig:vehicle-skeleton}
-% \end{figure}
+% TODO: ? jelasin how to, but where
 
 \begin{enumerate}
 
@@ -193,8 +183,8 @@ langkah-langkah sebagai berikut:
 
 	% untuk import vehicles:
 	% https://carla.readthedocs.io/en/0.9.13/tuto_A_add_vehicle/#bind-and-model-the-vehicle
-	% untuk buat peta:
-	% https://carla.readthedocs.io/en/0.9.13/tuto_M_generate_map/
+	% ~~untuk buat peta:~~
+	% ~~https://carla.readthedocs.io/en/0.9.13/tuto_M_generate_map/~~
 
 	% links:
 	% https://carla.readthedocs.io/en/0.9.13/tuto_A_add_props/

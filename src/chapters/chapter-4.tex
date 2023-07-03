@@ -2,8 +2,8 @@
 
 \section{Hasil Eksplorasi CARLA}
 
-Setelah membaca dokumentasi CARLA dan mengeksplorasi CARLAUE4 diketahui terdapat
-beberapa fitur sebagai berikut:
+Setelah membaca dokumentasi CARLA, menginstal CARLAUE4, dan mengeksplorasi
+CARLAUE4 diketahui terdapat beberapa fitur sebagai berikut:
 
 \begin{enumerate}
 	\item Penambahan kendaraan baru beroda empat dan dua.
@@ -11,23 +11,22 @@ beberapa fitur sebagai berikut:
 	\item Penambahan objek statis lainnya.
 \end{enumerate}
 
-% dapat dilakukan implementasi kendaraan roda 4, 2
-% dapat dilakukan implementasi rel menggunakan spline (add ref?)
-% dapat dilakukan implementasi objek statis
+% TODO: tambah hasil eksplorasi lainnya
+% TODO: ? BP, factory, spline
 
 % TODO: ? cara import aset yang lain (yang khusus, yang detail di bawah aja)
-% TODO: ? BP, factory, spline
-% TODO: jelasin how to? but where
+% TODO: ? jelasin how to? but where
 
 \section{Implementasi Trem dan Angkot}
 
 \subsection{Pembuatan Aset Model 3D untuk Ekspor FBX}
 
 Implementasi trem dan angkot mengikuti langkah-langkah pada
-\cite{blender-add-a-new-vehicle}. Pembuatan \textit{mesh} model 3D perlu sesuai
-dengan persyaratan dari CARLA, yaitu jumlah tris (segitiga satuan yang membentuk
-permukaan) 50.000-100.000, melakukan pemisahan material/tekstur sesuai dengan
-bagian kendaraan agar tampilan sesuai saat disimulasikan.
+\textcite{blender-add-a-new-vehicle}. Pembuatan \textit{mesh} model 3D perlu
+sesuai dengan persyaratan dari CARLA, yaitu jumlah tris (segitiga satuan yang
+membentuk permukaan) adalah 50.000-100.000 dan melakukan pemisahan
+material/tekstur sesuai dengan bagian kendaraan agar tampilan sesuai saat
+disimulasikan.
 
 Setelah model 3D dibuat, aset \textit{vehicle skeleton} atau \textit{armature}
 dari \cite{blender-add-a-new-vehicle} perlu ditambahkan, diatur posisi
@@ -36,26 +35,26 @@ Gambar \ref{fig:vehicle-skeleton} menunjukkan aset yang harus ditambahkan pada
 kendaraan. Setelah \textit{armature} ditambahkan, masing-masing \textit{head}
 dari \textit{bone} roda perlu diposisikan di tengah ban (lihat Gambar
 \ref{fig:armature-placement}). Aset \textit{armature} hanya boleh ditranslasi
-dan tidak untuk dirotasi ataupun diskala karena akan merusak proses impor
-nantinya.
+dan tidak boleh dirotasi ataupun diatur skalanya karena akan merusak proses
+impor nantinya.
 
-\begin{figure}[ht]
+\begin{figure}[!h]
 	\centering
-	\subfloat[\textit{Vehicle skeleton}]{\includegraphics[width=0.4\textwidth]{resources/chapter-4/vehicle-skeleton.png}}
+	\subfloat[\textit{Armature}]{\includegraphics[width=0.45\textwidth]{resources/chapter-4/vehicle-skeleton.png}}
 	\hfill
-	\subfloat[Hierarki \textit{Vehicle skeleton}]{\includegraphics[width=0.4\textwidth]{resources/chapter-4/vehicle-skeleton-hierarchy.png}}
-	\caption{\textit{Vehicle skeleton}}
+	\subfloat[Hierarki \textit{Vehicle skeleton}]{\includegraphics[width=0.45\textwidth]{resources/chapter-4/vehicle-skeleton-hierarchy.png}}
+	\caption{\textit{Vehicle skeleton} kendaraan roda empat}
     \label{fig:vehicle-skeleton}
 \end{figure}
 
-\begin{figure}[ht]
+\begin{figure}[!h]
 	\centering
-	\subfloat[Tampak samping roda depan kiri angkot]{\includegraphics[width=0.4\textwidth]{resources/chapter-4/bone-placement-2.png}}
+	\subfloat[Tampak samping roda depan kiri angkot]{\includegraphics[width=0.45\textwidth]{resources/chapter-4/bone-placement-2.png}}
 	\hfill
-	\subfloat[Tampak depan roda depan kiri angkot \textit{Vehicle skeleton}]{\includegraphics[width=0.4\textwidth]{resources/chapter-4/bone-placement-1.png}}
+	\subfloat[Tampak depan roda depan kiri angkot \textit{Vehicle skeleton}]{\includegraphics[width=0.45\textwidth]{resources/chapter-4/bone-placement-1.png}}
 	\hfill
-	\subfloat[Angkot dengan \textit{armature}]{\includegraphics[width=0.4\textwidth]{resources/chapter-4/angkot-model-2.png}}
-	\caption{Angkot dengan \textit{Vehicle skeleton} yang sudah di-\textit{skin}}
+	\subfloat[Trem dengan \textit{armature}]{\includegraphics[width=0.45\textwidth]{resources/chapter-4/tram-wheels-bone.png}}
+	\caption{Penempatan \textit{armature}}
     \label{fig:armature-placement}
 \end{figure}
 
@@ -66,16 +65,43 @@ Setelah semua posisi \textit{bone} sesuai, dilakukan \textit{skinning}
 \textit{armature} dengan \textit{mesh} kendaraan. Lima \textit{vertices groups}
 dibuat untuk menghubungkan grup-grup dengan \textit{bone} yang sesuai. Kelima
 \textit{vertices groups} dibuat dengan nama yang sesuai dengan nama
-\textit{bone} yang akan dihubungkan. Gambar \ref{fig:wheel-skinning} menunjukkan
-roda angkot bagian depan kiri yang sudah dihubungkan dengan \textit{bone} yang
-sesuai. Pengujian ini dilakukan pada \textit{pose mode}, memilih salah satu
-\textit{bone}, mengetik 'r', dan menggerakan \textit{cursor}.
+\textit{bone} yang akan dihubungkan. Gambar \ref{fig:vertices-groups}
+menunjukkan \textit{vertices groups} yang sudah dibuat dan ditambahkan kumpulan
+titiknya. Cara membuat \textit{vertices groups} adalah dengan memilih mode edit
+(pada mesh kendaraan) dan menambahkan \textit{vertices groups} pada \textit{tab}
+dengan nama \textit{Object Data Properties}. Setelah itu, \textit{vertices
+groups} tersebut perlu diisi dengan titik-titik yang sesuai.
 
-\begin{figure}[ht]
+\begin{figure}[!h]
 	\centering
-	\subfloat[Roda posisi awal]{\includegraphics[width=0.4\textwidth]{resources/chapter-4/skinned-wheel-default.png}}
+    \includegraphics[width=1\textwidth]{resources/chapter-4/vertices-groups.png}
+    \caption{Membuat \textit{vertices groups}}
+	\label{fig:vertices-groups}
+\end{figure}
+
+Gambar \ref{fig:skinning-process} menunjukkan cara \textit{skinning}. Cara
+melakukan \textit{skinning} adalah dengan menyusun hierarki objek seperti pada
+Gambar \ref{fig:skinning-process} kemudian memilih menu \textit{Object},
+\textit{Parent}, dan \textit{Armature Deform With Automatic Weights}
+yang terletak pada \textit{Viewport Header}.
+
+\begin{figure}[!h]
+	\centering
+    \includegraphics[width=1\textwidth]{resources/chapter-4/skining.png}
+    \caption{\textit{Skinning}}
+	\label{fig:skinning-process}
+\end{figure}
+
+Gambar \ref{fig:wheel-skinning} menunjukkan roda angkot bagian depan kiri yang
+sudah dihubungkan dengan \textit{bone} yang sesuai. Pengujian ini dilakukan pada
+\textit{pose mode}, memilih salah satu \textit{bone}, mengetik 'r', dan
+menggerakan \textit{cursor}.
+
+\begin{figure}[!h]
+	\centering
+	\subfloat[Roda posisi awal]{\includegraphics[width=0.47\textwidth]{resources/chapter-4/skinned-wheel-default.png}}
 	\hfill
-	\subfloat[Perubahan posisi roda]{\includegraphics[width=0.4\textwidth]{resources/chapter-4/skinned-wheel-moved.png}}
+	\subfloat[Perubahan posisi roda]{\includegraphics[width=0.47\textwidth]{resources/chapter-4/skinned-wheel-moved.png}}
 	\caption{Hasil \textit{skinning} roda yang benar}
 	\label{fig:wheel-skinning}
 \end{figure}
@@ -83,28 +109,44 @@ sesuai. Pengujian ini dilakukan pada \textit{pose mode}, memilih salah satu
 Aset model 3D dapat diekspor ke dalam format FBX dengan cara memilih pilihan
 pada Gambar \ref{fig:export-fbx}.
 
-\begin{figure}[ht]
+\begin{figure}[!h]
 	\centering
-	\subfloat[Opsi ekspor FBX]{\includegraphics[width=0.4\textwidth]{resources/chapter-4/export-fbx-options-1.png}}
+	\subfloat[Opsi ekspor FBX]{\includegraphics[width=0.47\textwidth]{resources/chapter-4/export-fbx-options-1.png}}
 	\hfill
-	\subfloat[Opsi ekspor FBX lanjutan]{\includegraphics[width=0.4\textwidth]{resources/chapter-4/export-fbx-options-2.png}}
+	\subfloat[Opsi ekspor FBX lanjutan]{\includegraphics[width=0.47\textwidth]{resources/chapter-4/export-fbx-options-2.png}}
 	\caption{Opsi ekspor FBX}
 	\label{fig:export-fbx}
 \end{figure}
 
-\subsubsection{Impor Berkas FBX ke CARLAUE4}
+\clearpage
+
+\subsection{Impor Berkas FBX ke CARLAUE4}
+
+Setelah aset model 3D selesai dibuat dan diekspor ke dalam format FBX, berkas
+FBX tersebut diimpor ke dalam CARLAUE4. Berikut adalah langkah implementasi:
+
+% TODO: buat jadi subsubsection?
+\begin{enumerate}
+
+    \item Buat \textit{folder} dengan nama \verb|<nama_kendaraan>| di direktori
+    \verb|Content/Carla/Static/Vehicles/4Wheeled| di \textit{Content Browser}.
+    \item Impor berkas FBX ke dalam \textit{folder} tersebut dengan klik kanan
+    pada \textit{Content Browser}
+
+    % many more + pics
+    \dots
+
+\end{enumerate}
 
 \dots
 
 % TODO: trouble shooting? hal2 yang harus diperhatikan
 
-% TODO:
-% navigate
 % new folder
 % import + options
+% buat animation blueprint
 % make static mesh buat ganti ...
 % set physical asset mesh
-% buat animation blueprint
 
 % navigate ke bp folder
 % buat folder baru
@@ -114,7 +156,6 @@ pada Gambar \ref{fig:export-fbx}.
 
 % spawn vehicle (implemented but does it work?)
 
-
 % \section{Sepeda Onthel, Sepeda Motor, dan Becak}
 % \subsection{Pembuatan Aset Model 3D untuk Ekspor FBX}
 % \subsubsection{Impor Berkas FBX ke CARLAUE4}
@@ -122,14 +163,14 @@ pada Gambar \ref{fig:export-fbx}.
 Gambar \ref{fig:tram-carla} menunjukkan hasil implementasi trem. Gambar
 \ref{fig:angkot-carla} menunjukkan hasil implementasi trem  angkot.
 
-\begin{figure}[ht]
+\begin{figure}[!h]
     \centering
     \includegraphics[width=0.6\textwidth]{resources/chapter-4/tram-carla.png}
     \caption{Implementasi trem dalam lingkungan simulasi}
     \label{fig:tram-carla}
 \end{figure}
 
-\begin{figure}[ht]
+\begin{figure}[!h]
     \centering
     \includegraphics[width=0.6\textwidth]{resources/chapter-4/angkot.png}
     \caption{Implementasi angkot dalam lingkungan simulasi}
@@ -149,6 +190,8 @@ memilih dan mengaktifkan tingkat atau level objek yang ingin diubah.
 % TODO: insert images, add directories, world levels, world outliner kah istilahnya?
 % penyesuiannya lingkungan?
 
+% TODO: benerin kata2nya jelek banget astaga
+
 \subsection{Stasiun Madiun dan Stasiun Solokota}
 Gambar \ref{fig:stasiun-madiun} menunjukkan implementasi model Stasiun Madiun
 (lihat Gambar \ref{fig:stasiun-madiun-model}). Model stasiun kemudian
@@ -160,28 +203,28 @@ disesuaikan ukurannya dan diposisikan pada ... .
 
 % TODO: ..., + cara,  ke bab 3?
 
-\begin{figure}[ht]
+\begin{figure}[!h]
     \centering
     \includegraphics[width=0.6\textwidth]{resources/chapter-3-stasiun-madiun-model.png}
     \caption{Model Stasiun Madiun}
     \label{fig:stasiun-madiun-model}
 \end{figure}
 
-\begin{figure}[ht]
+\begin{figure}[!h]
     \centering
     \includegraphics[width=0.6\textwidth]{resources/chapter-4/stasiun-madiun-carla.png}
     \caption{Implementasi stasiun Madiun dalam lingkungan simulasi}
     \label{fig:stasiun-madiun}
 \end{figure}
 
-\begin{figure}[ht]
+\begin{figure}[!h]
     \centering
     \includegraphics[width=0.6\textwidth]{resources/chapter-3-stasiun-solokota-model.png}
     \caption{Model Stasiun Solokota}
     \label{fig:stasiun-solokota-model}
 \end{figure}
 
-\begin{figure}[ht]
+\begin{figure}[!h]
     \centering
     \includegraphics[width=0.6\textwidth]{resources/chapter-4/stasiun-solokota-carla.png}
     \caption{Implementasi stasiun Solokota dalam lingkungan simulasi}
@@ -190,11 +233,11 @@ disesuaikan ukurannya dan diposisikan pada ... .
 
 \subsection{Rambu-rambu Lalu Lintas}
 
-\begin{figure}[ht]
+\begin{figure}[!h]
 	\centering
-	\subfloat[]{\includegraphics[width=0.4\textwidth]{resources/chapter-4/rambu-1.png}}
+	\subfloat[]{\includegraphics[width=0.45\textwidth]{resources/chapter-4/rambu-1.png}}
 	\hfill
-	\subfloat[]{\includegraphics[width=0.4\textwidth]{resources/chapter-4/rambu-2.png}}
+	\subfloat[]{\includegraphics[width=0.45\textwidth]{resources/chapter-4/rambu-2.png}}
 	\caption{Implementasi rambu-rambu lalu lintas dalam lingkungan simulasi}
 	\label{fig:road-signs}
 \end{figure}
@@ -204,25 +247,25 @@ disesuaikan ukurannya dan diposisikan pada ... .
 % spline: butuh banyak edge/verts
 % topview + stasiun
 
-Gambar \ref{fig:rel} dan Gambar \ref{fig:rel-2} menunjukkan implementasi rel.
+Gambar \ref{fig:rel} dan Gambar \ref{fig:rel-2} menunjukkan hasil implementasi rel.
 
 % rel (lihat Gambar \ref{fig:rel-model}).
 
-% \begin{figure}[ht]
+% \begin{figure}[!h]
 %     \centering
 %     \includegraphics[width=0.6\textwidth]{resources/chapter-4/rel.png}
 %     \caption{Implementasi rel dalam lingkungan simulasi}
 %     \label{fig:rel-model}
 % \end{figure}
 
-\begin{figure}[ht]
+\begin{figure}[!h]
     \centering
     \includegraphics[width=0.6\textwidth]{resources/chapter-4/rel.png}
     \caption{Implementasi rel dalam lingkungan simulasi}
     \label{fig:rel}
 \end{figure}
 
-\begin{figure}[ht]
+\begin{figure}[!h]
     \centering
     \includegraphics[width=0.6\textwidth]{resources/chapter-4/rel-segmentation-camera.png}
     \caption{Implementasi rel dalam lingkungan simulasi (tampilan segmentasi semantik)}
@@ -241,5 +284,12 @@ aslinya) dan stabil saat simulasi berjalan.
 \subsection{Hasil Validasi}
 % manual + generate
 
+\section{Distribusi Hasil Implementasi}
+
 \section{Evaluasi}
 % kendaraan roda 2 dan 3 berhasil diimplementasikan namun tidak stabil
+% ? tidak diperlukan perta
+% tidak diperlukan data OpenDRIVE untuk traffic signs, karena:
+% - tidak dibutuhkan
+% - dari sisi trem, hanya butuh secara visual saja
+% - dari sisi kendaraan lain (untuk autopilot), tidak dibutuhkan juga, mostly cuman penanda ada ini
