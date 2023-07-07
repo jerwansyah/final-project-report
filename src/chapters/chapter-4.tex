@@ -18,7 +18,7 @@ sebagai berikut:
     \item Penambahan objek statis lainnya.
 \end{enumerate}
 
-% TODO: tambah hasil eksplorasi lainnya
+% TODO: ? tambah hasil eksplorasi lainnya (eksplorasi buat kota baru)
 % TODO: ? BP, factory, spline
 % TODO: ? jelasin how to? but where
 
@@ -57,14 +57,14 @@ pemisahan material atau tekstur sesuai dengan bagian kendaraan agar tampilan
 sesuai saat disimulasikan.
 
 Setelah model 3D dibuat, aset \textit{vehicle skeleton} atau \textit{armature}
-dari \textcite{blender-add-a-new-vehicle} perlu ditambahkan, diatur posisi
+dari \textcite{blender-add-a-new-vehicle} ditambahkan, diatur posisi
 \textit{bone} dari \textit{armature}, dan dihubungkan ke \textit{mesh} model 3D.
 Gambar \ref{fig:vehicle-skeleton} menunjukkan aset yang harus ditambahkan pada
 kendaraan. Setelah \textit{armature} ditambahkan, masing-masing \textit{head}
-dari \textit{bone} roda perlu diposisikan di tengah ban (lihat Gambar
-\ref{fig:armature-placement}). Aset \textit{armature} hanya boleh ditranslasi
-dan tidak boleh dirotasi ataupun diatur skalanya karena akan merusak proses
-impor nantinya.
+dari \textit{bone} roda perlu diposisikan di tengah ban. Gambar
+\ref{fig:armature-placement} menunjukkan penempatan \textit{armature}. Aset
+\textit{armature} hanya boleh ditranslasi dan tidak boleh dirotasi ataupun
+diatur skalanya karena akan merusak proses impor nantinya.
 
 \begin{figure}[!h]
     \centering
@@ -92,22 +92,26 @@ dibuat untuk menghubungkan kumpulan titik dengan \textit{bone} yang sesuai.
 Kelima \textit{vertices groups} dibuat dengan nama yang sesuai dengan nama
 \textit{bone} yang akan dihubungkan. Gambar \ref{fig:vertices-groups}
 menunjukkan \textit{vertices groups} yang sudah dibuat dan ditambahkan kumpulan
-titiknya. Cara membuat \textit{vertices groups} adalah dengan memasuki
-\textit{edit mode} (pada mesh kendaraan) dan menambahkan \textit{vertices
-groups} pada \textit{tab} \verb|Object Data Properties|. Setelah itu,
-\textit{vertices groups} tersebut perlu diisi dengan titik-titik yang sesuai.
+titiknya. \textit{Vertices groups} dibuat dengan cara memasuki \textit{edit
+mode} (pada mesh kendaraan) dan menambahkan \textit{vertices groups} pada
+\textit{tab} \verb|Object Data Properties|. Setelah itu, \textit{vertices
+groups} tersebut diisi dengan titik-titik yang sesuai.
 
 \begin{figure}[!h]
     \centering
     \includegraphics[width=1\textwidth]{resources/chapter-4/vertices-groups.png}
-    \caption{Membuat \textit{vertices groups}}
+    \caption{\textit{Vertices groups} yang telah dibuat}
     \label{fig:vertices-groups}
 \end{figure}
 
-Cara melakukan \textit{skinning} adalah dengan memasuki \textit{object mode} dan
+Dilakukan \textit{skinning} dengan cara memasuki \textit{object mode} dan
 menyusun hierarki objek seperti pada Gambar \ref{fig:skinning-hierarchy}
 kemudian memilih menu \verb|Object > Parent > Armature Deform with Automatic|
-yang terletak pada \textit{Viewport Header}.
+yang terletak pada \textit{Viewport Header}. Gambar \ref{fig:wheel-skinning}
+menunjukkan roda angkot bagian depan kiri yang sudah dihubungkan dengan
+\textit{bone} yang sesuai. Pengujian ini dilakukan dengan memilih salah satu
+\textit{bone}, mengetik `r', dan menggerakan \textit{cursor} pada \textit{pose
+mode}.
 
 \begin{figure}[!h]
     \centering
@@ -115,11 +119,6 @@ yang terletak pada \textit{Viewport Header}.
     \caption{Hierarki objek}
     \label{fig:skinning-hierarchy}
 \end{figure}
-
-Gambar \ref{fig:wheel-skinning} menunjukkan roda angkot bagian depan kiri yang
-sudah dihubungkan dengan \textit{bone} yang sesuai. Pengujian ini dilakukan
-dengan memilih salah satu \textit{bone}, mengetik `r', dan menggerakan
-\textit{cursor} pada \textit{pose mode}.
 
 \begin{figure}[!h]
     \centering
@@ -130,8 +129,8 @@ dengan memilih salah satu \textit{bone}, mengetik `r', dan menggerakan
     \label{fig:wheel-skinning}
 \end{figure}
 
-Aset model 3D dapat diekspor ke dalam format FBX dengan cara memilih pilihan
-pada Gambar \ref{fig:export-fbx}. Opsi yang perlu diperhatikan adalah opsi
+Aset model 3D kemudian diekspor ke dalam format FBX. Gambar \ref{fig:export-fbx}
+menunjukkan opsi ekspor yang digunakan. Opsi yang perlu diperhatikan adalah opsi
 \verb|Forward| dan \verb|Up| pada bagian \verb|Transform|. Opsi \verb|Forward|
 harus diatur ke arah sumbu \verb|-Z Forward| dan opsi \verb|Up| harus diatur ke
 arah sumbu \verb|Y Up|. Opsi lainnya dapat diatur sesuai kebutuhan.
@@ -150,14 +149,14 @@ arah sumbu \verb|Y Up|. Opsi lainnya dapat diatur sesuai kebutuhan.
 % TODO: add carlaue4 editor ui?
 
 Setelah aset model 3D selesai dibuat dan diekspor ke dalam format FBX, berkas
-FBX tersebut diimpor ke dalam editor CARLAUE4. Sebelum mengimpor berkas FBX
-kendaraan, sebuah \textit{folder} baru harus dibuat di dalam direktori
-\verb|Content/Carla/Static/Vehicles/4Wheeled| di \textit{Content Browser}
-kemudian berkas FBX dapat diimpor ke dalam \textit{folder} tersebut dengan klik
-kanan pada \textit{Content Browser}. Gambar
-\ref{fig:fbx-import-options-4wheeled} menunjukkan opsi yang digunakan untuk
-mengimpor berkas FBX kendaraan roda 4. Berikut adalah beberapa opsi yang perlu
-diperhatikan dan diatur:
+FBX tersebut diimpor ke dalam editor CARLAUE4. Sebelum berkas FBX kendaraan
+diimpor, sebuah \textit{folder} baru dibuat di dalam direktori
+\verb|/Content/Carla/Static/Vehicles/4Wheeled| (selanjutnya akan disebut sebagai
+\textit{folder} \verb|Static|) di \textit{Content Browser} kemudian berkas FBX
+dapat diimpor ke dalam \textit{folder} tersebut dengan klik kanan pada
+\textit{Content Browser}. Gambar \ref{fig:fbx-import-options-4wheeled}
+menunjukkan opsi yang digunakan untuk mengimpor berkas FBX kendaraan roda 4.
+Berikut adalah beberapa opsi yang perlu diperhatikan dan diatur:
 
 \begin{enumerate}
     \item Opsi \verb|Import Content Type| harus diatur ke \texttt{Geometry and Skinning Weights}.
@@ -165,7 +164,7 @@ diperhatikan dan diatur:
     \item Opsi \verb|Use T0 as Ref Pose| harus dicentang.
 \end{enumerate}
 
-\begin{figure}[!h]
+\begin{figure}[!ht]
     \centering
     \subfloat[Opsi impor berkas FBX]{\includegraphics[width=0.47\textwidth]{resources/chapter-4/fbx-import-options-4wheeled-1.png}}
     \hfill
@@ -177,25 +176,75 @@ diperhatikan dan diatur:
 Pengimporan berkas FBX tersebut menghasilkan aset-aset sebagai berikut:
 
 \begin{enumerate}
-    \item Aset \textit{mesh} \verb|<nama_kendaraan>|
-    \item Aset \textit{skeletal mesh} \verb|<nama_kendaraan>_Skeleton|
+    \item Aset \textit{skeletal mesh} \verb|<nama_kendaraan>|
+    \item Aset \textit{skeleton} \verb|<nama_kendaraan>_Skeleton|
     \item Aset \textit{physics} \verb|<nama_kendaraan>_PhysicsAsset|
     \item Aset-aset material dan tekstur yang ada dalam berkas FBX jika opsi
     \verb|Material Import Method| diatur ke \verb|Create New Materials|.
 \end{enumerate}
 
-Penyesuaian atau pengeditan aset-aset tersebut harus dilakukan untuk membuat
-kendaraan yang .
+Aset \textit{physics} diedit agar sesuai dengan bentuk aset \textit{mesh}.
+Bentuk \textit{body} badan kendaraan atau \textit{vehicle base} disesuaikan
+dengan cara mengubah \verb|Primitive Type| menjadi \verb|Multi Convex Hull|
+pada panel \verb|Tools|. Badan dari masing-masing roda kendaraan disesuaikan
+bentuk \verb|Primitive Type|-nya menjadi \verb|Sphere|. Dilakukan pengaturan
+opsi-opsi pada panel \verb|Details| untuk masing-masing roda, yaitu opsi
+\verb|Linear Damping| diatur menjadi \verb|0| dan opsi \verb|Physics Type|
+diatur menjadi \verb|Kinematic|. Opsi \verb|Simulation Generates Hit Events|
+pada panel \verb|Details| dicentang untuk badan dan roda-roda kendaraan agar
+\textit{collider} kendaraan dapat menghasilkan \textit{hit event}. Gambar
+\ref{fig:physics-asset-4wheeled} menunjukkan aset \textit{physics} kendaraan
+roda 4 sebelum dan setelah diedit.
 
+\begin{figure}[!ht]
+    \centering
+    \subfloat[Aset \textit{physics} trem sebelum pengeditan]{\includegraphics[width=0.6\textwidth]{resources/chapter-4/tram-physics-asset-before.png}}
+    \hfill
+    \subfloat[Aset \textit{physics} trem setelah pengeditan]{\includegraphics[width=0.6\textwidth]{resources/chapter-4/tram-physics-asset-after.png}}
+    \caption{Aset \textit{physics} trem}
+    \label{fig:physics-asset-4wheeled}
+\end{figure}
 
+Selain pengeditan aset \textit{physics}, dilakukan pembuatan aset \textit{static
+mesh} dan berbagai aset \textit{blueprint} agar aset kendaraan dapat
+mengintegrasikan sebagai kendaraan. Aset \textit{static mesh} dibuat dengan cara
+menekan tombol \verb|Make Static Mesh| pada panel \verb|Toolbar| pada aset
+\textit{skeletal mesh}. Aset tersebut dibuat untuk melengkapi \textit{static
+mesh} yang tidak dibuat dalam Blender. Aset tersimpan pada direktori
+\verb|/Content/Meshes/<nama_kendaraan>|.
 
-% TODO: trouble shooting? hal2 yang harus diperhatikan
+Aset \textit{animation blueprint} dibuat untuk mengatur animasi kendaraan.
+Karena semua animasi kendaraan roda 4 sama, aset \textit{animation blueprint}
+dapat dibuat dengan menyalin isi aset \textit{animation blueprint} dari salah
+satu kendaraan roda 4 yang sudah ada kemudian di-\textit{compile} dan disimpan
+dengan nama \verb|AnimBP_<nama_kendaraan>|. Gambar
+\ref{fig:blueprint-animation-4wheeled} menunjukkan aset \textit{animation
+blueprint} trem.
 
-% new folder
-% import + options
+\begin{figure}[!h]
+    \centering
+    \includegraphics[width=0.6\textwidth]{resources/chapter-4/tram-animation-blueprint.png}
+    \caption{Aset \textit{animation blueprint} trem}
+    \label{fig:blueprint-animation-4wheeled}
+\end{figure}
+
+% note: blueprint animation can be explained more in detail
+
+Aset-aset di dalam \textit{folder} \verb|Static| selesai dibuat. Gambar
+\ref{fig:tram-assets-in-static-folder} menunjukkan aset-aset trem dalam
+\textit{folder} \verb|Static|.
+
+\begin{figure}[!h]
+    \centering
+    \includegraphics[width=0.6\textwidth]{resources/chapter-4/tram-assets-in-static-folder.png}
+    \caption{Aset-aset trem dalam \textit{folder} \verb|Static|}
+    \label{fig:tram-assets-in-static-folder}
+\end{figure}
+
+Selanjutnya, dilakukan pembuatan aset dalam direktor
+\verb|/Content/Carla/Bleprints/Vehicle/<nama_kendaraan>|.
+
 % buat animation blueprint
-% make static mesh buat ganti ...
-% set physical asset mesh
 
 % navigate ke bp folder
 % buat folder baru
@@ -204,6 +253,8 @@ kendaraan yang .
 % add dto vehicle factory
 
 % spawn vehicle (implemented but does it work?)
+
+% TODO: trouble shooting? hal2 yang harus diperhatikan
 
 Gambar \ref{fig:tram-carla} menunjukkan hasil implementasi trem. Gambar
 \ref{fig:angkot-carla} menunjukkan hasil implementasi trem  angkot.
@@ -245,7 +296,7 @@ memilih dan mengaktifkan tingkat atau level objek yang ingin diubah.
 % TODO: benerin kata2nya jelek banget astaga
 
 \subsubsection{Stasiun Madiun dan Stasiun Solokota}
-
+% TODO: remove lihat gambar, figures need to be mentioned explicitly
 Gambar \ref{fig:stasiun-madiun} menunjukkan implementasi model Stasiun Madiun
 (lihat Gambar \ref{fig:stasiun-madiun-model}). Model stasiun kemudian
 disesuaikan ukurannya dan diposisikan pada ... .
