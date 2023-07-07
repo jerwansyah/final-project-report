@@ -79,14 +79,14 @@ terkemuka, hukum fisika yang realistis, logika \textit{Non-Playable Character}
 (NPC) dasar, dan banyak \textit{plugin} \parencite{carla-dosovitskiy}.
 
 CARLA menyimulasikan sebuah dunia yang dinamis dan juga menyediakan antarmuka
-sederhana antara dunia tersebut dan aktor atau agen yang berinteraksi dengan
-dunia tersebut. CARLA dirancang sebagai sistem \textit{server-client} sehingga
+sederhana antara dunia tersebut dan aktor yang berinteraksi dengan dunia
+tersebut. CARLA dirancang sebagai sistem \textit{server-client} sehingga
 fungsionalitas tersebut dapat direalisasikan. Server CARLA menjalankan dan
 menyimulasikan suasana. \textit{Client} bertanggung jawab untuk mengatur
-interaksi antara aktor atau agen dengan server via \textit{socket} dengan
-mengirimkan perintah untuk aktor dan perintah untuk mengatur peraturan
-lingkungan simulasi di server. \textit{Client} akan menerima umpan balik hasil
-rekaman sensor \parencite{carla-dosovitskiy}.
+interaksi antara aktor dengan server via \textit{socket} dengan mengirimkan
+perintah untuk aktor dan perintah untuk mengatur peraturan lingkungan simulasi
+di server. \textit{Client} akan menerima umpan balik hasil rekaman sensor
+\parencite{carla-dosovitskiy}.
 
 Lingkungan simulasi pada CARLA terdiri atas model-model 3 dimensi (3D) yang
 statik, seperti bangungan, tumbuh-tumbuhan, rambu lalu lintas, dan infrastuktur
@@ -187,7 +187,7 @@ Python \parencite{blender-about}.
 
 Blender memiliki berbagai mode objek yang berfungsi untuk mengedit berbagai
 aspek dari objek. Beberapa mode objek blender adalah sebagai berikut
-\parencite{blender-object-modes}.
+\parencite{blender-object-modes}:
 
 \begin{enumerate}
 
@@ -206,13 +206,12 @@ aspek dari objek. Beberapa mode objek blender adalah sebagai berikut
 
 \subsection{Animasi dan \textit{Rigging}}
 
-Animasi adalah membuat sebuah objek
-bergerak atau berubah bentuk dari waktu ke waktu. \textit{Rigging} adalah
-istilah untuk menambahkan kontrol ke sebuah objek dengan tujuan untuk
-menganimasikan objek tersebut. \textit{Rigging} pada umumnya melibatkan komponen
-\textit{armature} dan komponen \textit{constraints}. \textit{Armature} berguna
-agar objek memiliki sendi yang fleksibel dan sering digunakan untuk animasi
-skeletal. \textit{Constraints} adalah batasan dari gerakan objek.
+Animasi adalah membuat sebuah objek bergerak atau berubah bentuk dari waktu ke
+waktu. \textit{Rigging} adalah istilah untuk menambahkan kontrol ke sebuah objek
+dengan tujuan untuk menganimasikan objek tersebut. \textit{Rigging} pada umumnya
+melibatkan komponen \textit{armature} dan komponen \textit{constraints}
+(komponen pembatas). \textit{Armature} berguna agar objek memiliki sendi yang
+fleksibel dan sering digunakan untuk animasi kerangka
 \parencite{blender-animation-and-rigging}.
 
 \subsection{\textit{Armature}}
@@ -262,8 +261,8 @@ dilihat pada Gambar \ref{fig:bone-structure}. Sebuah \textit{bone} terdiri atas
 
     Sendi awal memiliki koordinat pada sumbu X, Y, dan Z di ruang lokal
     (\textit{local space}) objek \textit{armature}. Sendi awal merupakan titik
-    acuan untuk rotasi \textit{bone} pada sumbu X dan Z pada (\textit{local
-    space}). Rotasi ini disebut juga sebagai \textit{roll angle}.
+    acuan untuk rotasi \textit{bone} pada sumbu X dan Z pada \textit{local
+    space}. Rotasi ini disebut juga sebagai \textit{roll angle}.
 
     \item Sendi akhir (\textit{tip}/\textit{tail})
 
@@ -304,14 +303,14 @@ Tugas Akhir ini.
 \subsection{Pengembangan Sistem Otonomi dengan Menggunakan Kecerdasan \textit{Artificial} untuk Trem}
 \label{subsec:rispro-trilaksono}
 
-Penelitian oleh \cite{rispro-trilaksono} merupakan penelitian mengenai inovasi
-bidang otomotif yang mengembangkan sistem otonomi untuk trem menggunakan
+Penelitian oleh \textcite{rispro-trilaksono} merupakan penelitian mengenai
+inovasi bidang otomotif yang mengembangkan sistem otonomi untuk trem menggunakan
 kecerdasan buatan. Penelitian tersebut memiliki tiga tahap, yaitu pengembangan
 \textit{tram driving assistance}, pengembangan trem otonom, dan pengujian trem
 otonom di \textit{mixed traffic} serta persiapan komersialisasi.
 
-Berikut Indikator Kinerja Riset (IKR) atau luaran penelitian tersebut
-\parencite{rispro-trilaksono}:
+Berikut adalah Indikator Kinerja Riset (IKR) atau luaran dari penelitian
+tersebut \parencite{rispro-trilaksono}:
 
 \begin{enumerate}
 
@@ -345,18 +344,18 @@ Berikut Indikator Kinerja Riset (IKR) atau luaran penelitian tersebut
     \textit{Software-in-the-Loop Simulation} (SILS) dan
     \textit{Hardware-in-the-Loop Simulation} (HILS).
 
-    Menguji dan menganalisis \textit{platform} simulasi, yaitu simulator CARLA
+    Pengujian dan penganalisisan \textit{platform} simulasi simulator CARLA
     versi 0.9.12, uji coba beragam sensor, dan uji coba beberapa algoritma yang
-    sudah dikembangkan. Melakukan konversi kode program/algoritma yang telah
+    sudah dikembangkan. Dilakukan konversi kode program/algoritma yang telah
     dikembangkan ke bahasa pemrograman C++ untuk dimasukkan ke NVIDIA DRIVE AGX
     Pegasus (selanjutnya akan disebut sebagai Pegasus) dan membuat
-    \textit{web-service} untuk menghubungkan server simulasi dengan NVIDIA drive
-    AGX Pegasus. Pegasus merupakan \textit{hardware} untuk memroses
-    algoritma \textit{Adaptive Cruise Control} (ACC), \textit{Emergency Braking
-    System} (EBS), dan \textit{Collision Avoidance} (\textit{decision making}).
-    Dari pengujian dan analisis tersebut, dibutuhkan penyempurnaan algoritma
-    persepsi berbasis sensor, perbaikan arsitekstur (HILS), dan integrasi objek
-    lokal pada skenario simulasi.
+    \textit{web-service} untuk menghubungkan server simulasi dengan Pegasus.
+    Pegasus merupakan \textit{hardware} untuk memroses algoritma
+    \textit{Adaptive Cruise Control} (ACC), \textit{Emergency Braking System}
+    (EBS), dan \textit{Collision Avoidance} (\textit{decision making}). Dari
+    pengujian dan analisis tersebut, dibutuhkan penyempurnaan algoritma persepsi
+    berbasis sensor, perbaikan arsitekstur (HILS), dan integrasi objek lokal
+    pada skenario simulasi.
 
     \item Pengembangan dan manufaktur \textit{platform} trem, sistem
     \textit{drive-by-wire} pada trem, dan integrasi sensor.
@@ -384,12 +383,12 @@ tahap, yaitu sebagai berikut \parencite{related-work-xiang}:
     terdiri atas 6 bagian, yaitu bagian badan, bagian roda-roda, bagian
     interior, bagian detil, bagian kaca, dan bagian plat kendaraan.
 
-    \item Melakukan pengeditan model 3D bus dalam CARLAUE4.
+    \item Melakukan pengeditan model 3D bus dalam editor CARLAUE4.
 
-    Model bus yang telah dibuat kemudian diimpor ke dalam CARLAUE4.
+    Model bus yang telah dibuat kemudian diimpor ke dalam editor CARLAUE4.
     Masing-masing bagian badan bus dan keempat roda bus dipasangkan sebuah
     \textit{collision box} yang berbentuk dan berukuran sama. Agar model bus
-    dapat menyimulasikan animasi bus yang sebenarnya, \textit{Blueprint} animasi
+    dapat menyimulasikan animasi bus yang sebenarnya, \textit{blueprint} animasi
     harus dibuat berbagai macam bagian bus yang bergerak. Dilakukan juga
     penambahan material atau tekstur dan fungsionalitas lainnya yang dibutuhkan
     seperti, lampu dan tekstur-tekstur yang ada pada permukaan bus. Hal tersebut
@@ -418,6 +417,6 @@ beberapa komputer yang memiliki \textit{Graphics Processing Unit} (GPU) yang
 memadai untuk memroses data dari sensor LIDAR, sensor radar, kamera pendeteksi
 objek, dan kamera pendekteksi sinyal. Trem otonom tersebut dapat beroperasi
 dengan lancar namun memiliki kendala ketika melakukan lokalisasi trem hanya
-dengan Global Navigation Satellite System (GNSS). Penelitian masih dilakukan
-untuk mengatasi kendala tersebut, misalnya dengan melakukan lokalisasi dengan
-persepsi atau visual \parencite{at-palmer}.
+dengan \textit{Global Navigation Satellite System} (GNSS). Penelitian masih
+dilakukan untuk mengatasi kendala tersebut, misalnya dengan melakukan lokalisasi
+dengan persepsi atau visual \parencite{at-palmer}.

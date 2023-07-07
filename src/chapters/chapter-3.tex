@@ -1,4 +1,5 @@
 \chapter{Deskripsi Solusi}
+\label{chapter-3}
 
 Bab ini membahas deskripsi umum permasalahan \textit{capstone}, analisis masalah
 simulasi yang sudah ada, analisis terhadap objek dan lingkungan yang akan
@@ -17,7 +18,7 @@ pengembangan simulasi atau pengembangan SILS dan HILS adalah sebagai berikut:
 
 	\item Eksplorasi kakas CARLA sebagai simulator.
 
-	CARLA versi 0.9.12 di-\textit{install}. Model angkot dan becak telah diimpor
+	CARLA versi 0.9.12 diinstal. Model angkot dan becak telah diimpor
 	sebagai objek statis (bukan kendaraan). Kendaraan model \textit{FireTruck}
 	digunakan sebagai \textit{ego vehicle} menggantikan trem untuk sementara
 	waktu karena model trem belum diintegrasi sebagai kendaraan.
@@ -43,16 +44,16 @@ pengembangan simulasi atau pengembangan SILS dan HILS adalah sebagai berikut:
 \end{enumerate}
 
 Dari kemajuan proyek dari tahun sebelumnya dibutuhkan  penyempurnaan algoritma
-persepsi berbasis sensor, perbaikan arsitekstur (HILS) atau komunikasi yang
+persepsi berbasis sensor, perbaikan arsitekstur HILS atau komunikasi yang
 memadai, dan integrasi objek lokal pada skenario simulasi. Tim \textit{capstone}
-yang beranggotakan 3 orang bertanggungjawab untuk:
+yang beranggotakan 3 orang bertanggung jawab untuk:
 
 \begin{enumerate}
 
-	\item Mengembangkan mekanisme komunikasi antara HILS yang lebih lancar dan
-	lebih cepat.
+	\item Mengembangkan mekanisme komunikasi antarperangkat dalam arsitektur
+	HILS yang lebih lancar dan lebih cepat.
 	\item Membuat implementasi skenario pengujian simulasi.
-	\item Mengintegrasikan atau mengimplementasikan objek lokal ke skenario
+	\item Mengintegrasikan dan/atau mengimplementasikan objek lokal ke skenario
 	simulasi.
 
 \end{enumerate}
@@ -119,35 +120,38 @@ menggunakan aplikasi \textit{3D modelling}. Aset dibuat secara lengkap dan rinci
 agar perilaku aset sesuai dengan yang asli.
 
 % the sentence below goes after the first sentence
-% Aset seperti peta kota harus dibuat langsung menggunakan CARLAUE4 atau
-% menggunakan RoadRunner kemudian diimpor ke dalam CARLAUE4 jika aset peta
-% diperlukan.
+% Aset seperti peta kota harus dibuat langsung menggunakan editor CARLAUE4 atau
+% menggunakan RoadRunner kemudian diimpor ke dalam editor CARLAUE4 jika aset
+% peta diperlukan.
 
-Aset model 3D yang telah jadi selanjutnya diimpor ke dalam CARLAUE4.
+Aset model 3D yang telah jadi selanjutnya diimpor ke dalam editor CARLAUE4.
 Proses impor aset ini dilakukan dengan mengikuti panduan yang telah tersedia di
 dokumentasi CARLA. Proses impor aset harus dilakukan dengan benar agar perilaku
 aset baik dan stabil untuk simulasi. Terdapat aset khusus yang harus ditambahkan
 ke dalam berkas 3D model kendaraan dan diatur ke model kendaraan. Aset khusus
 tersebut merupakan aset \textit{armature} untuk \textit{rigging} roda kendaraan.
-Setelah pengaturan aset dalam CARLAUE4 selesai, dilakukan verifikasi aset dengan
-cara menjalankan simulasi dan mengamati cara kendaraan beroperasi. Implementasi
-aset berupa kendaraan bus telah berhasil dilakukan pada penelitian lain
-\parencite{related-work-xiang}. Proses implementasi kendaraan bus dilakukan
-dengan membuat model 3D bus, mengimpor model 3D bus ke dalam CARLAUE4, mengedit
-aset bus tersebut dalam CARLAUE4, dan memverifikasi hasil impor aset bus
-tersebut.
+Setelah pengaturan aset dalam editor CARLAUE4 selesai, dilakukan verifikasi aset
+dengan cara menjalankan simulasi dan mengamati cara kendaraan beroperasi.
+Implementasi aset berupa kendaraan bus telah berhasil dilakukan pada penelitian
+lain \parencite{related-work-xiang}. Proses implementasi kendaraan bus dilakukan
+dengan membuat model 3D bus, mengimpor model 3D bus ke dalam editor CARLAUE4,
+mengedit aset bus tersebut dalam editor CARLAUE4, dan memverifikasi hasil impor
+aset bus tersebut.
 
 Implementasi objek dan lingkungan Indonesia yang akan dilakukan adalah dengan
-menambahkan aset dan membuat aset baru. Implementasi yang menambahkan aset
-meliputi kendaraan, rambu lalu lintas, dan lingkungan sederhana. Kendaraan yang
-akan diimplementasikan adalah trem otonom, angkot, becak, gerobak, motor, dan
-sepeda onthel. Trem akan dipasangkan berbagai sensor, seperti LIDAR, kamera RGB,
-dan Radar untuk menangkap lingkungan sekitar.
+menambahkan aset, membuat aset baru, dan mengubah aset yang sudah ada.
+Implementasi yang menambahkan aset meliputi kendaraan, rambu lalu lintas, rel,
+dan lingkungan sederhana. Kendaraan yang akan diimplementasikan adalah trem
+otonom, angkot, becak, motor, dan sepeda onthel. Trem akan dipasangkan
+berbagai sensor, seperti LIDAR, radar, kamera RGB untuk menangkap lingkungan
+sekitar.
 
-Pada proses implementasi aset membutuhkan simulator CARLA dan CARLAUE4 yang
-dibangun atau di-\textit{compile} sendiri bukan menggunakan program atau
-\textit{binary} yang \textit{packaged}. Dibutuhkan aplikasi \textit{3D
-modelling} seperti Blender untuk membuat aset model 3D.
+% note: gerobak is not going to be implemented
+
+Pada proses implementasi aset membutuhkan simulator CARLA, CARLAUE4, dan editor
+CARLAUE4 yang dibangun atau di-\textit{compile} sendiri bukan menggunakan
+program atau \textit{binary} yang \textit{packaged}. Dibutuhkan aplikasi
+\textit{3D modelling} seperti Blender untuk membuat aset model 3D.
 % Aplikasi RoadRunner akan digunakan untuk membuat aset peta.
 
 \section{Rancangan Implementasi Objek dan Lingkungan Indonesia di Simulator CARLA}
@@ -155,15 +159,16 @@ modelling} seperti Blender untuk membuat aset model 3D.
 Proses implementasi objek dan lingkungan di simulator CARLA dilakukan dengan
 langkah-langkah sebagai berikut:
 
-% TODO: ? rencana import aset yang lain (yang khusus, yang detail di bawah aja)
-% TODO: ? BP, factory, spline
-% TODO: ? jelasin how to, but where
+% note: in chapter 4
+% ? rencana import aset yang lain (yang khusus, yang detail di bawah aja)
+% ? explanation about BP, factory, spline
+% ? jelasin how to, but where
 
 \begin{enumerate}
 
-	\item Eksplorasi CARLAUE4 editor versi 0.9.12 dan versi 0.9.13.
+	\item Eksplorasi editor CARLAUE4 versi 0.9.12 dan versi 0.9.13.
 
-	Eksplorasi dilakukan untuk memelajari cara menggunakan CARLAUE4 dan
+	Eksplorasi dilakukan untuk memelajari cara menggunakan editor CARLAUE4 dan
 	mengetahui fitur-fitur yang telah dikembangkan oleh tim pengembang CARLA.
 
 	\item Membuat aset baru dengan Blender.
@@ -174,7 +179,7 @@ langkah-langkah sebagai berikut:
 	% Hal tersebut meliputi bentuk poligon, jumlah poligon, jumlah VEF, dan
 	% lain-lain. (yang sesuai dengan petunjuk)
 
-	\item Melakukan impor dan edit aset ke dalam CARLAUE4.
+	\item Melakukan impor dan edit aset ke dalam editor CARLAUE4.
 
 	Aset yang ingin dimasukkan ke lingkungan simulasi dan diedit harus dilakukan
 	dengan aplikasi CARLAUE4.
@@ -192,15 +197,16 @@ langkah-langkah sebagai berikut:
 
 	\item Melakukan penambahan dan validasi aset yang telah diimpor.
 
-	Aset yang telah diimpor dimasukkan ke dalam lingkungan simulasi. Validasi
-	aset dapat dilakukan dengan menjalankan simulator dan mengamati aset dalam
-	simulasi. Validasi ini dilakukan untuk memastikan aset yang diimpor dan
-	ditambahkan sudah sesuai dengan yang diinginkan dan stabil dalam simulasi.
+	Aset yang telah diimpor dimasukkan ke dalam lingkungan simulasi
+	(\textit{world}). Validasi aset dapat dilakukan dengan menjalankan simulator
+	dan mengamati aset dalam simulasi. Validasi ini dilakukan untuk memastikan
+	aset yang diimpor dan ditambahkan sudah sesuai dengan yang diinginkan dan
+	stabil dalam simulasi.
 
-	\item Melakukan ekspor aset agar dapat didistribusikan.
+	\item Melakukan ekspor hasil implementasi agar dapat didistribusikan.
 
-	Aset yang ingin digunakan oleh pengguna lain dapat diekspor sehingga
-	\textit{portable} dan ringan ketika dijalankan. Hal ini dapat dilakukan
-	dengan menjalankan perintah di terminal.
+	Aset yang ingin digunakan oleh pengguna lain dapat diekspor dalam bentuk
+	versi \textit{packaged} sehingga \textit{portable} dan ringan ketika
+	dijalankan. Hal ini dapat dilakukan dengan menjalankan perintah di terminal.
 
 \end{enumerate}
