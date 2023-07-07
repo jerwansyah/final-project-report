@@ -31,7 +31,6 @@
 \usepackage{sectsty}
 \usepackage{chngcntr}
 \usepackage{etoolbox}
-\usepackage{hyperref}       % Package untuk link di daftar isi. Ubah jadi \usepackage[hidelinks]{hyperref} apabila ingin menghilangkan kotak merah disekitar link
 \usepackage{titlesec}       % Package Format judul
 \usepackage{titletoc}       % Package Format judul di toc
 \usepackage{tocbibind}      % Package untuk masukkan toc, lot, lof ke Daftar Isi
@@ -42,10 +41,10 @@
 \usepackage{setspace}
 \usepackage{subfig}
 \usepackage{longtable}
-% \usepackage{tocloft}
 % \usepackage{pgfgantt}       % Package untuk membuat Gantt Chart
 % \usepackage{lscape}         % Package untuk membuat landscape
 \usepackage{listings}       % Package lstlistings and stuff
+\usepackage{hyperref}       % Package untuk link di daftar isi. Ubah jadi \usepackage[hidelinks]{hyperref} apabila ingin menghilangkan kotak merah disekitar link
 
 \graphicspath{{resources/}}   % letak direktori penyimpanan gambar
 
@@ -87,9 +86,9 @@
     {\bfseries}
 }
 
-% Hilangkan titik pada toc
+% Setting titik pada toc
 \makeatletter
-\renewcommand{\@dotsep}{10000}
+\renewcommand{\@dotsep}{1}
 \makeatother
 
 % Setel title pada chapter-chapter di toc, lof, lot
@@ -98,19 +97,19 @@
   {\bfseries}
   {\MakeUppercase{Bab} \thecontentslabel\quad\uppercase}
   {}
-  {\hfill\contentspage}
+  {\mdseries\titlerule*[0.35em]{.}\bfseries\contentspage}
 \titlecontents{figure}
   [0pt]
   {}
   {Gambar \thecontentslabel.\quad}
   {}
-  {\hfill\contentspage}
+  {\mdseries\titlerule*[0.35em]{.}\contentspage}
 \titlecontents{table}
   [0pt]
   {}
   {Tabel \thecontentslabel.\quad}
   {}
-  {\hfill\contentspage}
+  {\mdseries\titlerule*[0.35em]{.}\contentspage}
 
 % Masukin Daftar Pustaka ke toc
 \let\originalprintbibliography\printbibliography
