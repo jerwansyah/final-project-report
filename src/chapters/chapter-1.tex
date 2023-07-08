@@ -38,16 +38,25 @@ pengujian dengan menggunakan simulasi dapat menghemat biaya dan waktu karena
 aktor, lingkungan, dan parameter simulasi untuk pengujian dapat diatur sesuai
 dengan keinginan relatif lebih mudah dan lebih cepat.
 
-Penelitian "Pengembangan Sistem Otonomi dengan Menggunakan Kecerdasan
-\textit{Artificial} untuk Trem" (selanjutnya akan dirujuk sebagai proyek trem
-otonom) merupakan penelitian mengenai pengembangan trem otonom (lihat Subbab
-\ref{subsec:rispro-trilaksono}). Penelitian ini menggunakan simulasi untuk
-mengembangkan pembelajaran mesin (\textit{Machine Learning}) dan/atau kecerdasan
-buatan (\textit{Artificial Intelligence}), menguji operasi, dan memvalidasi
-operasi trem otonom pada tahap-tahap awal atau sebelum diuji dan divalidasi di
-lingkungan nyata dengan tujuan mendukung pengembangan trem otonom agar lebih
-cepat, lebih mudah dan lebih hemat biaya. Terdapat empat tim yang bekerja sama
-untuk mengembangkan kecerdasan buatan trem otonom, yaitu:
+Tim \textit{capstone} Tugas Akhir ini merupakan bagian dari tim penelitian
+``Pengembangan Sistem Otonomi dengan Menggunakan Kecerdasan \textit{Artificial}
+untuk Trem" (selanjutnya akan disebut sebagai proyek trem otonom). Penelitian
+tersebut merupakan penelitian mengenai pengembangan trem otonom. Penelitian
+tersebut menggunakan simulasi untuk mengembangkan pembelajaran mesin
+(\textit{Machine Learning}) dan/atau kecerdasan buatan (\textit{Artificial
+Intelligence}), menguji operasi, dan memvalidasi operasi trem otonom pada
+tahap-tahap awal atau sebelum diuji dan divalidasi di lingkungan nyata. Tujuan
+menggunakan simulasi adalah untuk mendukung pengembangan trem otonom agar lebih
+cepat, lebih mudah dan lebih hemat biaya. Pengambilan data untuk pelatihan dan
+pengujian algoritma-algoritma trem otonom diperoleh dari lingkungan di Kota
+Solo. Pengujian trem otonom di luar simulasi juga akan dilakukan di Kota Solo.
+Pengambilan data dan pengujian dilakukan di Kota Solo karena di Kota Solo sudah
+terdapat trem konvensional yang beroperasi. Subbab
+\ref{subsec:rispro-trilaksono} menjelaskan lebih lanjut mengenai penelitian
+tersebut.
+
+Terdapat 4 tim yang bekerja sama untuk mengembangkan kecerdasan buatan trem
+otonom, yaitu:
 
 \begin{enumerate}
 
@@ -109,31 +118,55 @@ dalam Tugas Akhir ini adalah sebagai berikut.
 
 \begin{enumerate}
 
-    \item Bagaimana cara mengimplementasikan objek trem, objek lokal khas
-    Indonesia di lingkungan simulator CARLA?
+    \item Bagaimana cara mengimplementasikan trem dan objek lokal khas
+    Indonesia, yaitu angkot, sepeda onthel, sepeda motor, dan becak
+    di lingkungan simulasi simulator CARLA?
 
     \item Bagaimana cara mengimplementasikan lingkungan simulasi yang serupa
     dengan lingkungan Indonesia di simulator CARLA?
+
+    % \item Bagaimana cara mengimplementasikan trem dan objek lokal khas
+    % Indonesia, yaitu angkot, sepeda onthel, sepeda motor, dan becak di
+    % simulasi simulator CARLA?
+
+    % \item Bagaimana cara mengimplementasikan stasiun, rambu lalu lintas, dan rel
+    % di lingkungan simulasi simulator CARLA?
 
 \end{enumerate}
 
 \section{Tujuan}
 
-Tujuan dari Tugas Akhir ini adalah untuk mengimplementasikan objek trem, objek
-lokal khas Indonesia, dan lingkungan khas Indonesia di simulator CARLA untuk
-memudahkan pengujian dan validasi algortima \textit{decision making} trem
-otonom.
+Tujuan dari Tugas Akhir ini adalah sebagai berikut:
+
+\begin{enumerate}
+
+    \item Mengimplementasikan trem dan objek lokal khas Indonesia yang stabil di
+    lingkungan simulasi simulator CARLA.
+
+    \item Mengimplementasikan lingkungan simulasi yang serupa dengan cara
+    mengimplementasikan stasiun, rambu lalu lintas, dan rel di lingkungan
+    simulasi simulator CARLA.
+
+    \item Membuat distribusi hasil implementasi.
+
+\end{enumerate}
 
 \section{Batasan Masalah}
 
-Penelitian untuk Tugas Akhir ini memiliki batasan masalah, yaitu implementasi
-objek trem, objek lokal khas Indonesia, dan lingkungan simulasi hanya terbatas
-pada lingkungan kota Solo. Kota Solo dipilih sebagai lingkungan pengujian trem
-otonom karena di Solo sudah terdapat trem konvensional yang beroperasi.
-Pengambilan data untuk pelatihan telah dan sedang dilakukan di Solo. Pengujian
-trem otonom di luar simulasi pun akan dilakukan di Solo. Tingkat kemiripan
-simulasi terbatas pada aplikasi simulator CARLA versi 0.9.12 dan/atau versi
-0.9.13.
+Batasan-batasan masalah Tugas Akhir ini adalah sebagai berikut:
+
+\begin{enumerate}
+
+    \item Implementasi objek trem, objek lokal khas Indonesia, dan lingkungan
+    simulasi hanya terbatas pada lingkungan Kota Solo.
+
+    \item Tingkat kemiripan simulasi dan hasil implementasi terbatas pada
+    aplikasi simulator CARLA versi 0.9.12 dan/atau versi 0.9.13.
+
+    \item Distribusi hasil implementasi dibuat hanya untuk sistem operasi Linux
+    (Ubuntu).
+
+\end{enumerate}
 
 \section{Metodologi}
 
@@ -148,10 +181,10 @@ berikut:
     Analisis dilakukan dengan melakukan studi literatur mengenai simulasi
     kendaraan otonom.
 
-    \item Eksplorasi kakas untuk mengimplementasikan solusi
+    \item Eksplorasi kakas dan dokumentasi kakas
 
-    Melakukan eksplorasi kakas yang akan digunakan untuk implementasi dan
-    validasi untuk menyelesaikan masalah yang telah dirumuskan.
+    Melakukan eksplorasi kakas yang akan digunakan serta dokumentasi kakas untuk
+    mengetahui fitur-fitur kakas yang dapat digunakan untuk implementasi solusi.
 
     \item Implementasi solusi
 

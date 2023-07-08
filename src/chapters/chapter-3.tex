@@ -28,7 +28,7 @@ pengembangan simulasi atau pengembangan SILS dan HILS adalah sebagai berikut:
 
 	Komunikasi menggunakan \textit{web service} lambat karena jumlah transaksi
 	per detik kecil dan simulasi juga lambat. Eksplorasi CARLA ROS Bridge
-	dilakukan namun masih belum selesai.
+	dilakukan namun belum selesai.
 
 	\item Menguji sensor virtual, mencoba menjalankan algoritma \textit{decision
 	making} dan persepsi.
@@ -70,8 +70,9 @@ eksplorasi simulator CARLA dengan menambahkan kendaraan angkot dan becak sebagai
 objek statis (bukan kendaraan) dan mengetes data dari sensor di \textit{ego
 vehicle} dalam simulasi. Aset model 3D sudah dibangun namun belum
 diimplementasikan ke dalam simulasi. Aset model 3D tersebut adalah: trem,
-angkot, becak, sepeda onthel, sepeda motor, beberapa rambu lokal, dan gerobak.
-Gambar \ref{fig:3d-model-assets} menunjukkan aset model 3D yang telah dibuat.
+angkot, becak, sepeda onthel, sepeda motor, beberapa rambu lalu lintas, dan
+gerobak. Gambar \ref{fig:3d-model-assets} menunjukkan aset model 3D yang telah
+dibuat.
 
 \begin{figure}[!tb]
 % \begin{figure}[ht]
@@ -114,7 +115,7 @@ Oleh karena itu, dibutuhkan aset simulasi yang sesuai dengan keadaan Indonesia.
 
 \section{Analisis Solusi}
 
-Permasalahan yang telah dibahas dapat diselesaikan dengan mengubah aset yang
+Permasalahan yang telah dibahas dapat diselesaikan dengan mengedit aset yang
 sudah ada dan menambahkan aset baru. Aset baru yang lain dapat dibuat
 menggunakan aplikasi \textit{3D modelling}. Aset dibuat secara lengkap dan
 detail agar perilaku aset sesuai dengan yang asli.
@@ -138,19 +139,19 @@ bus dilakukan dengan membuat model 3D bus, mengimpor model 3D bus ke dalam
 editor CARLAUE4, mengedit aset bus tersebut dalam editor CARLAUE4, dan
 memverifikasi hasil impor aset bus tersebut.
 
-Implementasi objek dan lingkungan Indonesia yang akan dilakukan adalah dengan
-menambahkan aset, membuat aset baru, dan mengubah aset yang sudah ada.
-Implementasi yang menambahkan aset meliputi kendaraan, rambu lalu lintas, rel,
-dan lingkungan sederhana. Kendaraan yang akan diimplementasikan adalah trem
-otonom, angkot, becak, motor, dan sepeda onthel. Trem akan dipasangkan
-berbagai sensor, seperti LIDAR, radar, kamera RGB untuk menangkap lingkungan
-sekitar.
+% Implementasi objek dan lingkungan Indonesia yang akan dilakukan adalah dengan
+% menambahkan/mengimpor aset, membuat aset baru, dan mengedit aset yang sudah ada.
+% Implementasi yang menambahkan aset meliputi kendaraan, rambu lalu lintas, rel,
+% dan stasiun. Kendaraan yang akan diimplementasikan adalah trem otonom, angkot,
+% becak, motor, dan sepeda onthel.
+% Trem akan dipasangkan berbagai sensor, seperti LIDAR, radar, kamera RGB untuk
+% menangkap lingkungan sekitar.
 
 % note: gerobak is not going to be implemented
 
-Pada proses implementasi aset membutuhkan simulator CARLA, CARLAUE4, dan editor
-CARLAUE4 yang dibangun atau di-\textit{compile} sendiri bukan menggunakan
-program atau \textit{binary} yang \textit{packaged}. Dibutuhkan aplikasi
+Penambahan atau pengeditan aset CARLA membutuhkan simulator CARLA, CARLAUE4, dan
+editor CARLAUE4 yang dibangun atau di-\textit{compile} sendiri bukan menggunakan
+program, \textit{binary}, atau yang sudah \textit{packaged}. Dibutuhkan aplikasi
 \textit{3D modelling} seperti Blender untuk membuat aset model 3D.
 % Aplikasi RoadRunner akan digunakan untuk membuat aset peta.
 
@@ -158,11 +159,6 @@ program atau \textit{binary} yang \textit{packaged}. Dibutuhkan aplikasi
 
 Proses implementasi objek dan lingkungan di simulator CARLA dilakukan dengan
 langkah-langkah sebagai berikut:
-
-% note: in chapter 4
-% ? rencana import aset yang lain (yang khusus, yang detail di bawah aja)
-% ? explanation about BP, factory, spline
-% ? jelasin how to, but where
 
 \begin{enumerate}
 
