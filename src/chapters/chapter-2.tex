@@ -20,7 +20,7 @@ mendadak karena terbatasi secara fisik dan berhenti mendadak dapat mencelakai
 penumpang \parencite{at-palmer}.
 
 Trem otonom secara umum memiliki perangkat keras berupa kendaraan fisik,
-komputer, dan berbagai sensor. Komputer pada tram digunakan untuk mengoperasikan
+komputer, dan berbagai sensor. Komputer pada trem digunakan untuk mengoperasikan
 trem secara otonom. Komputer juga memiliki kartu grafis untuk melakukan deteksi
 objek hasil deteksi dari sensor-sensor di trem. Sensor-sensor tersebut adalah,
 kamera, LIDAR, dan radar. Pada sisi perangkat lunak, trem otonom pada
@@ -29,15 +29,15 @@ umumnya memiliki aplikasi untuk mengolah data sensor \parencite{at-palmer}.
 Model pemilihan keputusan oleh kendaraan otonom perlu dilatih sehingga kendaraan
 otonom tersebut dapat diandalkan. Oleh karena itu, diperlukan penelitian dan
 percobaan lebih lanjut untuk memngembangkan algoritma, kemampuan evaluasi, dan
-protokol kendaraan otonom. Penelitan dan eksperimen kendaraan otonom dapat
-dilakukan dengan melakukan simulasi detil yang banyak. Simulasi-simulasi
+protokol kendaraan otonom. Penelitian dan eksperimen kendaraan otonom dapat
+dilakukan dengan melakukan simulasi detail yang banyak. Simulasi-simulasi
 tersebut bergantung kepada model yang ada di dunia nyata \parencite{av-berger}.
 
 Simulasi kendaraan otonom akan memudahkan pelatihan dan proses validasi strategi
 kemudi kendaraan otonom. Simulasi mencegah terjadinya kejadian yang berbahaya
 dan tidak diinginkan terjadi, seperti penelitian fisik. Penelitian kendaraan
 otonom di dunia nyata memiliki banyak rintangan. Penelitian fisik membutuhkan
-biaya yang besar untuk membangun kendaraan otonom tersebut, infrastuktur untuk
+biaya yang besar untuk membangun kendaraan otonom tersebut, infrastruktur untuk
 pengetesan yang memadai, dan biaya lainnya. Selain dibutuhkannya biaya,
 dibutuhkan juga sumber daya manusia untuk mengoperasikan tes. Pengumpulan data
 juga membutuhkan waktu yang lama karena dibutuhkannya data yang banyak, data
@@ -70,7 +70,7 @@ Sensor-sensor dan kondisi lingkungan simulasi tersebut dapat diatur sesuai
 dengan kebutuhan \parencite{carla-dosovitskiy}.
 
 % \section{\textit{CARLA Simulation Engine}}
-CARLA dikembangkan sedemikan rupa sehingga fleksibel untuk disesuaikan dengan
+CARLA dikembangkan sedemikian rupa sehingga fleksibel untuk disesuaikan dengan
 mudah dan juga realistis secara visual dan secara fisika. CARLA diimplementasi
 sebagai layar \textit{open-source} di atas Unreal Engine 4 (UE4) sehingga dapat
 dikembangkan lebih lanjut oleh komunitas \textit{open-source}.
@@ -89,12 +89,12 @@ di server. \textit{Client} akan menerima umpan balik hasil rekaman sensor
 \parencite{carla-dosovitskiy}.
 
 Lingkungan simulasi pada CARLA terdiri atas model-model 3 dimensi (3D) yang
-statik, seperti bangungan, tumbuh-tumbuhan, rambu lalu lintas, dan infrastuktur
+statik, seperti bangunan, tumbuh-tumbuhan, rambu lalu lintas, dan infrastuktur
 lainnya. Selain itu, terdapat juga model-model dinamis, seperti kendaraan dan
 pejalan kaki. Model-model 3D tersebut telah dibuat sehingga dimensi model-model
 tersebut mencerminkan dimensi objek aslinya di dunia nyata. Model-model tersebut
 dibuat menggunakan model geometrik yang ringan dan dengan tekstur yang sesuai
-sehingga terlihat realistis dan detil serta dapat di-\textit{render} dengan
+sehingga terlihat realistis dan detail serta dapat di-\textit{render} dengan
 cepat. Aset-aset yang telah disediakan CARLA sangat dapat disesuaikan
 \parencite{carla-dosovitskiy}. Aset baru juga dapat ditambahkan
 \parencite{carla-documentation-intro}.
@@ -144,10 +144,10 @@ dan lampu lalu lintas. \textit{Blueprint} berfungsi untuk memunculkan atau
 % \subsubsection{Map dan Navigasi}
 
 Map atau peta merupakan objek yang merepresentasikan dunia atau lingkungan
-simulasi. Peta pada CARLA direpresentasikan dalam bentuk model 3D dan rincian
+simulasi. Peta pada CARLA direpresentasikan dalam bentuk model 3D dan perincian
 jalan, persimpangan, dan jalur yang ada. CARLA menggunakan OpenDRIVE 1.4 sebagai
 standar definisi jalan. Navigasi pada CARLA dibantu dengan objek rambu lalu
-lintas dan lampu lalu lintas yang memiliki rincian informasi OpenDRIVE. Kedua
+lintas dan lampu lalu lintas yang memiliki perincian informasi OpenDRIVE. Kedua
 objek tersebut membentuk balok pembatas \textit{bounding boxes} sehingga
 aktor-aktor mengetahui bagaimana cara navigasi
 \parencite{carla-documentation-core-concepts}.
@@ -217,19 +217,19 @@ fleksibel dan sering digunakan untuk animasi kerangka
 \subsection{\textit{Armature}}
 
 \textit{Armature} pada Blender merupakan objek yang serupa dengan sistem
-kerangka manusia (sistem skeletal) terutama fungsionalitasnya. \textit{Armature}
-terdiri atas kumpulan tulang atau \textit{bone} yang memiliki struktur/hierarki
-dan berfungsi untuk memberi gerakan ke sebuah objek/model 3D. \textit{Armature}
-didesain untuk diberi pose. Gambar \ref{fig:basic-armature} menunjukkan contoh
-struktur \textit{armature} sederhana pada Blender. Kumpulan \textit{bone} pada
-sebuah \textit{armature} tidak perlu berhubungan satu sama lain sehingga
-struktur dari \textit{armature} dapat berupa-rupa, seperti rantai
-tulang atau \textit{chains of bones} yang dapat dilihat pada Gambar
-\ref{fig:chains-of-bones} \parencite{blender-armature-introduction,
-blender-armature-structure}. Setelah pembuatan \textit{armature} selesai, perlu
-dilakukan \textit{skinning} agar pergerakan dari \textit{armature} berdampak
-pada objek lain. Proses \textit{skinning} merupakan penghubungan antara objek
-\textit{armature} dengan sebuah objek atau objek model/\textit{mesh}
+kerangka manusia terutama fungsionalitasnya. \textit{Armature} terdiri atas
+kumpulan tulang atau \textit{bone} yang memiliki struktur/hierarki dan berfungsi
+untuk memberi gerakan ke sebuah objek/model 3D. \textit{Armature} didesain untuk
+diberi pose. Gambar \ref{fig:basic-armature} menunjukkan contoh struktur
+\textit{armature} sederhana pada Blender. Kumpulan \textit{bone} pada sebuah
+\textit{armature} tidak perlu berhubungan satu sama lain sehingga struktur dari
+\textit{armature} dapat berupa-rupa, seperti rantai tulang atau \textit{chains
+of bones} yang dapat dilihat pada Gambar \ref{fig:chains-of-bones}
+\parencite{blender-armature-introduction, blender-armature-structure}. Setelah
+pembuatan \textit{armature} selesai, perlu dilakukan \textit{skinning} agar
+pergerakan dari \textit{armature} berdampak pada objek lain. Proses
+\textit{skinning} merupakan penghubungan antara objek \textit{armature} dengan
+sebuah objek atau objek model/\textit{mesh}
 \parencite{blender-skinning-introduction}. Gambar \ref{fig:basic-armature} juga
 menunjukkan \textit{armature} yang telah di-\textit{skinning}.
 
@@ -271,11 +271,11 @@ dilihat pada Gambar \ref{fig:bone-structure}. Sebuah \textit{bone} terdiri atas
 
     \item Badan (\textit{body})
 
-    Badan oktahedral dari \textit{bone} terbentuk untuk menghubungkan sendi awal
-    dan sendi akhir. Bagian sudut oktahedral yang lebih besar berhubungan
-    dengan sendi awal. Sebaliknya, bagian sudut oktahedral yang lebih kecil
-    berhubungan dengan sendi akhir. Badan \textit{bone} menentukan arah sumbu Y
-    lokal dan rotasi \textit{bone} objek ketika diposekan.
+    Badan oktahedron dari \textit{bone} terbentuk untuk menghubungkan sendi awal
+    dan sendi akhir. Bagian sudut oktahedron yang lebih besar berhubungan dengan
+    sendi awal. Sebaliknya, bagian sudut oktahedron yang lebih kecil berhubungan
+    dengan sendi akhir. Badan \textit{bone} menentukan arah sumbu Y lokal dan
+    rotasi \textit{bone} objek ketika diposekan.
 
 \end{enumerate}
 
@@ -354,8 +354,8 @@ tersebut \parencite{rispro-trilaksono}:
     \textit{Adaptive Cruise Control} (ACC), \textit{Emergency Braking System}
     (EBS), dan \textit{Collision Avoidance} (\textit{decision making}). Dari
     pengujian dan analisis tersebut, dibutuhkan penyempurnaan algoritma persepsi
-    berbasis sensor, perbaikan arsitekstur (HILS), dan integrasi objek lokal
-    pada skenario simulasi.
+    berbasis sensor, perbaikan arsitektur (HILS), dan integrasi objek lokal pada
+    skenario simulasi.
 
     \item Pengembangan dan manufaktur \textit{platform} trem, sistem
     \textit{drive-by-wire} pada trem, dan integrasi sensor.
@@ -379,9 +379,9 @@ tahap, yaitu sebagai berikut \parencite{related-work-xiang}:
     \item Membuat model 3D dari bus menggunakan aplikasi 3ds Max.
 
     Model bus dibuat sesuai dengan referensi dan dimensi asli. Model bus yang
-    dibuat secara detil dan berpermukaan mulus sehingga realistis. Model bus
-    terdiri atas 6 bagian, yaitu bagian badan, bagian roda-roda, bagian
-    interior, bagian detil, bagian kaca, dan bagian plat kendaraan.
+    dibuat secara detail dan dengan permukaan mulus sehingga realistis. Model
+    bus terdiri atas 6 bagian, yaitu bagian badan, bagian roda-roda, bagian
+    interior, bagian detail, bagian kaca, dan bagian pelat kendaraan.
 
     \item Melakukan pengeditan model 3D bus dalam editor CARLAUE4.
 
@@ -412,7 +412,7 @@ Penelitian \textit{The Autonomous Siemens Tram} membahas trem otonom Siemens
 yang telah didemonstrasikan di Potsdam, Jerman pada tahun 2018. Sistem trem
 otonom tersebut dibangun di atas trem Siemens Combino dan menggunakan
 sensor-sensor multi-modal untuk mengidentifikasi lokasi kendaraan serta
-mendeteksi dan merespon lampu lalu lintas dan objek lain. Trem otonom memiliki
+mendeteksi dan merespons lampu lalu lintas dan objek lain. Trem otonom memiliki
 beberapa komputer yang memiliki \textit{Graphics Processing Unit} (GPU) yang
 memadai untuk memroses data dari sensor LIDAR, sensor radar, kamera pendeteksi
 objek, dan kamera pendekteksi sinyal. Trem otonom tersebut dapat beroperasi
