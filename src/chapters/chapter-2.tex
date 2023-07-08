@@ -64,8 +64,8 @@ purwarupa, dan pengujian strategi kemudi otonom, baik dari sisi persepsi maupun
 sisi pengontrolan. CARLA menyediakan model dasar untuk lingkungan simulasi,
 sejumlah kendaraan, rambu lalu lintas, dan pejalan kaki. Selain itu, CARLA juga
 menyediakan keluaran sensor-sensor dan sinyal-sinyal yang dapat digunakan untuk
-melatih strategi kemudi, seperti koordinat GPS, kecepatan, percepatan, data rinci
-mengenai tabrakan yang terjadi pada model kendaraan, dan lain-lain.
+melatih strategi kemudi, seperti koordinat GPS, kecepatan, percepatan, data
+detail mengenai tabrakan yang terjadi pada model kendaraan, dan lain-lain.
 Sensor-sensor dan kondisi lingkungan simulasi tersebut dapat diatur sesuai
 dengan kebutuhan \parencite{carla-dosovitskiy}.
 
@@ -97,7 +97,7 @@ dibuat menggunakan model geometrik yang ringan dan dengan tekstur yang sesuai
 sehingga terlihat realistis dan detail serta dapat di-\textit{render} dengan
 cepat. Aset-aset yang telah disediakan CARLA sangat dapat disesuaikan
 \parencite{carla-dosovitskiy}. Aset baru juga dapat ditambahkan
-\parencite{carla-documentation-intro}.
+\parencite{carla-documentation}.
 
 \subsection{Unreal Engine}
 
@@ -108,12 +108,11 @@ memiliki fitur-fitur untuk membuat konten tiga dimensi yang sangat lengkap
 \parencite{ue-5}. Jika fitur atau ekosistem Unreal Engine kurang sesuai dengan
 kebutuhan pengembang, Unreal Engine menyediakan \textit{source code} yang dapat
 dimodifikasi \parencite{ue-4}. CARLA menggunakan Unreal Engine untuk
-pengembangan lingkungan simulasi \parencite{carla-documentation-build}.
+pengembangan lingkungan simulasi \parencite{carla-documentation}.
 
-\subsection{Konsep Dasar CARLA}
+\subsection{Konsep Dasar CARLA \parencite{carla-documentation}}
 
-CARLA memiliki beberapa konsep dasar sebagai berikut
-\parencite{carla-documentation-core-concepts}:
+CARLA memiliki beberapa konsep dasar sebagai berikut:
 
 \begin{enumerate}
 
@@ -132,14 +131,14 @@ tersebut melalui sebuah terminal yang terhubung dengan server simulasi.
 \textit{World} merupakan sebuah objek yang merepresentasikan simulasi. Objek
 \textit{world} merupakan sebuah abstraksi kumpulan layar yang menyimpan status
 dari dunia simulasi, memiliki metode untuk \textit{spawn} aktor, melakukan
-pengontrolan cuaca, dan lain-lain \parencite{carla-documentation-core-concepts}.
+pengontrolan cuaca, dan lain-lain.
 
 % \subsubsection{\textit{Actor} dan \textit{Blueprint}}
 
 Aktor (\textit{actor}) merupakan objek yang memiliki peran dalam simulasi. Aktor
 pada CARLA berupa: kendaraan, pejalan kaki, sensor, pengamat, rambu lalu lintas,
 dan lampu lalu lintas. \textit{Blueprint} berfungsi untuk memunculkan atau
-\textit{spawn} aktor lain \parencite{carla-documentation-core-concepts}.
+\textit{spawn} aktor lain.
 
 % \subsubsection{Map dan Navigasi}
 
@@ -149,16 +148,14 @@ jalan, persimpangan, dan jalur yang ada. CARLA menggunakan OpenDRIVE 1.4 sebagai
 standar definisi jalan. Navigasi pada CARLA dibantu dengan objek rambu lalu
 lintas dan lampu lalu lintas yang memiliki perincian informasi OpenDRIVE. Kedua
 objek tersebut membentuk balok pembatas \textit{bounding boxes} sehingga
-aktor-aktor mengetahui bagaimana cara navigasi
-\parencite{carla-documentation-core-concepts}.
+aktor-aktor mengetahui bagaimana cara navigasi.
 
 % \subsubsection{Sensor dan Data}
 
 Sensor merupakan aktor yang dapat mengumpulkan data dari lingkungan sekitar.
 Pengumpulan data yan efisien dilakukan dengan memasang sensor pada kendaraan
 yang dikendalikan oleh pengguna dalam simulasi atau disebut sebagai \textit{ego
-vehicle} \parencite{carla-documentation-core-concepts,
-carla-documentation-core-retrieve-simulation-data}.
+vehicle}.
 
 % TODO: ? how to import/make new/edit assets, and then add corelation about blender
 % TODO: ? how to add, edit, and remove assets in the world (world outliner, levels)
@@ -170,7 +167,7 @@ carla-documentation-core-retrieve-simulation-data}.
 % reference of why carla build version is needed for advaced customization and
 % development: https://carla.readthedocs.io/en/0.9.13/start_quickstart/
 
-\section{Blender}
+\section{Blender \parencite{blender-manual}}
 
 Blender adalah sebuah perangkat lunak \textit{open-source} untuk pembuatan model
 3D. Blender dapat digunakan di berbagai sistem operasi dan berjalan lancar pada
@@ -186,8 +183,7 @@ Python \parencite{blender-about}.
 \subsection{Mode Objek}
 
 Blender memiliki berbagai mode objek yang berfungsi untuk mengedit berbagai
-aspek dari objek. Beberapa mode objek blender adalah sebagai berikut
-\parencite{blender-object-modes}:
+aspek dari objek. Beberapa mode objek blender adalah sebagai berikut:
 
 \begin{enumerate}
 
@@ -211,8 +207,7 @@ waktu. \textit{Rigging} adalah istilah untuk menambahkan kontrol ke sebuah objek
 dengan tujuan untuk menganimasikan objek tersebut. \textit{Rigging} pada umumnya
 melibatkan komponen \textit{armature} dan komponen \textit{constraints}
 (komponen pembatas). \textit{Armature} berguna agar objek memiliki sendi yang
-fleksibel dan sering digunakan untuk animasi kerangka
-\parencite{blender-animation-and-rigging}.
+fleksibel dan sering digunakan untuk animasi kerangka.
 
 \subsection{\textit{Armature}}
 
@@ -224,36 +219,32 @@ diberi pose. Gambar \ref{fig:basic-armature} menunjukkan contoh struktur
 \textit{armature} sederhana pada Blender. Kumpulan \textit{bone} pada sebuah
 \textit{armature} tidak perlu berhubungan satu sama lain sehingga struktur dari
 \textit{armature} dapat berupa-rupa, seperti rantai tulang atau \textit{chains
-of bones} yang dapat dilihat pada Gambar \ref{fig:chains-of-bones}
-\parencite{blender-armature-introduction, blender-armature-structure}. Setelah
+of bones} yang dapat dilihat pada Gambar \ref{fig:chains-of-bones}. Setelah
 pembuatan \textit{armature} selesai, perlu dilakukan \textit{skinning} agar
 pergerakan dari \textit{armature} berdampak pada objek lain. Proses
 \textit{skinning} merupakan penghubungan antara objek \textit{armature} dengan
-sebuah objek atau objek model/\textit{mesh}
-\parencite{blender-skinning-introduction}. Gambar \ref{fig:basic-armature} juga
-menunjukkan \textit{armature} yang telah di-\textit{skinning}.
+sebuah objek atau objek model/\textit{mesh}. Gambar \ref{fig:basic-armature}
+juga menunjukkan \textit{armature} yang telah di-\textit{skinning}.
 
 \begin{figure}[ht]
     \centering
     \includegraphics[width=0.35\textwidth]{resources/chapter-2-basic-armature.png}
-    \caption{\textit{Skinned armature} sederhana \parencite{blender-armature-structure}}
+    \caption{\textit{Skinned armature} sederhana \parencite{blender-manual}}
     \label{fig:basic-armature}
 \end{figure}
 
 \begin{figure}[ht]
     \centering
     \includegraphics[width=0.6\textwidth]{resources/chapter-2-chain-of-bones.png}
-    \caption{\textit{Chains of Bones} \parencite{blender-armature-structure}}
+    \caption{\textit{Chains of Bones} \parencite{blender-manual}}
     \label{fig:chains-of-bones}
 \end{figure}
 
 \subsection{\textit{Bone}}
 
-\textit{Bone} merupakan komponen dari \textit{armature}
-\parencite{blender-bones-introduction}. Struktur sebuah \textit{bone} dapat
-dilihat pada Gambar \ref{fig:bone-structure}. Sebuah \textit{bone} terdiri atas
-3 subkomponen adalah sebagai berikut:
-\parencite{blender-bones-structure,blender-glossary}:
+\textit{Bone} merupakan komponen dari \textit{armature}. Struktur sebuah
+\textit{bone} dapat dilihat pada Gambar \ref{fig:bone-structure}. Sebuah
+\textit{bone} terdiri atas 3 subkomponen adalah sebagai berikut:
 
 \begin{enumerate}
 
@@ -282,17 +273,17 @@ dilihat pada Gambar \ref{fig:bone-structure}. Sebuah \textit{bone} terdiri atas
 \begin{figure}[ht]
     \centering
     \includegraphics[width=0.3\textwidth]{resources/chapter-2-bone-structure.png}
-    \caption{Struktur \textit{bone} \parencite{blender-bones-structure}}
+    \caption{Struktur \textit{bone} \parencite{blender-manual}}
     \label{fig:bone-structure}
 \end{figure}
 
-% \section{RoadRunner}
+% \section{RoadRunner \parencite{roadrunner}}
 
 % RoadRunner merupakan sebuah \textit{interactive editor} yang digunakan untuk
 % membuat konten desain 3D untuk simulasi dan pengujian sistem kendaraan otonom.
 % Pengguna dapat membuat desain jalanan dengan mengedit lingkungan dan menambahkan
 % rambu lalu lintas, sinyal lalu lintas, persimpangan, dan batas kendaraan. Selain
-% itu, RoadRunner dapat digunakan untuk membuat desain kota \parencite{roadrunner}.
+% itu, RoadRunner dapat digunakan untuk membuat desain kota.
 
 \section{Penelitian Terkait}
 
@@ -300,17 +291,17 @@ Subbab ini membahas beberapa penelitian terkait dengan Tugas Akhir ini.
 Penelitian-penelitian berikut menjadi rujukan dalam penelitian dan pengembangan
 Tugas Akhir ini.
 
-\subsection{Pengembangan Sistem Otonomi dengan Menggunakan Kecerdasan \textit{Artificial} untuk Trem}
+\subsection{Pengembangan Sistem Otonomi dengan Menggunakan Kecerdasan \textit{Artificial} untuk Trem \parencite{rispro-trilaksono}}
 \label{subsec:rispro-trilaksono}
 
-Penelitian oleh \textcite{rispro-trilaksono} merupakan penelitian mengenai
-inovasi bidang otomotif yang mengembangkan sistem otonomi untuk trem menggunakan
-kecerdasan buatan. Penelitian tersebut memiliki tiga tahap, yaitu pengembangan
-\textit{tram driving assistance}, pengembangan trem otonom, dan pengujian trem
-otonom di \textit{mixed traffic} serta persiapan komersialisasi.
+Penelitian ini merupakan penelitian mengenai inovasi bidang otomotif yang
+mengembangkan sistem otonomi untuk trem menggunakan kecerdasan buatan.
+Penelitian tersebut memiliki tiga tahap, yaitu pengembangan \textit{tram driving
+assistance}, pengembangan trem otonom, dan pengujian trem otonom di
+\textit{mixed traffic} serta persiapan komersialisasi.
 
 Berikut adalah Indikator Kinerja Riset (IKR) atau luaran dari penelitian
-tersebut \parencite{rispro-trilaksono}:
+tersebut:
 
 \begin{enumerate}
 
@@ -367,12 +358,12 @@ tersebut \parencite{rispro-trilaksono}:
 
 \end{enumerate}
 
-\subsection{\textit{KIT Bus: A Shuttle Model for CARLA Simulator}}
+\subsection{\textit{KIT Bus: A Shuttle Model for CARLA Simulator} \parencite{related-work-xiang}}
+\label{subsec:kitbus}
 
 Penelitian \textit{KIT Bus: A Shuttle Model for CARLA Simulator} ini merupakan
-penelitian membuat model \textit{shuttle bus} untuk CARLA yang dilakukan oleh
-\cite{related-work-xiang}. Proses pembuatan model tersebut dilakukan dalam tiga
-tahap, yaitu sebagai berikut \parencite{related-work-xiang}:
+penelitian membuat model \textit{shuttle bus}. Proses pembuatan model tersebut
+dilakukan dalam tiga tahap, yaitu sebagai berikut:
 
 \begin{enumerate}
 
@@ -406,7 +397,7 @@ tahap, yaitu sebagai berikut \parencite{related-work-xiang}:
 
 \end{enumerate}
 
-\subsection{\textit{The Autonomous Siemens Tram}}
+\subsection{\textit{The Autonomous Siemens Tram} \parencite{at-palmer}}
 
 Penelitian \textit{The Autonomous Siemens Tram} membahas trem otonom Siemens
 yang telah didemonstrasikan di Potsdam, Jerman pada tahun 2018. Sistem trem
@@ -419,4 +410,4 @@ objek, dan kamera pendekteksi sinyal. Trem otonom tersebut dapat beroperasi
 dengan lancar namun memiliki kendala ketika melakukan lokalisasi trem hanya
 dengan \textit{Global Navigation Satellite System} (GNSS). Penelitian masih
 dilakukan untuk mengatasi kendala tersebut, misalnya dengan melakukan lokalisasi
-dengan persepsi atau visual \parencite{at-palmer}.
+dengan persepsi atau visual.
