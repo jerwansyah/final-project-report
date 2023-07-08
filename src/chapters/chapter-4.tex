@@ -13,9 +13,9 @@ CARLAUE4), dan mengeksplorasi editor CARLAUE4 diketahui terdapat beberapa fitur
 sebagai berikut:
 
 \begin{enumerate}
-    \item Penambahan kendaraan baru beroda empat dan dua.
-    \item Penambahan \textit{spline} untuk menambahkan rel.
-    \item Penambahan objek statis lainnya.
+    \item Penambahan kendaraan baru beroda empat dan dua
+    \item Penambahan \textit{spline} untuk menambahkan rel
+    \item Penambahan objek statis lainnya
 \end{enumerate}
 
 % TODO: ? tambah hasil eksplorasi lainnya (eksplorasi buat kota baru)
@@ -23,6 +23,11 @@ sebagai berikut:
 % TODO: ? jelasin how to? but where
 
 \section{Implementasi}
+
+Bagian ini membahas mengenai implementasi trem dan angkot sebagai kendaraan roda
+4, sepeda onthel, sepeda motor, dan becak sebagai kendaraan roda 2, stasiun dan
+rambu lalu lintas sebagai objek statis, dan rel sebagai objek statis dalam
+bentuk \textit{spline}.
 
 \subsection{Batasan Implementasi}
 
@@ -38,7 +43,7 @@ adalah sebagai berikut:
 
 \begin{enumerate}
     \item Trem dan angkot sebagai kendaraan roda 4
-    \item Sepeda motor, sepeda onthel, dan becak sebagai kendaraan roda 2
+    \item Sepeda onthel, sepeda motor, dan becak sebagai kendaraan roda 2
     \item Stasiun Madiun dan Satsiun Solokota sebagai objek statis
     \item Rel sebagai objek statis dalam bentuk \textit{spline}
 \end{enumerate}
@@ -50,16 +55,17 @@ adalah sebagai berikut:
 \subsubsection{Pembuatan Aset Model 3D untuk Ekspor Berkas FBX}
 
 Implementasi trem dan angkot mengikuti langkah-langkah pada
-\textcite{blender-add-a-new-vehicle}. Pembuatan \textit{mesh} model 3D perlu
-sesuai dengan persyaratan dari CARLA, yaitu jumlah tris (segitiga satuan yang
-membentuk permukaan) berkisar antara 50.000 hingga 100.000 dan melakukan
-pemisahan material atau tekstur sesuai dengan bagian kendaraan agar tampilan
-sesuai saat disimulasikan.
+\textcite{carla-documentation}. Pembuatan \textit{mesh} model 3D perlu sesuai
+dengan persyaratan dari CARLA, yaitu jumlah tris (segitiga satuan yang membentuk
+permukaan) berkisar antara 50.000 hingga 100.000 dan melakukan pemisahan
+material atau tekstur sesuai dengan bagian kendaraan agar tampilan sesuai saat
+disimulasikan. Ukuran model 3D harus sesuai dengan ukuran yang asli karena hasil
+impor menggunakan rasio 1 banding 1.
 
 Setelah model 3D dibuat, aset \textit{vehicle skeleton} atau \textit{armature}
-dari \textcite{blender-add-a-new-vehicle} ditambahkan, diatur posisi
-\textit{bone} dari \textit{armature}, dan dihubungkan ke \textit{mesh} model 3D.
-Gambar \ref{fig:vehicle-skeleton} menunjukkan aset yang harus ditambahkan pada
+dari \textcite{carla-documentation} ditambahkan, diatur posisi \textit{bone}
+dari \textit{armature}, dan dihubungkan ke \textit{mesh} model 3D. Gambar
+\ref{fig:vehicle-skeleton} menunjukkan aset yang harus ditambahkan pada
 kendaraan. Setelah \textit{armature} ditambahkan, masing-masing \textit{head}
 dari \textit{bone} roda perlu diposisikan di tengah ban. Gambar
 \ref{fig:armature-placement} menunjukkan penempatan \textit{armature}. Aset
@@ -110,7 +116,7 @@ kemudian memilih menu \verb|Object > Parent > Armature Deform with Automatic|
 yang terletak pada \textit{Viewport Header}. Gambar \ref{fig:wheel-skinning}
 menunjukkan roda angkot bagian depan kiri yang sudah dihubungkan dengan
 \textit{bone} yang sesuai. Pengujian ini dilakukan dengan memilih salah satu
-\textit{bone}, mengetik `r', dan menggerakan \textit{cursor} pada \textit{pose
+\textit{bone}, mengetik `r', dan menggerakkan \textit{cursor} pada \textit{pose
 mode}.
 
 \begin{figure}[!h]
@@ -151,10 +157,10 @@ arah sumbu \verb|Y Up|. Opsi lainnya dapat diatur sesuai kebutuhan.
 Setelah aset model 3D selesai dibuat dan diekspor ke dalam format FBX, berkas
 FBX tersebut diimpor ke dalam editor CARLAUE4. Sebelum berkas FBX kendaraan
 diimpor, sebuah \textit{folder} baru dibuat di dalam direktori
-\verb|/Content/Carla/Static/Vehicles/4Wheeled| (selanjutnya akan disebut sebagai
-\textit{folder} \verb|Static|) di \textit{Content Browser} kemudian berkas FBX
-dapat diimpor ke dalam \textit{folder} tersebut dengan klik kanan pada
-\textit{Content Browser}. Gambar \ref{fig:fbx-import-options-4wheeled}
+\verb|/Content/Carla/Static/Vehicles/4Wheeled/| (selanjutnya akan disebut
+sebagai \textit{folder} \verb|Static|) di \textit{Content Browser} kemudian
+berkas FBX dapat diimpor ke dalam \textit{folder} tersebut dengan klik kanan
+pada \textit{Content Browser}. Gambar \ref{fig:fbx-import-options-4wheeled}
 menunjukkan opsi yang digunakan untuk mengimpor berkas FBX kendaraan roda 4.
 Berikut adalah beberapa opsi yang perlu diperhatikan dan diatur:
 
@@ -211,13 +217,13 @@ mengintegrasikan sebagai kendaraan. Aset \textit{static mesh} dibuat dengan cara
 menekan tombol \verb|Make Static Mesh| pada panel \verb|Toolbar| pada aset
 \textit{skeletal mesh}. Aset tersebut dibuat untuk melengkapi \textit{static
 mesh} yang tidak dibuat dalam Blender. Aset tersimpan pada direktori
-\verb|/Content/Meshes/<nama_kendaraan>|.
+\verb|/Content/Meshes/| dengan nama \verb|<nama_kendaraan>|.
 
 Aset \textit{animation blueprint} dibuat untuk mengatur animasi kendaraan.
 Karena semua animasi kendaraan roda 4 sama, aset \textit{animation blueprint}
 dapat dibuat dengan menyalin isi aset \textit{animation blueprint} dari salah
-satu kendaraan roda 4 yang sudah ada kemudian di-\textit{compile} dan disimpan
-dengan nama \verb|AnimBP_<nama_kendaraan>|. Gambar
+satu kendaraan roda 4 yang sudah ada kemudian aset di-\textit{compile} dan
+disimpan dengan nama \verb|AnimBP_<nama_kendaraan>|. Gambar
 \ref{fig:blueprint-animation-4wheeled} menunjukkan aset \textit{animation
 blueprint} trem.
 
@@ -241,20 +247,92 @@ Aset-aset di dalam \textit{folder} \verb|Static| selesai dibuat. Gambar
     \label{fig:tram-assets-in-static-folder}
 \end{figure}
 
-Selanjutnya, dilakukan pembuatan aset dalam direktor
-\verb|/Content/Carla/Bleprints/Vehicle/<nama_kendaraan>|.
+Selanjutnya, dilakukan pembuatan 5 aset dalam direktori
+\verb|/Content/Carla/Blueprints/Vehicle/<nama_kendaraan>/| (selanjutnya akan
+disebut sebagai \textit{folder} \verb|Blueprints|). Lima aset tersebut adalah aset 4
+\textit{blueprint} roda dan 1 aset \textit{blueprint} kendaraan. Empat aset
+\textit{blueprint} roda dibuat dengan klik kanan pada \textit{Content Browser}
+dan memilih opsi \verb|Blueprint Class| kemudian memilih \verb|VehicleWheel|
+untuk opsi \verb|Parent Class|. Masing-masing aset diberi nama
+\verb|BP_<nama_kendaraan>_<posisi_roda>| dengan posisi roda: FLW (\textit{front
+left wheel}), FRW (\textit{front right wheel}), RLW (\textit{rear left wheel}),
+atau RRW (\textit{rear right wheel}). Aset-aset \textit{blueprint} roda dibuka
+dan diatur nilai-nilainya pada panel \verb|Class Defaults| dengan konfigurasi
+sebagai berikut:
 
-% buat animation blueprint
+\begin{enumerate}
+    \item Opsi \verb|Collision Mesh| diatur menjadi \verb|Wheel_Shape|
+    \item Opsi \verb|Shape Radius| diatur sesuai dengan radius roda
+    \item Opsi \verb|Shape Width| diatur sesuai dengan ketebalan roda
+    \item Opsi \verb|Mass| diatur sesuai dengan massa roda dalam kilogram
+    \item Opsi \verb|Steer Angle| diatur menjadi \verb|70| (derajat) untuk roda
+    depan dan \verb|0| (derajat) untuk roda belakang
+    \item Opsi \verb|Affected by Handbrake| tidak dicentang untuk roda depan dan
+    dicentang untuk roda belakang
+    \item Opsi \verb|Tire Config| diatur menjadi \verb|CommonTireConfig|
+\end{enumerate}
 
-% navigate ke bp folder
-% buat folder baru
-% buat bp roda, bp kendaraan + configs
+Aset-aset \textit{blueprint} roda selesai dibuat. Gambar
+\ref{fig:tram-wheel-blueprints} menunjukkan isi dari 2 \textit{blueprint} roda
+trem, yaitu roda kiri depan dan roda kiri belakang.
 
-% add dto vehicle factory
+\begin{figure}[!ht]
+    \centering
+    \subfloat[Aset \textit{blueprint} roda kiri depan trem]{\includegraphics[width=0.47\textwidth]{resources/chapter-4/tram-wheel-bp-flw.png}}
+    \hfill
+    \subfloat[Aset \textit{blueprint} roda kiri belakang trem]{\includegraphics[width=0.47\textwidth]{resources/chapter-4/tram-wheel-bp-rlw.png}}
+    \caption{Aset \textit{blueprint} roda trem}
+    \label{fig:tram-wheel-blueprints}
+\end{figure}
 
-% spawn vehicle (implemented but does it work?)
+Setelah semua opsi diatur, aset-aset \textit{blueprint} roda di-\textit{compile}
+dan disimpan. Selanjutnya, aset \textit{blueprint} kendaraan dibuat dengan klik
+kanan pada \textit{Content Browser} dan memilih opsi \verb|Blueprint Class|
+kemudian memilih \verb|BaseVehiclePawn| untuk opsi \verb|Parent Class|. Aset
+diberi nama \verb|BP_<nama_kendaraan>|. Aset \textit{blueprint} kendaraan diatur
+dengan konfigurasi sebagai berikut:
 
-% TODO: trouble shooting? hal2 yang harus diperhatikan
+\begin{enumerate}
+    \item Pada komponen \verb|Mesh (VehicleMesh) Inherited|, opsi \verb|Skeletal Mesh|
+    diatur menjadi aset \textit{skeletal mesh} \verb|<nama_kendaraan>|
+    \item Pada komponen \verb|Mesh (VehicleMesh) Inherited|, opsi \verb|Anim Class|
+    diatur menjadi aset \textit{animation blueprint}
+    \verb|AnimBP_<nama_kendaraan>|
+    \item Pada komponen \verb|Custom Collision (Inherited)|, opsi \verb|Static Mesh|
+    diatur menjadi aset \textit{static mesh} \verb|<nama_kendaraan>|
+    \item Pada komponen \verb|VehicleMovement (MovementComp) (Inherited)|, 4
+    opsi \verb|Wheel Class| diatur menjadi aset-aset \textit{blueprint} roda
+    sesuai dengan posisi roda. Gambar \ref{fig:tram-blueprint-wheels}
+    menunjukkan konfigurasi roda.
+\end{enumerate}
+
+\begin{figure}[!h]
+    \centering
+    \includegraphics[width=1\textwidth]{resources/chapter-4/tram-blueprint-wheels.png}
+    \caption{Konfigurasi roda pada \textit{blueprint} kendaraan trem}
+    \label{fig:tram-blueprint-wheels}
+\end{figure}
+
+Aset-aset di dalam \textit{folder} \verb|Blueprints| selesai dibuat. Gambar
+\ref{fig:tram-assets-in-blueprints-folder} menunjukkan aset-aset trem dalam
+\textit{folder} \verb|Blueprints|.
+
+\begin{figure}[!h]
+    \centering
+    \includegraphics[width=1\textwidth]{resources/chapter-4/tram-assets-in-blueprints-folder.png}
+    \caption{Aset-aset trem dalam \textit{folder} \texttt{Blueprints}}
+    \label{fig:tram-assets-in-blueprints-folder}
+\end{figure}
+
+Setelah semua aset \textit{blueprint} dibuat, di-\textit{compile}, dan disimpan,
+\textit{blueprint} kendaraan dimasukkan ke dalam berkas \verb|VehicleFactory|
+yang terletak di dalam \verb|/Content/Carla/Blueprints/Vehicle/| agar dapat
+dimunculkan atau di-\textit{spawn} di dalam simulasi. \textit{Blueprint}
+kendaraan sebagai sebuah elemen baru dalam \textit{array} kendaraan.
+Selanjutnya, dilakukan \textit{spawning} kendaraan dengan menjalankan perintah
+\verb|python3 manual_control.py --filter <nama_kendaraan>| pada terminal.
+Program \verb|manual_control.py| terletak di dalam direktori
+\verb|/PythonAPI/examples/|
 
 Gambar \ref{fig:tram-carla} menunjukkan hasil implementasi trem. Gambar
 \ref{fig:angkot-carla} menunjukkan hasil implementasi trem  angkot.
@@ -389,6 +467,7 @@ Tujuan validasi adalah untuk memastikan bahwa objek-objek berperilaku normal
 
 \subsection{Hasil Validasi}
 % manual + generate
+% dilihat manual: melayang ngga
 
 \section{Distribusi Hasil Implementasi}
 
