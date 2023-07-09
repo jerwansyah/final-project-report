@@ -484,28 +484,30 @@ selama simulasi berjalan. Berikut adalah tujuan validasi yang ingin dicapai:
     \item Kendaraan stabil saat simulasi berjalan dan tidak berperilaku di luar
     harapan
     % \item Kendaraan berperilaku normal seperti kendaraan aslinya
-    \item Kendaraan dapat mengikuti kendali yang diberikan pengguna berupa
-    \textit{throttle}, \textit{brake}, dan \textit{steer}.
+    \item Kendaraan dapat mengikuti kendali yang diberikan pengguna
     \item Kendaraan berjalan dengan baik ketika dikendalikan secara
     \textit{autopilot}
 \end{enumerate}
 
 \subsection{Metode Validasi}
 
-% TODO:
+Validasi dilakukan dengan menjalankan simulasi dan melakukan 3 hal sebagai
+berikut:
 
-Validasi dilakukan dengan menjalankan simulasi \dots
+\begin{enumerate}
 
-% \verb|python3 manual_control.py --filter <nama_kendaraan>|
-% \verb|python3 manual_control.py --filterv <nama_kendaraan> -n <jumlah_kendaraan> + -w 0|
-% direktori \verb|/PythonAPI/examples/|
-% go crazy?
+    \item Menjalankan perintah \verb|python3 manual_control.py --filter <nama_kendaraan>|
+    dalam direktori \verb|/PythonAPI/examples/| untuk menguji kendali kendaraan
+    secara manual untuk \textit{throttle}, \textit{brake}, dan \textit{steer}
 
-% mengamati: vvv
-    % nurut, dapat dikendalikan, expected behavior
-    % newton law? kalo diem ya diem, kalo jalan ya jalan
-    % ga tiba2 ilang atau mental atau joged2
+    \item Menjalankan perintah \verb|python3 generate_traffic.py --filterv <nama_kendaraan> -n <jumlah_kendaraan> -w 0|
+    dalam direktori \verb|/PythonAPI/examples/| untuk menguji kendali kendaraan
+    secara \textit{autopilot}
 
+    \item Mengamati perilaku kendaraan saat simulasi berjalan untuk memastikan
+    kendaraan stabil saat simulasi dan tidak berperilaku di luar harapan
+
+\end{enumerate}
 
 \subsection{Hasil Validasi}
 
