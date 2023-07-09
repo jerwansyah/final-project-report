@@ -496,13 +496,18 @@ berikut:
 
 \begin{enumerate}
 
-    \item Menjalankan perintah \verb|python3 manual_control.py --filter <nama_kendaraan>|
-    dalam direktori \verb|/PythonAPI/examples/| untuk menguji kendali kendaraan
-    secara manual untuk \textit{throttle}, \textit{brake}, dan \textit{steer}
+    \item Menjalankan perintah \verb|python3 manual_control.py --filter|
+    \verb|<nama_kendaraan>| dalam direktori \verb|/PythonAPI/examples/| pada
+    terminal untuk menguji kendali kendaraan secara manual untuk
+    \textit{throttle}, \textit{brake}, dan \textit{steer}
 
-    \item Menjalankan perintah \verb|python3 generate_traffic.py --filterv <nama_kendaraan> -n <jumlah_kendaraan> -w 0|
-    dalam direktori \verb|/PythonAPI/examples/| untuk menguji kendali kendaraan
-    secara \textit{autopilot}
+    \item Menjalankan perintah \verb|python3 generate_traffic.py --filterv|
+    \verb|<nama_kendaraan> -n <jumlah_kendaraan> -w 0| dalam direktori \verb|/PythonAPI/examples/|
+    pada terminal untuk menguji kendali kendaraan secara \textit{autopilot}
+
+    Opsi \verb|-n <jumlah_kendaraan>| digunakan untuk melakukan \textit{spawn}
+    kendaraan sebanyak \verb|<jumlah_kendaraan>|. Opsi \verb|-w| digunakan untuk
+    melakukan \textit{spawn} \textit{walker} atau pedestrian sebanyak 0.
 
     \item Mengamati perilaku kendaraan saat simulasi berjalan untuk memastikan
     kendaraan stabil saat simulasi dan tidak berperilaku di luar harapan
@@ -512,9 +517,6 @@ berikut:
 \subsection{Hasil Validasi}
 
 % TODO: add preamble again?
-
-% manual + generate
-% dilihat manual: melayang ngga
 
 \subsubsection{Validasi Trem dan Angkot}
 
