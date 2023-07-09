@@ -18,7 +18,7 @@ sebagai berikut:
     \item Penambahan objek statis lainnya
 \end{enumerate}
 
-% TODO: ? tambah hasil eksplorasi lainnya (eksplorasi buat kota baru)
+% note: ? tambah hasil eksplorasi lainnya (eksplorasi buat kota baru)
 
 \section{Implementasi}
 
@@ -155,7 +155,7 @@ arah sumbu \verb|Y Up|. Opsi lainnya dapat diatur sesuai kebutuhan.
 
 \subsubsection{Pengimporan Berkas FBX dan Konfigurasi Kendaraan Roda 4 dalam Editor CARLAUE4}
 
-% TODO: add carlaue4 editor ui?
+% note: add carlaue4 editor ui?
 
 Setelah aset model 3D selesai dibuat dan diekspor ke dalam format FBX, berkas
 FBX tersebut diimpor ke dalam editor CARLAUE4. Sebelum berkas FBX kendaraan
@@ -372,7 +372,7 @@ CARLAUE4.
 Penambahan aset model 3D ke dalam lingkungan simulasi dilakukan dengan membuat
 \textit{folder} baru untuk masing-masing objek/\textit{mesh}/\textit{static
 mesh} dalam \textit{folder} \verb|Static| kemudian mengimpor aset model 3D ke
-dalam masing-masing\textit{folder} tersebut. Objek statis ditambahkan dengan
+dalam masing-masing \textit{folder} tersebut. Objek statis ditambahkan dengan
 cara menarik berkas objek dari \textit{Content Browser} ke dalam
 \textit{Viewport}. Setelah itu, dapat dilakukan penyesuaian skala, posisi, dan
 rotasi \textit{static mesh} pada panel \verb|Details|.
@@ -469,33 +469,47 @@ dalam simulasi.
 
 \section{Validasi}
 
-% TODO: add preamble
-% Hasil immplementasi selanjutnya divalidasi ketika simulasi dijalankan.
+Subbab ini membahas mengenai tujuan validasi, metode validasi, dan hasil
+validasi dari hasil implementasi yang telah dilakukan.
 
 \subsection{Tujuan Validasi}
 
-Tujuan validasi hasil implementasi adalah untuk memastikan bahwa objek-objek
-non-statik atau objek yang dapat bergerak seperti kendaraan berperilaku normal
-seperti kendaraan pada umumnya dan stabil saat simulasi berjalan. Berikut adalah
-kriteria sukses validasi:
+Validasi hasil dilakukan terhadap hasil implementasi objek-objek non-statik atau
+objek yang dapat bergerak, yaitu objek-objek kendaraan. Objek statik yang telah
+diimplementasi tidak perlu divalidasi karena objek statik tidak akan berubah
+selama simulasi berjalan. Berikut adalah tujuan validasi yang ingin dicapai:
 
-% TODO: lengkapin, statik ga divalidasi karna statik
 
 \begin{enumerate}
-    \item \dots
-    % \item Kendaraan dapat dikemudikan (brake throttle steer) (program manual control.py --filter <nama_kendaraan>)
-    % \item Kendaraan dapat berjalan ?? beroperasi ? dengan stabil? as expected? (pake program generate_traffic.py --filterv <nama_kendaraan>)
-    % (essplain dijalanin perintah ^ pake -n 20 + -w 0 knp)
+    \item Kendaraan stabil saat simulasi berjalan dan tidak berperilaku di luar
+    harapan
+    % \item Kendaraan berperilaku normal seperti kendaraan aslinya
+    \item Kendaraan dapat mengikuti kendali yang diberikan pengguna berupa
+    \textit{throttle}, \textit{brake}, dan \textit{steer}.
+    \item Kendaraan berjalan dengan baik ketika dikendalikan secara
+    \textit{autopilot}
 \end{enumerate}
-
 
 \subsection{Metode Validasi}
 
 % TODO:
 
+Validasi dilakukan dengan menjalankan simulasi \dots
+
+% \verb|python3 manual_control.py --filter <nama_kendaraan>|
+% \verb|python3 manual_control.py --filterv <nama_kendaraan> -n <jumlah_kendaraan> + -w 0|
+% direktori \verb|/PythonAPI/examples/|
+% go crazy?
+
+% mengamati: vvv
+    % nurut, dapat dikendalikan, expected behavior
+    % newton law? kalo diem ya diem, kalo jalan ya jalan
+    % ga tiba2 ilang atau mental atau joged2
+
+
 \subsection{Hasil Validasi}
 
-% TODO:
+% TODO: add preamble again?
 
 % manual + generate
 % dilihat manual: melayang ngga
@@ -507,11 +521,6 @@ kriteria sukses validasi:
 \subsubsection{Validasi Sepeda Onthel, Sepeda Motor, dan Becak}
 
 % TODO:
-
-% Selanjutnya, dilakukan \textit{spawning} kendaraan dengan menjalankan perintah
-% \verb|python3 manual_control.py --filter <nama_kendaraan>| pada terminal.
-% Program \verb|manual_control.py| terletak di dalam direktori
-% \verb|/PythonAPI/examples/|
 
 \section{Distribusi Hasil Implementasi}
 
@@ -528,9 +537,11 @@ yang mengandung aset-aset baru yang butuh diimpor jika ingin digunakan.
 \section{Evaluasi}
 
 % TODO:
-% kendaraan roda 2 dan 3 berhasil diimplementasikan namun tidak stabil
+% kendaraan roda 2 dan 3 berhasil diimplementasikan namun tidak stabil, why
 % ? tidak diperlukan perta
 % tidak diperlukan data OpenDRIVE untuk traffic signs, karena:
 % - tidak dibutuhkan
 % - dari sisi trem, hanya butuh secara visual saja
 % - dari sisi kendaraan lain (untuk autopilot), tidak dibutuhkan juga, mostly cuman penanda ada ini
+% becak bisa dijadiin statis
+% keterbatasan carla di jelasinsinsinsin
