@@ -14,20 +14,18 @@ sebagai berikut:
 
 \begin{enumerate}
     \item Penambahan kendaraan baru beroda empat dan dua
-    \item Penambahan \textit{spline} untuk menambahkan rel
+    \item Penambahan objek \textit{spline} untuk menambahkan rel
     \item Penambahan objek statis lainnya
 \end{enumerate}
 
 % TODO: ? tambah hasil eksplorasi lainnya (eksplorasi buat kota baru)
-% TODO: ? BP, factory, spline
-% TODO: ? jelasin how to? but where
 
 \section{Implementasi}
 
-Bagian ini membahas mengenai implementasi trem dan angkot sebagai kendaraan roda
-4, sepeda onthel, sepeda motor, dan becak sebagai kendaraan roda 2, stasiun dan
-rambu lalu lintas sebagai objek statis, dan rel sebagai objek statis dalam
-bentuk \textit{spline}.
+Bagian ini membahas mengenai batasan implementasi, implementasi trem dan angkot
+sebagai kendaraan roda 4, sepeda onthel, sepeda motor, dan becak sebagai
+kendaraan roda 2, stasiun dan rambu lalu lintas sebagai objek statis, dan rel
+sebagai objek statis dalam bentuk \textit{spline}.
 
 \subsection{Batasan Implementasi}
 
@@ -44,13 +42,18 @@ adalah sebagai berikut:
 \begin{enumerate}
     \item Trem dan angkot sebagai kendaraan roda 4
     \item Sepeda onthel, sepeda motor, dan becak sebagai kendaraan roda 2
-    \item Stasiun Madiun dan Satsiun Solokota sebagai objek statis
+    \item Stasiun Madiun, Stasiun Solokota, dan rambu-rambu lalu lintas sebagai
+    objek statis
     \item Rel sebagai objek statis dalam bentuk \textit{spline}
 \end{enumerate}
 
 % note: https://github.com/carla-simulator/carla/blob/0.9.13/CHANGELOG.md
 
 \subsection{Implementasi Trem dan Angkot}
+
+Implementasi trem dan angkot sebagai kendaraan roda 4 terbagi menjadi dua
+bagian, yaitu: pembuatan aset model 3D untuk ekspor berkas FBX, dan
+pengimporan berkas FBX dan konfigurasi kendaraan roda 4 dalam editor CARLAUE4.
 
 \subsubsection{Pembuatan Aset Model 3D untuk Ekspor Berkas FBX}
 
@@ -150,7 +153,7 @@ arah sumbu \verb|Y Up|. Opsi lainnya dapat diatur sesuai kebutuhan.
     \label{fig:export-fbx}
 \end{figure}
 
-\subsubsection{Impor Berkas FBX Kendaraan Roda 4 ke dalam Editor CARLAUE4}
+\subsubsection{Pengimporan Berkas FBX dan Konfigurasi Kendaraan Roda 4 dalam Editor CARLAUE4}
 
 % TODO: add carlaue4 editor ui?
 
@@ -249,16 +252,16 @@ Aset-aset di dalam \textit{folder} \verb|Static| selesai dibuat. Gambar
 
 Selanjutnya, dilakukan pembuatan 5 aset dalam direktori
 \verb|/Content/Carla/Blueprints/Vehicle/<nama_kendaraan>/| (selanjutnya akan
-disebut sebagai \textit{folder} \verb|Blueprints|). Lima aset tersebut adalah aset 4
-\textit{blueprint} roda dan 1 aset \textit{blueprint} kendaraan. Empat aset
-\textit{blueprint} roda dibuat dengan klik kanan pada \textit{Content Browser}
-dan memilih opsi \verb|Blueprint Class| kemudian memilih \verb|VehicleWheel|
-untuk opsi \verb|Parent Class|. Masing-masing aset diberi nama
-\verb|BP_<nama_kendaraan>_<posisi_roda>| dengan posisi roda: FLW (\textit{front
-left wheel}), FRW (\textit{front right wheel}), RLW (\textit{rear left wheel}),
-atau RRW (\textit{rear right wheel}). Aset-aset \textit{blueprint} roda dibuka
-dan diatur nilai-nilainya pada panel \verb|Class Defaults| dengan konfigurasi
-sebagai berikut:
+disebut sebagai \textit{folder} \verb|Blueprints|). Lima aset tersebut adalah
+aset 4 \textit{blueprint} roda dan 1 aset \textit{blueprint} kendaraan. Empat
+aset \textit{blueprint} roda dibuat dengan klik kanan pada \textit{Content
+Browser} dan memilih opsi \verb|Blueprint Class| kemudian memilih
+\verb|VehicleWheel| untuk opsi \verb|Parent Class|. Masing-masing aset diberi
+nama \verb|BP_<nama_kendaraan>_<posisi_roda>| dengan posisi roda: \verb|FLW|
+(\textit{front left wheel}), \verb|FRW| (\textit{front right wheel}), \verb|RLW|
+(\textit{rear left wheel}), atau \verb|RRW| (\textit{rear right wheel}).
+Aset-aset \textit{blueprint} roda dibuka dan diatur nilai-nilainya pada panel
+\verb|Class Defaults| dengan konfigurasi sebagai berikut:
 
 \begin{enumerate}
     \item Opsi \verb|Collision Mesh| diatur menjadi \verb|Wheel_Shape|
@@ -308,7 +311,7 @@ dengan konfigurasi sebagai berikut:
 
 \begin{figure}[!h]
     \centering
-    \includegraphics[width=1\textwidth]{resources/chapter-4/tram-blueprint-wheels.png}
+    \includegraphics[width=0.47\textwidth]{resources/chapter-4/tram-blueprint-wheels.png}
     \caption{Konfigurasi roda pada \textit{blueprint} kendaraan trem}
     \label{fig:tram-blueprint-wheels}
 \end{figure}
@@ -329,10 +332,6 @@ Setelah semua aset \textit{blueprint} dibuat, di-\textit{compile}, dan disimpan,
 yang terletak di dalam \verb|/Content/Carla/Blueprints/Vehicle/| agar dapat
 dimunculkan atau di-\textit{spawn} di dalam simulasi. \textit{Blueprint}
 kendaraan sebagai sebuah elemen baru dalam \textit{array} kendaraan.
-Selanjutnya, dilakukan \textit{spawning} kendaraan dengan menjalankan perintah
-\verb|python3 manual_control.py --filter <nama_kendaraan>| pada terminal.
-Program \verb|manual_control.py| terletak di dalam direktori
-\verb|/PythonAPI/examples/|
 
 Gambar \ref{fig:tram-carla} menunjukkan hasil implementasi trem. Gambar
 \ref{fig:angkot-carla} menunjukkan hasil implementasi trem  angkot.
@@ -353,39 +352,36 @@ Gambar \ref{fig:tram-carla} menunjukkan hasil implementasi trem. Gambar
 
 \subsection{Implementasi Sepeda Onthel, Sepeda Motor, dan Becak}
 
+Implementasi sepeda onthel, sepeda motor, dan becak sebagai kendaraan roda 2
+terbagi menjadi dua bagian, yaitu: pembuatan aset model 3D untuk ekspor berkas
+FBX, dan pengimporan berkas FBX dan konfigurasi kendaraan roda 2 dalam editor
+CARLAUE4.
+
+\subsubsection{Pembuatan Aset Model 3D untuk Ekspor berkas FBX}
+
 % TODO:
-% \subsubsection{Pembuatan Aset Model 3D untuk Ekspor berkas FBX}
-% \subsubsection{Impor Berkas FBX ke Editor CARLAUE4}
+% same2 but different but still the same
+% armature and bindings
+
+\subsubsection{Pengimporan Berkas FBX dan Konfigurasi Kendaraan Roda 2 dalam Editor CARLAUE4}
+
+% TODO:
 
 \subsection{Implementasi Lingkungan}
 
-% TODO: ? cara import aset yang lain (yang khusus, yang detail di bawah aja)
-% TODO: should i change the paragraph below into a subsubsection?
-
 Penambahan aset model 3D ke dalam lingkungan simulasi dilakukan dengan membuat
-folder baru pada direktori yang bersangkutan kemudian mengimpor aset model 3D ke
-dalam folder tersebut. Cara menambahkan objek-objek statis ini adalah dengan
-menarik objek dari impor dari \textit{Content Browser} ke dalam \textit{World
-Outliner}. Setelah itu, dapat dilakukan penyesuaian skala, posisi, dan rotasi
-aset pada \textit{World Outliner}. Penyesuaian lingkungan dapat dilakukan dengan
-memilih dan mengaktifkan tingkat atau level objek yang ingin diubah.
+\textit{folder} baru untuk masing-masing objek/\textit{mesh}/\textit{static
+mesh} dalam \textit{folder} \verb|Static| kemudian mengimpor aset model 3D ke
+dalam masing-masing\textit{folder} tersebut. Objek statis ditambahkan dengan
+cara menarik berkas objek dari \textit{Content Browser} ke dalam
+\textit{Viewport}. Setelah itu, dapat dilakukan penyesuaian skala, posisi, dan
+rotasi \textit{static mesh} pada panel \verb|Details|.
 
-% TODO: insert images, add directories, world levels, world outliner kah istilahnya?
-% penyesuiannya lingkungan?
+\subsubsection{Stasiun Madiun, Stasiun Solokota, dan Rambu Lalu Lintas}
 
-% TODO: benerin kata2nya jelek banget astaga
-
-\subsubsection{Stasiun Madiun dan Stasiun Solokota}
-% TODO: remove lihat gambar, figures need to be mentioned explicitly
-Gambar \ref{fig:stasiun-madiun} menunjukkan implementasi model Stasiun Madiun
-(lihat Gambar \ref{fig:stasiun-madiun-model}). Model stasiun kemudian
-disesuaikan ukurannya dan diposisikan pada ... .
-
-Gambar \ref{fig:stasiun-solokota} menunjukkan implementasi model Stasiun Solokota
-(lihat Gambar \ref{fig:stasiun-solokota-model}). Model stasiun kemudian
-disesuaikan ukurannya dan diposisikan pada ... .
-
-% TODO: ..., + cara,  ke bab 3?
+Gambar \ref{fig:stasiun-madiun-model} menunjukkan aset model 3D Stasiun Madiun
+yang dibuat. Gambar \ref{fig:stasiun-madiun} menunjukkan implementasi model
+Stasiun Madiun dalam lingkungan simulasi.
 
 \begin{figure}[!h]
     \centering
@@ -401,6 +397,10 @@ disesuaikan ukurannya dan diposisikan pada ... .
     \label{fig:stasiun-madiun}
 \end{figure}
 
+Gambar \ref{fig:stasiun-solokota-model} menunjukkan aset model 3D Stasiun
+Solokota yang dibuat. Gambar \ref{fig:stasiun-solokota} menunjukkan implementasi
+model Stasiun Solokota dalam lingkungan simulasi.
+
 \begin{figure}[!h]
     \centering
     \includegraphics[width=0.6\textwidth]{resources/chapter-3-stasiun-solokota-model.png}
@@ -415,7 +415,8 @@ disesuaikan ukurannya dan diposisikan pada ... .
     \label{fig:stasiun-solokota}
 \end{figure}
 
-\subsubsection{Rambu-rambu Lalu Lintas}
+Gambar \ref{fig:road-signs} menunjukkan implementasi rambu-rambu lalu lintas
+dalam lingkungan simulasi.
 
 \begin{figure}[!h]
     \centering
@@ -427,53 +428,106 @@ disesuaikan ukurannya dan diposisikan pada ... .
 \end{figure}
 
 \subsubsection{Rel}
-% import mesh sebagai objek statis
-% spline: butuh banyak edge/verts
-% topview + stasiun
 
-Gambar \ref{fig:rel} dan Gambar \ref{fig:rel-2} menunjukkan hasil implementasi rel.
-
-% rel (lihat Gambar \ref{fig:rel-model}).
-
-% \begin{figure}[!h]
-%     \centering
-%     \includegraphics[width=0.6\textwidth]{resources/chapter-4/rel.png}
-%     \caption{Implementasi rel dalam lingkungan simulasi}
-%     \label{fig:rel-model}
-% \end{figure}
+Rel diimplementasi dengan menggunakan \textit{blueprint} \verb|BP_Spline| yang
+terdapat pada direktori \verb|/Content/Carla/Blueprints/LevelDesign/|.
+\verb|BP_Spline| merupakan \textit{blueprint} yang dapat digunakan untuk
+deformasi \textit{mesh} sehingga \textit{mesh} dapat membentuk atau mengikuti
+garis/kurva. Karena \verb|BP_Spline| direpresentasikan menggunakan kurva Bézier,
+aset model 3D yang digunakan sebagai \textit{static mesh} harus memiliki banyak
+titik sehingga dapat membentuk kurva yang mulus. Gambar \ref{fig:rel-mesh}
+menunjukkan mesh aset model 3D rel yang memiliki banyak titik.
 
 \begin{figure}[!h]
     \centering
-    \includegraphics[width=0.6\textwidth]{resources/chapter-4/rel.png}
+    \includegraphics[width=0.4\textwidth]{resources/chapter-4/rel-mesh.png}
+    \caption{Tampilan \textit{wireframe} aset model 3d rel}
+    \label{fig:rel-mesh}
+\end{figure}
+
+Gambar \ref{fig:rel-route} menunjukkan 2 rute rel yang dibuat menggunakan
+\textit{blueprint} \verb|BP_Spline| pada \textit{Viewport} editor.
+\textit{Spline} merupakan kurva warna putih yang memiliki titik-titik dalam
+bentuk kotak putih. Gambar \ref{fig:rel} menunjukkan hasil implementasi rel
+dalam simulasi.
+
+\begin{figure}[!h]
+    \centering
+    \includegraphics[width=0.47\textwidth]{resources/chapter-4/rel-route.png}
+    \caption{Rute rel}
+    \label{fig:rel-route}
+\end{figure}
+
+\begin{figure}[!h]
+    \centering
+    \subfloat[Tampilan biasa]{\includegraphics[width=0.47\textwidth]{resources/chapter-4/rel.png}}
+    \hfill
+    \subfloat[Tampilan segmentasi semantik]{\includegraphics[width=0.47\textwidth]{resources/chapter-4/rel-segmentation-camera.png}}
     \caption{Implementasi rel dalam lingkungan simulasi}
     \label{fig:rel}
 \end{figure}
 
-\begin{figure}[!h]
-    \centering
-    \includegraphics[width=0.6\textwidth]{resources/chapter-4/rel-segmentation-camera.png}
-    \caption{Implementasi rel dalam lingkungan simulasi (tampilan segmentasi semantik)}
-    \label{fig:rel-2}
-\end{figure}
-
 \section{Validasi}
+
+% TODO: add preamble
+% Hasil immplementasi selanjutnya divalidasi ketika simulasi dijalankan.
 
 \subsection{Tujuan Validasi}
 
-Tujuan validasi adalah untuk memastikan bahwa objek-objek berperilaku normal
-(seperti aslinya) dan stabil saat simulasi berjalan.
+Tujuan validasi hasil implementasi adalah untuk memastikan bahwa objek-objek
+non-statik atau objek yang dapat bergerak seperti kendaraan berperilaku normal
+seperti kendaraan pada umumnya dan stabil saat simulasi berjalan. Berikut adalah
+kriteria sukses validasi:
 
-% TODO: lengkapin
+% TODO: lengkapin, statik ga divalidasi karna statik
+
+\begin{enumerate}
+    \item \dots
+    % \item Kendaraan dapat dikemudikan (brake throttle steer) (program manual control.py --filter <nama_kendaraan>)
+    % \item Kendaraan dapat berjalan ?? beroperasi ? dengan stabil? as expected? (pake program generate_traffic.py --filterv <nama_kendaraan>)
+    % (essplain dijalanin perintah ^ pake -n 20 + -w 0 knp)
+\end{enumerate}
+
+
+\subsection{Metode Validasi}
+
+% TODO:
 
 \subsection{Hasil Validasi}
+
+% TODO:
+
 % manual + generate
 % dilihat manual: melayang ngga
 
+\subsubsection{Validasi Trem dan Angkot}
+
+% TODO:
+
+\subsubsection{Validasi Sepeda Onthel, Sepeda Motor, dan Becak}
+
+% TODO:
+
+% Selanjutnya, dilakukan \textit{spawning} kendaraan dengan menjalankan perintah
+% \verb|python3 manual_control.py --filter <nama_kendaraan>| pada terminal.
+% Program \verb|manual_control.py| terletak di dalam direktori
+% \verb|/PythonAPI/examples/|
+
 \section{Distribusi Hasil Implementasi}
 
-% TODO: hasil ss
+Setelah semua objek lokal dan lingkungan simulasi selesai dibuat, aset yang
+valid didistribusikan dalam bentuk CARLA versi \textit{packaged}. CARLA versi
+\textit{packaged} tersebut dibuat dengan cara menjalankan perintah \verb|make package|
+pada terminal. Perintah tersebut menghasilkan 2 hal dalam direktori
+\verb|/Dist/|, yaitu sebuah \textit{folder} \verb|CARLA_Shipping_0.9.12| dan
+berkas \verb|CARLA_0.9.12.tar.gz|. \textit{Folder} \verb|CARLA_Shipping_0.9.12|
+berisi CARLA yang memiliki aset-aset baru, sudah di-\textit{compile}, dan siap
+untuk dijalankan tanpa editor. Berkas \verb|CARLA_0.9.12.tar.gz| adalah berkas
+yang mengandung aset-aset baru yang butuh diimpor jika ingin digunakan.
 
 \section{Evaluasi}
+
+% TODO:
 % kendaraan roda 2 dan 3 berhasil diimplementasikan namun tidak stabil
 % ? tidak diperlukan perta
 % tidak diperlukan data OpenDRIVE untuk traffic signs, karena:
