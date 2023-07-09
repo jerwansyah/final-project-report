@@ -81,7 +81,7 @@ diatur skalanya karena akan merusak proses impor nantinya.
     \hfill
     \subfloat[Hierarki \textit{vehicle skeleton}]{\includegraphics[width=0.4\textwidth]{resources/chapter-4/vehicle-skeleton-hierarchy.png}}
     \caption{\textit{Vehicle skeleton} kendaraan roda 4}
-    \label{fig:vehicle-skeleton}
+    \label{fvehicle-skeletonig:}
 \end{figure}
 
 \begin{figure}[!h]
@@ -359,9 +359,43 @@ CARLAUE4.
 
 \subsubsection{Pembuatan Aset Model 3D untuk Ekspor berkas FBX}
 
-% TODO:
-% same2 but different but still the same
-% armature and bindings
+Pembuatan aset model 3D untuk kendaraan roda 2 dilakukan dengan cara yang serupa
+dengan pembuatan aset model 3D untuk kendaraan roda 4. Perbedaannya terletak
+pada \textit{armature} yang digunakan dan proses \textit{skinning}. Gambar
+\ref{fig:bike-skeleton} menunjukkan \textit{armature} kendaraan roda 2/sepeda.
+Sebelum proses \textit{skinning}, setiap \textit{bone} diatur posisinya
+masing-masing agar sesuai. Masing-masing \textit{vertices groups} dibuat untuk
+setiap \textit{bone} yang perlu dihubungkan dengan \textit{mesh}, yaitu:
+
+\begin{enumerate}
+    \item \verb|BikeBodyGeo| dengan seluruh \textit{mesh} kendaraan selain roda
+    \item \verb|HandlerGeo| dengan \textit{mesh} roda depan dan pegangan
+    kendaraan
+    \item \verb|PedalsGeo| dengan \textit{mesh} \textit{pedalier}
+    \item \verb|FrontWheelGeo| dengan \textit{mesh} roda depan
+    \item \verb|RearWheelGeo| dengan \textit{mesh} roda belakang
+\end{enumerate}
+
+\begin{figure}[!h]
+    \centering
+    \subfloat[\textit{Armature}]{\includegraphics[width=0.5\textwidth]{resources/chapter-4/bike-skeleton.png}}
+    \hfill
+    \subfloat[Hierarki \textit{bike skeleton}]{\includegraphics[width=0.35\textwidth]{resources/chapter-4/bike-skeleton-hierarchy.png}}
+    \caption{\textit{Vehicle skeleton} kendaraan roda 4}
+    \label{fig:bike-skeleton}
+\end{figure}
+
+Gambar \ref{fig:onthel-model-with-armature} menunjukkan hasil \textit{skinning}.
+Setelah proses \textit{skinning} aset diekspor dengan opsi yang sama
+dengan ekspor berkas FBX untuk kendaraan roda 4. Gambar \ref{fig:export-fbx}
+menunjukkan opsi yang digunakan.
+
+\begin{figure}[!h]
+    \centering
+    \includegraphics[width=0.5\textwidth]{resources/chapter-4/sepeda-onthel-model-2.png}
+    \caption{Aset model 3D sepeda onthel dengan \textit{armature}}
+    \label{fig:onthel-model-with-armature}
+\end{figure}
 
 \subsubsection{Pengimporan Berkas FBX dan Konfigurasi Kendaraan Roda 2 dalam Editor CARLAUE4}
 
@@ -479,7 +513,6 @@ objek yang dapat bergerak, yaitu objek-objek kendaraan. Objek statik yang telah
 diimplementasi tidak perlu divalidasi karena objek statik tidak akan berubah
 selama simulasi berjalan. Berikut adalah tujuan validasi yang ingin dicapai:
 
-
 \begin{enumerate}
     \item Kendaraan stabil saat simulasi berjalan dan tidak berperilaku di luar
     harapan
@@ -516,15 +549,68 @@ berikut:
 
 \subsection{Hasil Validasi}
 
-% TODO: add preamble again?
+% note: add preamble again?
 
 \subsubsection{Validasi Trem dan Angkot}
 
-% TODO:
+Hasil validasi trem adalah trem dapat mengikuti kendali pengguna dan kendali
+secara \textit{autopilot} dengan baik. Trem beroperasi dengan stabil dan tidak
+melakukan hal yang tidak terduga selama simulasi berjalan. Gambar
+\ref{fig:tram-validation} menunjukkan hasil validasi trem.
+
+\begin{figure}[!h]
+    \centering
+    \subfloat[Kendali manual]{\includegraphics[width=0.47\textwidth]{resources/chapter-4/testing-tram-generate.png}}
+    \hfill
+    \subfloat[Kendali \textit{autopilot}]{\includegraphics[width=0.47\textwidth]{resources/chapter-4/testing-tram-manual.png}}
+    \caption{Validasi trem}
+    \label{fig:tram-validation}
+\end{figure}
+
+Hasil validasi angkot adalah angkot dapat mengikuti kendali pengguna dan kendali
+secara \textit{autopilot} dengan baik. Angkot beroperasi dengan stabil dan tidak
+melakukan hal yang tidak terduga selama simulasi berjalan. Gambar
+\ref{fig:angkot-validation} menunjukkan hasil validasi angkot.
+
+\begin{figure}[!h]
+    \centering
+    \subfloat[Kendali manual]{\includegraphics[width=0.47\textwidth]{resources/chapter-4/testing-angkot-generate.png}}
+    \hfill
+    \subfloat[Kendali \textit{autopilot}]{\includegraphics[width=0.47\textwidth]{resources/chapter-4/testing-angkot-manual.png}}
+    \caption{Validasi angkot}
+    \label{fig:angkot-validation}
+\end{figure}
 
 \subsubsection{Validasi Sepeda Onthel, Sepeda Motor, dan Becak}
 
 % TODO:
+
+% \begin{figure}[!h]
+%     \centering
+%     \subfloat[Kendali manual]{\includegraphics[width=0.47\textwidth]{resources/chapter-4/testing-onthel-generate.png}}
+%     \hfill
+%     \subfloat[Kendali \textit{autopilot}]{\includegraphics[width=0.47\textwidth]{resources/chapter-4/testing-onthel-manual.png}}
+%     \caption{Validasi sepeda onthel}
+%     \label{fig:onthel-validation}
+% \end{figure}
+
+% \begin{figure}[!h]
+%     \centering
+%     \subfloat[Kendali manual]{\includegraphics[width=0.47\textwidth]{resources/chapter-4/testing-motor-generate.png}}
+%     \hfill
+%     \subfloat[Kendali \textit{autopilot}]{\includegraphics[width=0.47\textwidth]{resources/chapter-4/testing-motor-manual.png}}
+%     \caption{Validasi sepeda motor}
+%     \label{fig:onthel-validation}
+% \end{figure}
+
+% \begin{figure}[!h]
+%     \centering
+%     \subfloat[Kendali manual]{\includegraphics[width=0.47\textwidth]{resources/chapter-4/testing-becak-generate.png}}
+%     \hfill
+%     \subfloat[Kendali \textit{autopilot}]{\includegraphics[width=0.47\textwidth]{resources/chapter-4/testing-becak-manual.png}}
+%     \caption{Validasi becak}
+%     \label{fig:becak-validation}
+% \end{figure}
 
 \section{Distribusi Hasil Implementasi}
 
@@ -549,3 +635,6 @@ yang mengandung aset-aset baru yang butuh diimpor jika ingin digunakan.
 % - dari sisi kendaraan lain (untuk autopilot), tidak dibutuhkan juga, mostly cuman penanda ada ini
 % becak bisa dijadiin statis
 % keterbatasan carla di jelasinsinsinsin
+% dokumentasi kurang lengkap, ga detail
+% debugging sulit karena tidak ada error message yang jelas
+% carla suka crash

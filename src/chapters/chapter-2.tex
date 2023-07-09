@@ -138,7 +138,8 @@ pengontrolan cuaca, dan lain-lain.
 Aktor (\textit{actor}) merupakan objek yang memiliki peran dalam simulasi. Aktor
 pada CARLA berupa: kendaraan, pejalan kaki, sensor, pengamat, rambu lalu lintas,
 dan lampu lalu lintas. \textit{Blueprint} berfungsi untuk memunculkan atau
-\textit{spawn} aktor lain.
+\textit{spawn} aktor lain dengan tujuan mengintegrasikan aktor tersebut ke
+dalam simulasi.
 
 % \subsubsection{Map dan Navigasi}
 
@@ -243,10 +244,10 @@ juga menunjukkan \textit{armature} yang telah di-\textit{skinning}.
 
     \item Sendi awal (\textit{root}/\textit{head})
 
-    Sendi awal memiliki koordinat pada sumbu X, Y, dan Z di ruang lokal
-    (\textit{local space}) objek \textit{armature}. Sendi awal merupakan titik
-    acuan untuk rotasi \textit{bone} pada sumbu X dan Z pada \textit{local
-    space}. Rotasi ini disebut juga sebagai \textit{roll angle}.
+    Sendi awal memiliki koordinat pada sumbu X, Y, dan Z di ruang lokal objek
+    \textit{armature}. Sendi awal merupakan titik acuan untuk rotasi
+    \textit{bone} pada sumbu X dan Z pada \textit{local space}. Rotasi ini
+    disebut juga sebagai \textit{roll angle}.
 
     \item Sendi akhir (\textit{tip}/\textit{tail})
 
