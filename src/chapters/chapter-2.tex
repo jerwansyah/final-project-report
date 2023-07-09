@@ -44,7 +44,7 @@ juga membutuhkan waktu yang lama karena dibutuhkannya data yang banyak, data
 yang valid, dan data yang mencakup kasus-kasus tidak terduga untuk melatih
 kendaraan otonom \parencite{carla-dosovitskiy}.
 
-% TODO:
+% note:
 % about tram specifically
 % autonomous vehicles \subsection{Kendaraan Otonom di Indonesia}
 % \subsection{Trem Otonom di Indonesia}
@@ -157,15 +157,8 @@ Pengumpulan data yan efisien dilakukan dengan memasang sensor pada kendaraan
 yang dikendalikan oleh pengguna dalam simulasi atau disebut sebagai \textit{ego
 vehicle}.
 
-% TODO: ? how to import/make new/edit assets, and then add corelation about blender
-% TODO: ? how to add, edit, and remove assets in the world (world outliner, levels)
-% TODO: ? Objects:
-% - spline
-% - bp
-% - factory
-
-% reference of why carla build version is needed for advaced customization and
-% development: https://carla.readthedocs.io/en/0.9.13/start_quickstart/
+% note: reference of why carla build version is needed for advaced customization
+% and development: https://carla.readthedocs.io/en/0.9.13/start_quickstart/
 
 \section{Blender \parencite{blender-manual}}
 
@@ -175,10 +168,10 @@ Linux, Windows, dan Macintosh. Blender menyediakan berbagai fitur yang mendukung
 keseluruhan \textit{pipeline} model 3D. Fitur-fitur tersebut adalah pembuatan
 model, \textit{rigging}, pembuatan animasi, pembuatan simulasi,
 \textit{rendering}, pembuatan komposit, pelacakan gerakan (\textit{motion
-tracking}), pengeditan video, dan pembuatan permainan. Blender menyediakan API
-yang dapat digunakan untuk penyesuaian Blender sendiri dan pembuatan alat
-pengeditan khusus. API Blender dapat digunakan menggunakan bahasa pemrograman
-Python \parencite{blender-about}.
+tracking}), pengeditan video, dan pembuatan permainan \parencite{blender-about}.
+% Blender menyediakan API yang dapat digunakan untuk penyesuaian Blender sendiri
+% dan pembuatan alat pengeditan khusus. API Blender dapat digunakan menggunakan
+% bahasa pemrograman Python
 
 \subsection{Mode Objek}
 
@@ -193,8 +186,8 @@ aspek dari objek. Beberapa mode objek blender adalah sebagai berikut:
     \item \textit{Edit Mode}: Mode untuk mengedit bentuk objek, seperti titik,
     sisi, permukaan, dan lain-lain.
 
-    \item \textit{Texture Paint Mode}: Mode untuk menambahkan tekstur pada model
-    3D.
+    \item \textit{Texture Paint Mode}: Mode untuk menambahkan tekstur langsung
+    pada model 3D.
 
     \item \textit{Pose Mode}: Mode untuk mengedit pose \textit{armature}.
 
