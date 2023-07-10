@@ -697,34 +697,34 @@ melakukan hal yang tidak terduga selama simulasi berjalan. Gambar
 
 \subsubsection{Validasi Sepeda Onthel, Sepeda Motor, dan Becak}
 
-% TODO:
+Hasil validasi sepeda onthel adalah sepeda onthel tidak dapat mengikuti kendali
+pengguna maupun kendali secara \textit{autopilot}. Sepeda onthel tidak dapat
+beroperasi dengan stabil selama simulasi berjalan. Sepeda onthel tampak bergerak
+sendiri ketika tidak ada perintah kendali dari pengguna. Ketika sepeda onthel
+dikendalikan secara \textit{autopilot}, sepeda onthel bergerak secara acak
+ditempat padahal seharusnya mengikuti rute yang telah ditentukan. Gambar
+\ref{fig:onthel-validation} menunjukkan hasil validasi sepeda onthel yang gagal.
 
-% \begin{figure}[!h]
-%     \centering
-%     \subfloat[Kendali manual]{\includegraphics[width=0.47\textwidth]{resources/chapter-4/testing-onthel-generate.png}}
-%     \hfill
-%     \subfloat[Kendali \textit{autopilot}]{\includegraphics[width=0.47\textwidth]{resources/chapter-4/testing-onthel-manual.png}}
-%     \caption{Validasi sepeda onthel}
-%     \label{fig:onthel-validation}
-% \end{figure}
+\begin{figure}[!h]
+    \centering
+    \subfloat[Kendali manual]{\includegraphics[width=0.47\textwidth]{resources/chapter-4/testing-onthel-generate.png}}
+    \hfill
+    \subfloat[Kendali \textit{autopilot}]{\includegraphics[width=0.47\textwidth]{resources/chapter-4/testing-onthel-manual.png}}
+    \caption{Validasi sepeda onthel}
+    \label{fig:onthel-validation}
+\end{figure}
 
-% \begin{figure}[!h]
-%     \centering
-%     \subfloat[Kendali manual]{\includegraphics[width=0.47\textwidth]{resources/chapter-4/testing-motor-generate.png}}
-%     \hfill
-%     \subfloat[Kendali \textit{autopilot}]{\includegraphics[width=0.47\textwidth]{resources/chapter-4/testing-motor-manual.png}}
-%     \caption{Validasi sepeda motor}
-%     \label{fig:onthel-validation}
-% \end{figure}
+Karena implementasi sepeda onthel dan validasinya tidak berhasil, sepeda motor
+dan becak tidak diimplementasikan sebagai kendaraan namun sebagai objek statis.
+Gambar \ref{fig:becak-validation} menunjukkan hasil validasi becak menggunakan
+kendali \textit{autopilot} yang tidak berhasil.
 
-% \begin{figure}[!h]
-%     \centering
-%     \subfloat[Kendali manual]{\includegraphics[width=0.47\textwidth]{resources/chapter-4/testing-becak-generate.png}}
-%     \hfill
-%     \subfloat[Kendali \textit{autopilot}]{\includegraphics[width=0.47\textwidth]{resources/chapter-4/testing-becak-manual.png}}
-%     \caption{Validasi becak}
-%     \label{fig:becak-validation}
-% \end{figure}
+\begin{figure}[!h]
+    \centering
+    \includegraphics[width=0.47\textwidth]{resources/chapter-4/testing-becak-generate.png}
+    \caption{Validasi becak}
+    \label{fig:becak-validation}
+\end{figure}
 
 \section{Distribusi Hasil Implementasi}
 
