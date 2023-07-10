@@ -505,8 +505,8 @@ Aset-aset di dalam \textit{folder} \verb|Blueprints| selesai dibuat. Gambar
 
 Aset \textit{blueprint} kendaraan roda 2 dimasukkan kedalam berkas
 \verb|VehicleFactory| agar kendaraan roda 2 dapat di-\textit{spawn} dalam
-simulasi. Gambar \ref{} menunjukkan hasil implementasi kendaraan roda 2 dalam
-simulasi.
+simulasi. Gambar \ref{fig:onthel-carla} menunjukkan hasil implementasi kendaraan
+roda 2 dalam simulasi.
 
 \begin{figure}[!h]
     \centering
@@ -588,7 +588,7 @@ menunjukkan mesh aset model 3D rel yang memiliki banyak titik.
 
 \begin{figure}[!h]
     \centering
-    \includegraphics[width=0.4\textwidth]{resources/chapter-4/rel-mesh.png}
+    \includegraphics[width=0.5\textwidth]{resources/chapter-4/rel-mesh.png}
     \caption{Tampilan \textit{wireframe} aset model 3D rel}
     \label{fig:rel-mesh}
 \end{figure}
@@ -714,14 +714,14 @@ ditempat padahal seharusnya mengikuti rute yang telah ditentukan. Gambar
     \label{fig:onthel-validation}
 \end{figure}
 
-Karena implementasi sepeda onthel dan validasinya tidak berhasil, sepeda motor
-dan becak tidak diimplementasikan sebagai kendaraan namun sebagai objek statis.
-Gambar \ref{fig:becak-validation} menunjukkan hasil validasi becak menggunakan
-kendali \textit{autopilot} yang tidak berhasil.
+Karena validasi implementasi sepeda onthel tidak berhasil, sepeda motor dan
+becak tidak diimplementasikan sebagai kendaraan. Gambar
+\ref{fig:becak-validation} menunjukkan hasil validasi becak menggunakan kendali
+\textit{autopilot} yang tidak berhasil.
 
 \begin{figure}[!h]
     \centering
-    \includegraphics[width=0.47\textwidth]{resources/chapter-4/testing-becak-generate.png}
+    \includegraphics[width=0.5\textwidth]{resources/chapter-4/testing-becak-generate.png}
     \caption{Validasi becak}
     \label{fig:becak-validation}
 \end{figure}
@@ -740,15 +740,35 @@ yang mengandung aset-aset baru yang harus diimpor jika ingin digunakan.
 
 \section{Evaluasi}
 
-% TODO:
-% kendaraan roda 2 dan 3 berhasil diimplementasikan namun tidak stabil, why
-% ? tidak diperlukan perta
-% tidak diperlukan data OpenDRIVE untuk traffic signs, karena:
-% - tidak dibutuhkan
-% - dari sisi trem, hanya butuh secara visual saja
-% - dari sisi kendaraan lain (untuk autopilot), tidak dibutuhkan juga, mostly cuman penanda ada ini
-% becak bisa dijadiin statis
-% keterbatasan carla di jelasinsinsinsin
-% dokumentasi kurang lengkap, ga detail
-% debugging sulit karena tidak ada error message yang jelas
-% carla suka crash
+Berdasarkan hasil validasi hasil implementasi trem dan angkot sebagai kendaraan
+roda 2, implementasi trem dan angkot berhasil. Trem dan angkot dapat mengikuti
+kendali pengguna dan kendali secara \textit{autopilot} dengan baik.
+
+Hasil implementasi sepeda onthel, sepeda motor, dan becak sebagai kendaraan roda
+2 tidak stabil berdasarkan hasil validasi. Kendaraan-kendaraan roda 2 tersebut
+tidak dapat mengikuti kendali pengguna maupun kendali secara \textit{autopilot},
+kendaraan terlihat bergerak ketika seharusnya diam, dan roda kendaraan terlihat
+tenggelam menembus jalan. Ketidakstabilan tersebut diakibatkan oleh implementasi
+yang kurang sempurna. Implementasi kurang sempurna disebabkan oleh implementasi
+dilakukan mengikuti dokumentasi yang kurang lengkap. Hasil implementasi yang
+stabil dipersulit juga oleh editor CARLAUE4 yang sering \textit{crash} jika
+sedang mengedit kendaraan roda 2.
+
+Implementasi kendaraan roda 2 dilakukan berulang-ulang untuk mencoba mengatasi
+kekuranglengkapan dokumentasi. Implementasi kendaraan roda 2 yang dilakukan
+berulang dengan mengubah hal-hal yang memungkinkan kesalahan implementasi atau
+dengan cara \textit{trial-and-error} namun tidak berhasil. Kemungkinan kesalahan
+implementasi terletak pada proses \textit{skinning} karena kekuranglengkapan
+dokumentasi dalam penjelasan bagian apa saja yang harus dihubungkan dengan
+kerangka atau \textit{armature} yang disediakan. Selain itu, implementasi juga
+mungkin terganggu oleh dokumentasi yang tidak diperbarui atau tidak sesuai
+dengan editor.
+
+Adanya keterbatasan lain dari CARLA yaitu tidak dapat mengimplementasikan
+kendaraan roda ganjil ataupun sejumlah \textit{n}. Becak seharus diimplementasi
+sebagai kendaraan roda 3 namun kendaraan roda 3 tidak dapat diimplementasikan
+menggunakan CARLA versi 0.9.12. maupun versi 0.9.13.
+
+Sepeda onthel, sepeda motor, dan becak tidak diimplementasikan sebagai kendaraan
+roda 2 karena hasil validasi tidak stabil. Oleh karena itu, kendaraan-kendaraan
+tersebut diimplementasikan sebagai objek statis.
