@@ -44,7 +44,7 @@
 % \usepackage{pgfgantt}       % Package untuk membuat Gantt Chart
 % \usepackage{lscape}         % Package untuk membuat landscape
 \usepackage{listings}       % Package lstlistings and stuff
-\usepackage[hidelinks]{hyperref}       % Package untuk link di daftar isi. Ubah jadi \usepackage[hidelinks]{hyperref} apabila ingin menghilangkan kotak merah disekitar link
+\usepackage{etoolbox}% http://ctan.org/pkg/etoolbox
 
 \graphicspath{{resources/}}   % letak direktori penyimpanan gambar
 
@@ -89,7 +89,10 @@
 % Setting titik pada toc
 \makeatletter
 \renewcommand{\@dotsep}{1}
+\patchcmd{\@chapter}{\addtocontents{lof}{\protect\addvspace{10\p@}}}{}{}{}
 \makeatother
+
+\usepackage[hidelinks]{hyperref}       % Package untuk link di daftar isi. Ubah jadi \usepackage[hidelinks]{hyperref} apabila ingin menghilangkan kotak merah disekitar link
 
 % Setel title pada chapter-chapter di toc, lof, lot
 \titlecontents{chapter}
