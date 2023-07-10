@@ -62,7 +62,7 @@ Implementasi trem dan angkot mengikuti langkah-langkah pada
 dengan persyaratan dari CARLA, yaitu jumlah tris (segitiga satuan yang membentuk
 permukaan) berkisar antara 50.000 hingga 100.000 dan melakukan pemisahan
 material atau tekstur sesuai dengan bagian kendaraan agar tampilan sesuai saat
-disimulasikan. Ukuran model 3D harus sesuai dengan ukuran yang asli karena hasil
+disimulasikan. Ukuran model 3D disesuaikan dengan ukuran yang asli karena hasil
 impor menggunakan rasio 1 banding 1.
 
 Setelah model 3D dibuat, aset \textit{vehicle skeleton} atau \textit{armature}
@@ -81,7 +81,7 @@ diatur skalanya karena akan merusak proses impor nantinya.
     \hfill
     \subfloat[Hierarki \textit{vehicle skeleton}]{\includegraphics[width=0.4\textwidth]{resources/chapter-4/vehicle-skeleton-hierarchy.png}}
     \caption{\textit{Vehicle skeleton} kendaraan roda 4}
-    \label{fvehicle-skeletonig:}
+    \label{fig:vehicle-skeleton}
 \end{figure}
 
 \begin{figure}[!h]
@@ -141,8 +141,8 @@ mode}.
 Aset model 3D kemudian diekspor ke dalam format FBX. Gambar \ref{fig:export-fbx}
 menunjukkan opsi ekspor yang digunakan. Opsi yang perlu diperhatikan adalah opsi
 \verb|Forward| dan \verb|Up| pada bagian \verb|Transform|. Opsi \verb|Forward|
-harus diatur ke arah sumbu \verb|-Z Forward| dan opsi \verb|Up| harus diatur ke
-arah sumbu \verb|Y Up|. Opsi lainnya dapat diatur sesuai kebutuhan.
+diatur ke arah sumbu \verb|-Z Forward| dan opsi \verb|Up| diatur ke arah sumbu
+\verb|Y Up|. Opsi lainnya dapat diatur sesuai kebutuhan.
 
 \begin{figure}[!h]
     \centering
@@ -168,9 +168,9 @@ menunjukkan opsi yang digunakan untuk mengimpor berkas FBX kendaraan roda 4.
 Berikut adalah beberapa opsi yang perlu diperhatikan dan diatur:
 
 \begin{enumerate}
-    \item Opsi \verb|Import Content Type| harus diatur ke \texttt{Geometry and Skinning Weights}.
-    \item Opsi \verb|Normal Import Method| harus diatur ke \verb|Import Normals|.
-    \item Opsi \verb|Use T0 as Ref Pose| harus dicentang.
+    \item Opsi \verb|Import Content Type| diatur ke \texttt{Geometry and Skinning Weights}.
+    \item Opsi \verb|Normal Import Method| diatur ke \verb|Import Normals|.
+    \item Opsi \verb|Use T0 as Ref Pose| dicentang.
 \end{enumerate}
 
 \begin{figure}[!ht]
@@ -292,8 +292,8 @@ Setelah semua opsi diatur, aset-aset \textit{blueprint} roda di-\textit{compile}
 dan disimpan. Selanjutnya, aset \textit{blueprint} kendaraan dibuat dengan klik
 kanan pada \textit{Content Browser} dan memilih opsi \verb|Blueprint Class|
 kemudian memilih \verb|BaseVehiclePawn| untuk opsi \verb|Parent Class|. Aset
-diberi nama \verb|BP_<nama_kendaraan>|. Aset \textit{blueprint} kendaraan diatur
-dengan konfigurasi sebagai berikut:
+diberi nama \verb|BP_<nama_kendaraan>|. Aset \textit{blueprint} kendaraan roda 4
+diatur dengan konfigurasi sebagai berikut:
 
 \begin{enumerate}
     \item Pada komponen \verb|Mesh (VehicleMesh) Inherited|, opsi \verb|Skeletal Mesh|
@@ -399,7 +399,121 @@ menunjukkan opsi yang digunakan.
 
 \subsubsection{Pengimporan Berkas FBX dan Konfigurasi Kendaraan Roda 2 dalam Editor CARLAUE4}
 
-% TODO:
+Berkas FBX kendaraan roda 2 diimpor ke dalam \textit{folder} baru untuk
+masing-masing kendaraan di dalam direktori
+\verb|/Content/Carla/Static/Vehicles/2Wheeled/| (selanjutnya akan disebut
+sebagai \textit{folder} \verb|Static|). Opsi yang digunakan untuk impor berkas
+FBX adalah:
+
+\begin{enumerate}
+    \item Opsi \verb|Import Content Type| diatur ke \texttt{Geometry and Skinning Weights}
+    \item Opsi \verb|Skeleton| diatur ke aset \textit{skeleton} \verb|4WheeledBike|
+    \item Opsi \verb|Normal Import Method| diatur ke \verb|Import Normals|
+    \item Opsi \verb|Use T0 as Ref Pose| dicentang
+\end{enumerate}
+
+Setelah berkas FBX diimpor, muncul aset \textit{skeletal mesh}, aset
+\textit{physics}, aset material, dan aset tekstur. Aset \textit{skeleton} tidak
+dihasilkan oleh impor sebab telah diatur pada opsi \verb|Skeleton| saat impor.
+Gambar \ref{fig:onthel-assets-in-static-folder} menunjukkan aset yang dihasilkan
+oleh impor berkas FBX.
+
+\begin{figure}[!h]
+    \centering
+    \includegraphics[width=1\textwidth]{resources/chapter-4/onthel-assets-in-static-folder.png}
+    \caption{Aset-aset sepeda onthel dalam \textit{folder} \texttt{Static}}
+    \label{fig:onthel-assets-in-static-folder}
+\end{figure}
+
+Aset \textit{physics} juga perlu diatur agar sesuai dengan bentuk kendaraan.
+Bentuk badan kendaraan roda 2 diatur agar sesuai dengan mengatur opsi
+\verb|Primitive Type| menjadi \verb|Multi Convex Hull| pada panel \verb|Tools|.
+Selain itu opsi \verb|Simulate Generates Hit Events| dicentang pada panel
+\verb|Details|. Kedua roda kendaraan diatur bentuknya juga dengan mengatur opsi
+\verb|Primitive Type| menjadi \verb|Sphere|. Opsi \verb|Simulate Generates Hit Events|
+juga dicentang. Opsi \verb|Physics Type| diatur menjadi \verb|Kinematic| untuk
+kedua roda. Gambar \ref{fig:physics-asset-2wheeled} menunjukkan hasil
+konfigurasi aset \textit{physics} kendaraan roda 2.
+
+\begin{figure}[!h]
+    \centering
+    \includegraphics[width=0.5\textwidth]{resources/chapter-4/onthel-physics-asset.png}
+    \caption{Aset \textit{physics} sepeda onthel}
+    \label{fig:physics-asset-2wheeled}
+\end{figure}
+
+Dibuat aset \textit{static mesh} untuk melengkapi kendaraan roda 2. Aset ini
+terletak di dalam \textit{folder} \verb|/Content/Meshes/| dengan nama
+\verb|<nama_kendaraan>|.
+
+Aset \textit{animation blueprint} tidak perlu dibuat karena menggunakan aset
+\textit{animation blueprint} kendaraan roda 2 yang sudah disediakan oleh CARLA.
+Selanjutnya, dibuat aset-aset \textit{blueprint} dalam direktori
+\verb|/Content/Carla/Blueprints/Vehicle/2Wheeled/<nama_kendaraan>| (selanjutnya
+akan disebut sebagai \textit{folder} \verb|Blueprints|). Dibuat 2 aset
+\textit{blueprint} untuk roda depan dan roda belakang. Cara pembuatan dan
+konfigurasi aset roda sama dengan cara pembuatan dan konfigurasi aset
+\textit{blueprint} roda pada kendaraan roda 4. Gambar
+\ref{fig:onthel-wheel-blueprints} menunjukkan kedua aset \textit{blueprint} roda
+dengan nama \verb|<nama_kendaraan>_FrontWheel>| dan
+\verb|<nama_kendaraan>_RearWheel>|.
+
+\begin{figure}[!ht]
+    \centering
+    \subfloat[Aset \textit{blueprint} roda depan onthel]{\includegraphics[width=0.47\textwidth]{resources/chapter-4/onthel-wheel-bp-fw.png}}
+    \hfill
+    \subfloat[Aset \textit{blueprint} roda belakang onthel]{\includegraphics[width=0.47\textwidth]{resources/chapter-4/onthel-wheel-bp-rw.png}}
+    \caption{Aset \textit{blueprint} roda onthel}
+    \label{fig:onthel-wheel-blueprints}
+\end{figure}
+
+Dibuat aset \textit{blueprint} untuk kendaraan roda 2 dengan nama
+\verb|<nama_kendaraan>| dalam direktori yang sama. Aset \textit{blueprint}
+tersebut dibuat dengan opsi \verb|Parent Class| diatur menjadi
+\verb|BP_Base2wheeledNew|. Aset \textit{blueprint} kendaraan roda 2
+diatur dengan konfigurasi sebagai berikut:
+
+\begin{enumerate}
+    \item Pada komponen \verb|Mesh (VehicleMesh) Inherited|, opsi \verb|Skeletal Mesh|
+    diatur menjadi aset \textit{skeletal mesh} \verb|<nama_kendaraan>|
+    \item Pada komponen \verb|Mesh (VehicleMesh) Inherited|, opsi \verb|Anim Class|
+    diatur menjadi aset \textit{animation blueprint} \verb|4WheeledBike_Anim|
+    \item Pada komponen \verb|Custom Collision (Inherited)|, opsi \verb|Static Mesh|
+    diatur menjadi aset \textit{static mesh} \verb|<nama_kendaraan>|
+    \item Pada komponen \verb|VehicleMovement (MovementComp) (Inherited)|, 2
+    opsi \verb|Wheel Class| pertama diatur menjadi aset \textit{blueprint} roda
+    depan dan 2 opsi terakhir diubah menjadi aset \textit{blueprint} roda
+    belakang.
+    \item Pada komponen \verb|VehicleMovement (MovementComp) (Inherited)|, 2
+    opsi \verb|Bone Name| diubah menjadi \verb|FrontWheelGeo| dan 2 opsi
+    \verb|Bone Name| diubah menjadi \verb|RearWheelGeo|. Gambar
+    \ref{fig:onthel-blueprint-wheels} menunjukkan konfigurasi roda.
+    \item Pada komponen \verb|SkeletalMesh (Inherited)|, opsi \verb|Rotation|
+    diubah hingga \textit{mesh} pengemudi duduk tegak.
+\end{enumerate}
+
+Aset-aset di dalam \textit{folder} \verb|Blueprints| selesai dibuat. Gambar
+\ref{fig:onthel-assets-in-blueprints-folder} menunjukkan aset-aset onthel dalam
+\textit{folder} \verb|Blueprints|.
+
+\begin{figure}[!h]
+    \centering
+    \includegraphics[width=1\textwidth]{resources/chapter-4/onthel-assets-in-blueprints-folder.png}
+    \caption{Aset-aset onthel dalam \textit{folder} \texttt{Blueprints}}
+    \label{fig:onthel-assets-in-blueprints-folder}
+\end{figure}
+
+Aset \textit{blueprint} kendaraan roda 2 dimasukkan kedalam berkas
+\verb|VehicleFactory| agar kendaraan roda 2 dapat di-\textit{spawn} dalam
+simulasi. Gambar \ref{} menunjukkan hasil implementasi kendaraan roda 2 dalam
+simulasi.
+
+\begin{figure}[!h]
+    \centering
+    \includegraphics[width=0.6\textwidth]{resources/chapter-4/onthel-carla.png}
+    \caption{Implementasi onthel dalam lingkungan simulasi}
+    \label{fig:onthel-carla}
+\end{figure}
 
 \subsection{Implementasi Lingkungan}
 
@@ -475,7 +589,7 @@ menunjukkan mesh aset model 3D rel yang memiliki banyak titik.
 \begin{figure}[!h]
     \centering
     \includegraphics[width=0.4\textwidth]{resources/chapter-4/rel-mesh.png}
-    \caption{Tampilan \textit{wireframe} aset model 3d rel}
+    \caption{Tampilan \textit{wireframe} aset model 3D rel}
     \label{fig:rel-mesh}
 \end{figure}
 
@@ -560,9 +674,9 @@ melakukan hal yang tidak terduga selama simulasi berjalan. Gambar
 
 \begin{figure}[!h]
     \centering
-    \subfloat[Kendali manual]{\includegraphics[width=0.47\textwidth]{resources/chapter-4/testing-tram-generate.png}}
+    \subfloat[Kendali manual]{\includegraphics[width=0.47\textwidth]{resources/chapter-4/testing-tram-manual.png}}
     \hfill
-    \subfloat[Kendali \textit{autopilot}]{\includegraphics[width=0.47\textwidth]{resources/chapter-4/testing-tram-manual.png}}
+    \subfloat[Kendali \textit{autopilot}]{\includegraphics[width=0.47\textwidth]{resources/chapter-4/testing-tram-generate.png}}
     \caption{Validasi trem}
     \label{fig:tram-validation}
 \end{figure}
@@ -574,9 +688,9 @@ melakukan hal yang tidak terduga selama simulasi berjalan. Gambar
 
 \begin{figure}[!h]
     \centering
-    \subfloat[Kendali manual]{\includegraphics[width=0.47\textwidth]{resources/chapter-4/testing-angkot-generate.png}}
+    \subfloat[Kendali manual]{\includegraphics[width=0.47\textwidth]{resources/chapter-4/testing-angkot-manual.png}}
     \hfill
-    \subfloat[Kendali \textit{autopilot}]{\includegraphics[width=0.47\textwidth]{resources/chapter-4/testing-angkot-manual.png}}
+    \subfloat[Kendali \textit{autopilot}]{\includegraphics[width=0.47\textwidth]{resources/chapter-4/testing-angkot-generate.png}}
     \caption{Validasi angkot}
     \label{fig:angkot-validation}
 \end{figure}
@@ -622,7 +736,7 @@ pada terminal. Perintah tersebut menghasilkan 2 hal dalam direktori
 berkas \verb|CARLA_0.9.12.tar.gz|. \textit{Folder} \verb|CARLA_Shipping_0.9.12|
 berisi CARLA yang memiliki aset-aset baru, sudah di-\textit{compile}, dan siap
 untuk dijalankan tanpa editor. Berkas \verb|CARLA_0.9.12.tar.gz| adalah berkas
-yang mengandung aset-aset baru yang butuh diimpor jika ingin digunakan.
+yang mengandung aset-aset baru yang harus diimpor jika ingin digunakan.
 
 \section{Evaluasi}
 
