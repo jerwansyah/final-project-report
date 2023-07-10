@@ -726,18 +726,6 @@ becak tidak diimplementasikan sebagai kendaraan. Gambar
     \label{fig:becak-validation}
 \end{figure}
 
-\section{Distribusi Hasil Implementasi}
-
-Setelah semua objek lokal dan lingkungan simulasi selesai dibuat, aset yang
-valid didistribusikan dalam bentuk CARLA versi \textit{packaged}. CARLA versi
-\textit{packaged} tersebut dibuat dengan cara menjalankan perintah \verb|make package|
-pada terminal. Perintah tersebut menghasilkan 2 hal dalam direktori
-\verb|/Dist/|, yaitu sebuah \textit{folder} \verb|CARLA_Shipping_0.9.12| dan
-berkas \verb|CARLA_0.9.12.tar.gz|. \textit{Folder} \verb|CARLA_Shipping_0.9.12|
-berisi CARLA yang memiliki aset-aset baru, sudah di-\textit{compile}, dan siap
-untuk dijalankan tanpa editor. Berkas \verb|CARLA_0.9.12.tar.gz| adalah berkas
-yang mengandung aset-aset baru yang harus diimpor jika ingin digunakan.
-
 \section{Evaluasi}
 
 Berdasarkan hasil validasi hasil implementasi trem dan angkot sebagai kendaraan
@@ -772,3 +760,16 @@ menggunakan CARLA versi 0.9.12. maupun versi 0.9.13.
 Sepeda onthel, sepeda motor, dan becak tidak diimplementasikan sebagai kendaraan
 roda 2 karena hasil validasi tidak stabil. Oleh karena itu, kendaraan-kendaraan
 tersebut diimplementasikan sebagai objek statis.
+
+\section{Distribusi Hasil Implementasi}
+
+Setelah semua objek lokal dan lingkungan simulasi selesai dibuat, aset yang
+telah divalidasi didistribusikan dalam bentuk CARLA versi \textit{packaged}.
+CARLA versi \textit{packaged} tersebut dibuat dengan cara menjalankan perintah
+\verb|make package| pada terminal. Perintah tersebut menghasilkan 2 hal dalam
+direktori \verb|/Dist/|, yaitu sebuah \textit{folder}
+\verb|CARLA_Shipping_0.9.12| dan berkas \verb|CARLA_0.9.12.tar.gz|.
+\textit{Folder} \verb|CARLA_Shipping_0.9.12| berisi CARLA yang memiliki
+aset-aset baru, sudah di-\textit{compile}, dan siap untuk dijalankan tanpa
+editor. Berkas \verb|CARLA_0.9.12.tar.gz| adalah berkas yang mengandung
+aset-aset baru yang harus diimpor jika ingin digunakan.
