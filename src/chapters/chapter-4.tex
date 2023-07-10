@@ -61,7 +61,7 @@ Implementasi trem dan angkot mengikuti langkah-langkah pada
 dengan persyaratan dari CARLA, yaitu jumlah tris (segitiga satuan yang membentuk
 permukaan) berkisar antara 50.000 hingga 100.000 dan melakukan pemisahan
 material atau tekstur sesuai dengan bagian kendaraan agar tampilan sesuai saat
-disimulasikan. Ukuran model 3D disesuaikan dengan ukuran yang asli karena hasil
+disimulasikan. Ukuran model 3D disesuaikan dengan dimensi yang asli karena hasil
 impor menggunakan rasio 1 banding 1.
 
 Setelah model 3D dibuat, aset \textit{vehicle skeleton} atau \textit{armature}
@@ -666,8 +666,9 @@ berikut:
 
 \subsubsection{Validasi Trem dan Angkot}
 
-Hasil validasi trem adalah trem dapat mengikuti kendali pengguna dan kendali
-secara \textit{autopilot} dengan baik. Trem beroperasi dengan stabil dan tidak
+Hasil validasi trem adalah trem dapat mengikuti kendali pengguna,
+\textit{throttle}, \textit{brake}, dan \textit{steer} dan kendali secara
+\textit{autopilot} dengan baik. Trem beroperasi dengan stabil dan tidak
 melakukan hal yang tidak terduga selama simulasi berjalan. Gambar
 \ref{fig:tram-validation} menunjukkan hasil validasi trem.
 
@@ -680,8 +681,9 @@ melakukan hal yang tidak terduga selama simulasi berjalan. Gambar
     \label{fig:tram-validation}
 \end{figure}
 
-Hasil validasi angkot adalah angkot dapat mengikuti kendali pengguna dan kendali
-secara \textit{autopilot} dengan baik. Angkot beroperasi dengan stabil dan tidak
+Hasil validasi angkot adalah angkot dapat mengikuti kendali pengguna, yaitu
+\textit{throttle}, \textit{brake}, dan \textit{steer} dan kendali secara
+\textit{autopilot} dengan baik. Angkot beroperasi dengan stabil dan tidak
 melakukan hal yang tidak terduga selama simulasi berjalan. Gambar
 \ref{fig:angkot-validation} menunjukkan hasil validasi angkot.
 
@@ -697,11 +699,12 @@ melakukan hal yang tidak terduga selama simulasi berjalan. Gambar
 \subsubsection{Validasi Sepeda Onthel, Sepeda Motor, dan Becak}
 
 Hasil validasi sepeda onthel adalah sepeda onthel tidak dapat mengikuti kendali
-pengguna maupun kendali secara \textit{autopilot}. Sepeda onthel tidak dapat
-beroperasi dengan stabil selama simulasi berjalan. Sepeda onthel tampak bergerak
-sendiri ketika tidak ada perintah kendali dari pengguna. Ketika sepeda onthel
-dikendalikan secara \textit{autopilot}, sepeda onthel bergerak secara acak
-ditempat padahal seharusnya mengikuti rute yang telah ditentukan. Gambar
+pengguna (\textit{throttle}, \textit{brake}, dan \textit{steer}) maupun kendali
+secara \textit{autopilot}. Sepeda onthel tidak dapat beroperasi dengan stabil
+selama simulasi berjalan. Sepeda onthel tampak bergerak sendiri ketika tidak ada
+perintah kendali dari pengguna. Ketika sepeda onthel dikendalikan secara
+\textit{autopilot}, sepeda onthel bergerak secara acak ditempat padahal
+seharusnya mengikuti rute yang telah ditentukan. Gambar
 \ref{fig:onthel-validation} menunjukkan hasil validasi sepeda onthel yang gagal.
 
 \begin{figure}[!h]
@@ -756,10 +759,10 @@ kerangka atau \textit{armature} yang disediakan. Selain itu, implementasi juga
 mungkin terganggu oleh dokumentasi yang tidak diperbarui atau tidak sesuai
 dengan editor.
 
-Adanya keterbatasan lain dari CARLA yaitu tidak dapat mengimplementasikan
-kendaraan roda ganjil ataupun sejumlah \textit{n}. Becak seharus diimplementasi
-sebagai kendaraan roda 3 namun kendaraan roda 3 tidak dapat diimplementasikan
-menggunakan CARLA versi 0.9.12. maupun versi 0.9.13.
+% Adanya keterbatasan lain dari CARLA yaitu tidak dapat mengimplementasikan
+% kendaraan roda ganjil ataupun sejumlah \textit{n}. Becak seharusnya
+% diimplementasi sebagai kendaraan roda 3 namun kendaraan roda 3 tidak dapat
+% diimplementasikan menggunakan CARLA versi 0.9.12. maupun versi 0.9.13.
 
 Sepeda onthel, sepeda motor, dan becak tidak diimplementasikan sebagai kendaraan
 roda 2 karena hasil validasi tidak stabil. Oleh karena itu, kendaraan-kendaraan

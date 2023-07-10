@@ -26,16 +26,16 @@ sebab dibutuhkan data yang banyak dan bervariasi untuk melatih kecerdasan
 buatan. Selain itu, dibutuhkan juga pengujian kendaraan otonom untuk melakukan
 validasi kecerdasan buatan yang telah dibuat. Pengumpulan data untuk pelatihan
 dapat membutuhkan waktu yang lama sebab terdapat banyak faktor eksternal yang
-tidak dapat diprediksi atau dikontrol yang membuat data yang dikumpulkan tidak
-bervariasi. Proses untuk mencari data yang bervariasi dapat memakan waktu juga
+tidak dapat diprediksi atau dikontrol yang membuat data yang dikumpulkan kurang
+bervariasi. Proses untuk mencari data yang bervariasi dapat memakan waktu lama
 sebab harus menunggu saat yang tepat untuk pengumpulan data. Selain pengumpulan
 data, pengujian kendaraan otonom juga membutuhkan waktu yang lama dan biaya yang
-besar sebab untuk memastikan kendaraan otonom dapat beroperasi dengan baik,
-pengujian harus dilakukan berulang-ulang dan dalam berbagai skenario yang kadang
-tidak dapat diatur sesuai dengan keinginan di saat yang diinginkan.
+besar untuk memastikan kendaraan otonom dapat beroperasi dengan baik, pengujian
+harus dilakukan berulang-ulang dan dalam berbagai skenario yang kadang tidak
+dapat diatur sesuai dengan keinginan di saat yang diinginkan.
 
 Pelatihan dan pengujian kendaraan otonom yang mahal tersebut dapat diatasi
-dengan melakukannya secara virtual menggunakan aplikasi simulasi. Pelatihan dan
+dengan melakukannya secara virtual, yaitu menggunakan simulasi. Pelatihan dan
 pengujian dengan menggunakan simulasi dapat menghemat biaya dan waktu karena
 aktor, lingkungan, dan parameter simulasi untuk pengujian dapat diatur sesuai
 dengan keinginan relatif lebih mudah dan lebih cepat.
@@ -78,9 +78,9 @@ otonom, yaitu:
     Tim \textit{decision making} merupakan tim yang bertanggung jawab untuk
     mengembangkan modul pengambilan keputusan. Modul tersebut berfungsi untuk
     melakukan \textit{risk assessment} dari hasil persepsi,
-    \textit{localization}, dan \textit{mapping} kemudian menentukan keputusan
-    dan \textit{planning}. Hasil dari modul tersebut adalah perintah aktuator
-    untuk mengendalikan/mengemudikan trem.
+    \textit{localization}, dan \textit{mapping} kemudian menentukan
+    \textit{planning} dan keputusan. Hasil dari modul tersebut adalah perintah
+    aksi untuk mengendalikan/mengemudikan trem.
 
     \item Tim simulasi
 
@@ -89,7 +89,7 @@ otonom, yaitu:
     \textit{Hardware-in-the-Loop Simulation} (HILS). Simulasi berskema HILS
     dilakukan menggunakan perangkat keras NVIDIA DRIVE AGX Pegasus untuk
     memroses \textit{decision making}, memroses persepsi, memroses
-    \textit{localization}, dan memroses \textit{mapping}. Simulasi menggunakan
+    \textit{localization}, dan memroses \textit{mapping}. SILS menggunakan
     simulator CARLA yang berada di komputer atau perangkat keras yang berbeda.
     Simulator ini digunakan untuk menyimulasikan trem dan lingkungan virtual
     untuk mendapatkan data sensor virtual. Tim \textit{capstone} Tugas Akhir ini
@@ -109,9 +109,10 @@ dengan Indonesia menggunakan simulator Car Learning to Act (CARLA) untuk
 pengembangan trem otonom pada proyek trem otonom. Aset bawaan dari CARLA seperti
 kendaraan, jalan, kota, lingkungan, dan aset lainnya mencerminkan objek dan
 lingkungan di Amerika Serikat pada umumnya. Oleh karena itu, perlu dibuat aset
-yang mencerminkan objek dan lingkungan di Indonesia. Lalu lintas
-\textit{default} di CARLA adalah jalur kanan. Hal tersebut juga perlu
-disesuaikan agar sama seperti lalu lintas di Indonesia.
+yang mencerminkan objek dan lingkungan di Indonesia.
+
+% Lalu lintas \textit{default} di CARLA adalah jalur kanan. Hal tersebut juga
+% perlu disesuaikan agar sama seperti lalu lintas di Indonesia.
 
 \section{Rumusan Masalah}
 
@@ -149,7 +150,7 @@ Tujuan dari Tugas Akhir ini adalah sebagai berikut:
     mengimplementasikan stasiun, rambu lalu lintas, dan rel di lingkungan
     simulasi simulator CARLA.
 
-    \item Membuat distribusi hasil implementasi.
+    % \item Membuat distribusi hasil implementasi.
 
 \end{enumerate}
 
@@ -165,8 +166,8 @@ Batasan-batasan masalah Tugas Akhir ini adalah sebagai berikut:
     \item Tingkat kemiripan simulasi dan hasil implementasi terbatas pada
     aplikasi simulator CARLA versi 0.9.12 dan/atau versi 0.9.13.
 
-    \item Distribusi hasil implementasi dibuat hanya untuk sistem operasi Linux
-    (Ubuntu).
+    % \item Distribusi hasil implementasi dibuat hanya untuk sistem operasi Linux
+    % (Ubuntu).
 
 \end{enumerate}
 
@@ -194,9 +195,9 @@ berikut:
     lingkungan simulasi di CARLA Unreal Engine 4 atau CARLAUE4 (editor simulator
     CARLA) agar dapat digunakan di simulator CARLA.
 
-    \item Validasi dan analisis implementasi solusi
+    \item Validasi dan evaluasi implementasi solusi
 
-    Pada tahap ini dilakukan validasi dan analisis solusi yang sudah
+    Pada tahap ini dilakukan validasi dan evaluasi solusi yang sudah
     diimplementasi. Tahap ini dilakukan untuk memastikan bahwa objek trem, objek
     lokal khas Indonesia, dan lingkungan simulasi yang diimplementasikan
     berperilaku normal, stabil untuk digunakan dalam simulasi, dan dapat
@@ -224,8 +225,8 @@ Bab III Deskripsi Solusi menjelaskan mengenai deskripsi umum permasalahan
 solusi.
 
 Bab IV Implementasi dan Evaluasi menjelaskan mengenai hasil eksplorasi kakas,
-implementasi solusi yang dibuat, validasi hasil implementasi, distribusi hasil
-implementasi, dan evaluasi implementasi.
+implementasi solusi yang dibuat, validasi hasil implementasi, evaluasi
+implementasi, dan distribusi hasil implementasi.
 
 Bab V Kesimpulan dan Saran menjelaskan mengenai kesimpulan dari pengerjaan Tugas
 Akhir dan saran untuk pengembangan lanjut Tugas Akhir atau topik Tugas Akhir.
