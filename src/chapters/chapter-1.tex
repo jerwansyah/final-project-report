@@ -17,22 +17,22 @@ saja, tetapi dapat diaplikasikan juga pada kendaraan umum, seperti trem.
 
 Pengembangan kendaraan otonom untuk penggunaan secara komersial perlu dilakukan
 dengan teliti sehingga kendaraan otonom tersebut dapat beroperasi dengan baik,
-dapat diandalkan, dapat nyaman digunakan, dapat meminimalisasi biaya bahan bakar
-karena menggunakan listrik, dan dapat meminimalisasi kecelakaan lalu lintas.
-Kendaraan otonom yang diharapkan tersebut membutuhkan pengembangan kecerdasan
-buatan yang dapat mengoperasikan kendaraan yang spesifik. Oleh karena itu,
-pengembangan kendaraan otonom membutuhkan biaya yang besar dan waktu yang lama
-sebab dibutuhkan data yang banyak dan bervariasi untuk melatih kecerdasan
-buatan. Selain itu, dibutuhkan juga pengujian kendaraan otonom untuk melakukan
-validasi kecerdasan buatan yang telah dibuat. Pengumpulan data untuk pelatihan
-dapat membutuhkan waktu yang lama sebab terdapat banyak faktor eksternal yang
-tidak dapat diprediksi atau dikontrol yang membuat data yang dikumpulkan kurang
-bervariasi. Proses untuk mencari data yang bervariasi dapat memakan waktu lama
-sebab harus menunggu saat yang tepat untuk pengumpulan data. Selain pengumpulan
-data, pengujian kendaraan otonom juga membutuhkan waktu yang lama dan biaya yang
-besar untuk memastikan kendaraan otonom dapat beroperasi dengan baik, pengujian
-harus dilakukan berulang-ulang dan dalam berbagai skenario yang kadang tidak
-dapat diatur sesuai dengan keinginan di saat yang diinginkan.
+dapat diandalkan, dapat nyaman digunakan, dapat meminimalisasi biaya bahan
+bakar, dan dapat meminimalisasi kecelakaan lalu lintas. Kendaraan otonom yang
+diharapkan tersebut membutuhkan pengembangan kecerdasan buatan yang dapat
+mengoperasikan kendaraan yang spesifik. Oleh karena itu, pengembangan kendaraan
+otonom membutuhkan biaya yang besar dan waktu yang lama sebab dibutuhkan data
+yang banyak dan bervariasi untuk melatih kecerdasan buatan. Selain itu,
+dibutuhkan juga pengujian kendaraan otonom untuk melakukan validasi kecerdasan
+buatan yang telah dibuat. Pengumpulan data untuk pelatihan dapat membutuhkan
+waktu yang lama sebab terdapat banyak faktor eksternal yang tidak dapat
+diprediksi atau dikontrol yang membuat data yang dikumpulkan kurang bervariasi.
+Proses untuk mencari data yang bervariasi dapat memakan waktu lama sebab harus
+menunggu saat yang tepat untuk pengumpulan data. Selain pengumpulan data,
+pengujian kendaraan otonom juga membutuhkan waktu yang lama dan biaya yang besar
+untuk memastikan kendaraan otonom dapat beroperasi dengan baik, pengujian harus
+dilakukan berulang-ulang dan dalam berbagai skenario yang kadang tidak dapat
+diatur sesuai dengan keinginan di saat yang diinginkan.
 
 Pelatihan dan pengujian kendaraan otonom yang mahal tersebut dapat diatasi
 dengan melakukannya secara virtual, yaitu menggunakan simulasi. Pelatihan dan
@@ -40,76 +40,19 @@ pengujian dengan menggunakan simulasi dapat menghemat biaya dan waktu karena
 aktor, lingkungan, dan parameter simulasi untuk pengujian dapat diatur sesuai
 dengan keinginan relatif lebih mudah dan lebih cepat.
 
-Tim \textit{capstone} Tugas Akhir ini merupakan bagian dari tim penelitian
-``Pengembangan Sistem Otonomi dengan Menggunakan Kecerdasan \textit{Artificial}
-untuk Trem" (selanjutnya akan disebut sebagai proyek trem otonom). Penelitian
-tersebut merupakan penelitian mengenai pengembangan trem otonom. Penelitian
-tersebut menggunakan simulasi untuk mengembangkan pembelajaran mesin
-(\textit{Machine Learning}) dan/atau kecerdasan buatan (\textit{Artificial
-Intelligence}), menguji operasi, dan memvalidasi operasi trem otonom pada
-tahap-tahap awal atau sebelum diuji dan divalidasi di lingkungan nyata. Tujuan
-menggunakan simulasi adalah untuk mendukung pengembangan trem otonom agar lebih
-cepat, lebih mudah dan lebih hemat biaya. Pengambilan data untuk pelatihan dan
-pengujian algoritma-algoritma trem otonom diperoleh dari lingkungan di Kota
-Solo. Pengujian trem otonom di luar simulasi juga akan dilakukan di Kota Solo.
-Pengambilan data dan pengujian dilakukan di Kota Solo karena di Kota Solo sudah
-terdapat trem konvensional yang beroperasi. Subbab
-\ref{subsec:rispro-trilaksono} menjelaskan lebih lanjut mengenai penelitian
-tersebut.
-
-Terdapat 4 tim yang bekerja sama untuk mengembangkan kecerdasan buatan trem
-otonom, yaitu:
-
-\begin{enumerate}
-
-    \item Tim persepsi
-
-    Tim persepsi merupakan tim yang bertanggung jawab untuk mengembangkan model
-    persepsi yang berfungsi untuk mengolah data sensor-sensor (kamera, radar,
-    LIDAR).
-
-    \item Tim \textit{localization} dan \textit{mapping}
-
-    Tim \textit{localization} dan \textit{mapping} merupakan tim yang
-    bertanggung jawab untuk memetakan data lokasi tram dari sensor GPS.
-
-    \item Tim \textit{decision making}
-
-    Tim \textit{decision making} merupakan tim yang bertanggung jawab untuk
-    mengembangkan modul pengambilan keputusan. Modul tersebut berfungsi untuk
-    melakukan \textit{risk assessment} dari hasil persepsi,
-    \textit{localization}, dan \textit{mapping} kemudian menentukan
-    \textit{planning} dan keputusan. Hasil dari modul tersebut adalah perintah
-    aksi untuk mengendalikan/mengemudikan trem.
-
-    \item Tim simulasi
-
-    Tim simulasi merupakan tim yang bertanggung jawab untuk mengembangkan
-    \textit{Software-in-the-Loop Simulation} (SILS) dan
-    \textit{Hardware-in-the-Loop Simulation} (HILS). Simulasi berskema HILS
-    dilakukan menggunakan perangkat keras NVIDIA DRIVE AGX Pegasus untuk
-    memroses \textit{decision making}, memroses persepsi, memroses
-    \textit{localization}, dan memroses \textit{mapping}. SILS menggunakan
-    simulator CARLA yang berada di komputer atau perangkat keras yang berbeda.
-    Simulator ini digunakan untuk menyimulasikan trem dan lingkungan virtual
-    untuk mendapatkan data sensor virtual. Tim \textit{capstone} Tugas Akhir ini
-    merupakan bagian dari tim simulasi.
-
-\end{enumerate}
-
-Lingkungan simulasi yang identik dengan lingkungan nyata diperlukan sehingga
-kecerdasan buatan kendaraan otonom cocok digunakan untuk lingkungan pada
-kenyataan. Oleh karena itu, dibutuhkan integrasi atau implementasi aktor, objek,
-dan lingkungan simulasi. Lingkungan simulasi saat ini belum serupa dengan
+Lingkungan atau dunia simulasi yang identik dengan dunia nyata diperlukan
+sehingga kecerdasan buatan kendaraan otonom cocok digunakan untuk dunia pada
+kenyataan. Oleh karena itu, dibutuhkan integrasi atau implementasi aktor/objek
+dinamis, dan dunia simulasi. Dunia simulasi saat ini belum serupa dengan
 lingkungan Indonesia.
 
 Tugas Akhir ini membahas mengenai implementasi objek trem, implementasi objek
-lalu lintas khas Indonesia, dan implementasi lingkungan simulasi yang serupa
-dengan Indonesia menggunakan simulator Car Learning to Act (CARLA) untuk
-pengembangan trem otonom pada proyek trem otonom. Aset bawaan dari CARLA seperti
-kendaraan, jalan, kota, lingkungan, dan aset lainnya mencerminkan objek dan
-lingkungan di Amerika Serikat pada umumnya. Oleh karena itu, perlu dibuat aset
-yang mencerminkan objek dan lingkungan di Indonesia.
+lalu lintas khas Indonesia, dan implementasi dunia simulasi yang serupa dengan
+Indonesia menggunakan simulator Car Learning to Act (CARLA) untuk pengembangan
+trem otonom. Aset bawaan dari CARLA seperti kendaraan, jalan, kota, dunia atau
+lingkungan, dan aset lainnya mencerminkan objek dan lingkungan di Amerika
+Serikat pada umumnya. Oleh karena itu, perlu dibuat aset yang mencerminkan objek
+dan lingkungan di Indonesia.
 
 % Lalu lintas \textit{default} di CARLA adalah jalur kanan. Hal tersebut juga
 % perlu disesuaikan agar sama seperti lalu lintas di Indonesia.
@@ -123,17 +66,10 @@ dalam Tugas Akhir ini adalah sebagai berikut.
 
     \item Bagaimana cara mengimplementasikan trem dan objek lokal khas
     Indonesia, yaitu angkot, sepeda onthel, sepeda motor, dan becak
-    di lingkungan simulasi simulator CARLA?
+    di dunia simulasi simulator CARLA?
 
-    \item Bagaimana cara mengimplementasikan lingkungan simulasi yang serupa
+    \item Bagaimana cara mengimplementasikan dunia simulasi yang serupa
     dengan lingkungan Indonesia di simulator CARLA?
-
-    % \item Bagaimana cara mengimplementasikan trem dan objek lokal khas
-    % Indonesia, yaitu angkot, sepeda onthel, sepeda motor, dan becak di
-    % simulasi simulator CARLA?
-
-    % \item Bagaimana cara mengimplementasikan stasiun, rambu lalu lintas, dan rel
-    % di lingkungan simulasi simulator CARLA?
 
 \end{enumerate}
 
@@ -144,11 +80,11 @@ Tujuan dari Tugas Akhir ini adalah sebagai berikut:
 \begin{enumerate}
 
     \item Mengimplementasikan trem dan objek lokal khas Indonesia yang stabil di
-    lingkungan simulasi simulator CARLA.
+    dunia simulasi simulator CARLA.
 
-    \item Mengimplementasikan lingkungan simulasi yang serupa dengan cara
-    mengimplementasikan stasiun, rambu lalu lintas, dan rel di lingkungan
-    simulasi simulator CARLA.
+    \item Mengimplementasikan dunia simulasi yang serupa dengan cara
+    mengimplementasikan stasiun, rambu lalu lintas, dan rel di dunia simulasi
+    simulator CARLA.
 
     % \item Membuat distribusi hasil implementasi.
 
@@ -160,7 +96,7 @@ Batasan-batasan masalah Tugas Akhir ini adalah sebagai berikut:
 
 \begin{enumerate}
 
-    \item Implementasi objek trem, objek lokal khas Indonesia, dan lingkungan
+    \item Implementasi objek trem, objek lokal khas Indonesia, dan dunia
     simulasi hanya terbatas pada lingkungan Kota Solo.
 
     \item Tingkat kemiripan simulasi dan hasil implementasi terbatas pada
@@ -173,8 +109,7 @@ Batasan-batasan masalah Tugas Akhir ini adalah sebagai berikut:
 
 \section{Metodologi}
 
-Metodologi yang digunakan dalam pengerjaan Tugas Akhir ini adalah sebagai
-berikut:
+Berikut adalah metodologi yang digunakan dalam pengerjaan Tugas Akhir ini:
 
 \begin{enumerate}
 
@@ -187,46 +122,45 @@ berikut:
     \item Eksplorasi kakas dan dokumentasi kakas
 
     Melakukan eksplorasi kakas yang akan digunakan serta dokumentasi kakas untuk
-    mengetahui fitur-fitur kakas yang dapat digunakan untuk implementasi solusi.
+    mengetahui fitur-fitur kakas yang dapat digunakan untuk implementasi.
 
-    \item Implementasi solusi
+    \item Implementasi
 
     Melakukan implementasi objek trem, objek lokal khas Indonesia, dan
-    lingkungan simulasi di CARLA Unreal Engine 4 atau CARLAUE4 (editor simulator
+    dunia simulasi di CARLA Unreal Engine 4 atau CARLAUE4 (editor simulator
     CARLA) agar dapat digunakan di simulator CARLA.
 
-    \item Validasi dan evaluasi implementasi solusi
+    \item Validasi dan evaluasi implementasi
 
-    Pada tahap ini dilakukan validasi dan evaluasi solusi yang sudah
-    diimplementasi. Tahap ini dilakukan untuk memastikan bahwa objek trem, objek
-    lokal khas Indonesia, dan lingkungan simulasi yang diimplementasikan
-    berperilaku normal, stabil untuk digunakan dalam simulasi, dan dapat
-    memenuhi kebutuhan simulasi.
+    Pada tahap ini dilakukan validasi dan evaluasi hasil implementasi. Tahap ini
+    dilakukan untuk memastikan bahwa objek trem, objek lokal khas Indonesia, dan
+    dunia simulasi yang diimplementasikan berperilaku normal, stabil untuk
+    digunakan dalam simulasi, dan dapat memenuhi kebutuhan simulasi.
 
 \end{enumerate}
 
 \section{Sistematika Pembahasan}
 
 Laporan Tugas Akhir ini terdiri atas 5 bab, yaitu Pendahuluan, Studi Literatur,
-Deskripsi Solusi, Implementasi dan Evaluasi, dan Kesimpulan dan Saran.
+Analisis Masalah dan Rancangan Implementasi, Implementasi dan Evaluasi, dan
+Kesimpulan dan Saran.
 
 Bab I Pendahuluan menjelaskan latar belakang masalah, rumusan masalah
-berdasarkan latar belakang, tujuan Tugas Akhir, batasan masalah dari
-implementasi tujuan Tugas Akhir, metodologi pengerjaan Tugas Akhir, dan
-sistematika pembahasan laporan Tugas Akhir.
+berdasarkan latar belakang, tujuan, batasan masalah dari implementasi tujuan,
+metodologi pengerjaan, dan sistematika pembahasan laporan.
 
-Bab II Studi literatur menjelaskan mengenai hasil studi literatur-literatur yang
-dibutuhkan untuk menganalisis masalah dan mengimplementasikan solusi untuk
+Bab II Studi literatur menjelaskan mengenai hasil studi literatur yang
+dibutuhkan untuk menganalisis masalah dan mengimplementasikan rancangan untuk
 menyelesaikan masalah serta beberapa penelitian yang terkait mengenai Tugas
 Akhir ini.
 
-Bab III Deskripsi Solusi menjelaskan mengenai deskripsi umum permasalahan
-\textit{capstone}, analisis masalah, analisis solusi, dan rancangan implementasi
-solusi.
+Bab III Analisis Masalah dan Rancangan Implementasi menjelaskan mengenai
+deskripsi umum permasalahan \textit{capstone}, analisis masalah, analisis
+solusi, dan rancangan implementasi.
 
 Bab IV Implementasi dan Evaluasi menjelaskan mengenai hasil eksplorasi kakas,
-implementasi solusi yang dibuat, validasi hasil implementasi, evaluasi
+hasil implementasi, validasi hasil implementasi, evaluasi
 implementasi, dan distribusi hasil implementasi.
 
 Bab V Kesimpulan dan Saran menjelaskan mengenai kesimpulan dari pengerjaan Tugas
-Akhir dan saran untuk pengembangan lanjut Tugas Akhir atau topik Tugas Akhir.
+Akhir dan saran untuk pengembangan lanjut Tugas Akhir.

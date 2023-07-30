@@ -10,15 +10,22 @@ Kesimpulan Tugas Akhir ini berdasarkan hasil implementasi, validasi, dan
 evaluasi yang telah dilakukan adalah sebagai berikut:
 
 \begin{enumerate}
-	\item Trem dan angkot berhasil diimplementasi di lingkungan simulasi CARLA.
-	Trem dan angkot stabil beroperasi ketika simulasi dijalankan. Trem dan
-	angkot diimplementasikan sebagai kendaraan roda 4. Sepeda onthel, sepeda
-	motor, dan becak berhasil diimplementasi di lingkungan simulasi CARLA.
-	Sepeda onthel, sepeda motor, dan becak diimplementasikan sebagai objek
-	statik sehingga stabil ketika simulasi berjalan.
+	\item Trem dan angkot berhasil diimplementasi di dunia simulasi simulator
+	CARLA. Trem dan angkot stabil beroperasi ketika simulasi dijalankan. Trem
+	dan angkot diimplementasikan sebagai objek kendaraan roda 4.
+
+	\item Sepeda onthel, sepeda motor, dan becak berhasil diimplementasikan di
+	dunia simulasi simulator CARLA. Sepeda onthel, sepeda motor, dan becak
+	diimplementasikan sebagai objek statik sehingga stabil ketika simulasi
+	berjalan. Sepeda onthel, sepeda motor, dan becak diimplementasikan sebagai
+	objek statik karena tidak stabil saat simulasi berjalan jika
+	diimplementasikan sebagai objek kendaraan. Ketidakstabilan disebabkan oleh
+	kesalahan penghubungan model 3D dengan \textit{armature}, kesalahan
+	konfigurasi roda pada \textit{blueprint} kendaraan, dan dokumentasi yang
+	kurang lengkap.
 
 	\item Stasiun, rambu lalu lintas, dan rel berhasil diimplementasi di
-	lingkungan simulasi CARLA.
+	dunia simulasi simulator CARLA.
 
 	% \item Distribusi hasil implementasi telah dibuat dalam bentuk CARLA versi
 	% \textit{packaged}.

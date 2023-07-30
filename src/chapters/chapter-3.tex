@@ -1,11 +1,68 @@
-\chapter{Deskripsi Solusi}
+\chapter{Analisis Masalah dan Rancangan Implementasi}
 \label{chapter-3}
 
 Bab ini membahas deskripsi umum permasalahan \textit{capstone}, analisis masalah
-simulasi yang sudah ada, analisis terhadap objek dan lingkungan yang akan
+simulasi yang sudah ada, analisis terhadap objek 3D dan dunia yang akan
 diimplementasi, analisis solusi yang akan diterapkan untuk mengatasi masalah.
 
 \section{Deskripsi Umum Permasalahan \textit{Capstone}}
+
+Tim \textit{capstone} Tugas Akhir ini merupakan bagian dari tim penelitian
+``Pengembangan Sistem Otonomi dengan Menggunakan Kecerdasan \textit{Artificial}
+untuk Trem" (selanjutnya akan disebut sebagai proyek trem otonom). Penelitian
+tersebut merupakan penelitian mengenai pengembangan trem otonom. Penelitian
+tersebut menggunakan simulasi untuk mengembangkan pembelajaran mesin
+(\textit{Machine Learning}) dan/atau kecerdasan buatan (\textit{Artificial
+Intelligence}), menguji operasi, dan memvalidasi operasi trem otonom pada
+tahap-tahap awal atau sebelum diuji dan divalidasi di dunia nyata. Tujuan
+menggunakan simulasi adalah untuk mendukung pengembangan trem otonom agar lebih
+cepat, lebih mudah dan lebih hemat biaya. Pengambilan data untuk pelatihan dan
+pengujian algoritma-algoritma trem otonom diperoleh dari lingkungan di Kota
+Solo. Pengujian trem otonom di luar simulasi juga akan dilakukan di Kota Solo.
+Pengambilan data dan pengujian dilakukan di Kota Solo karena di Kota Solo sudah
+terdapat trem konvensional yang beroperasi. Subbab
+\ref{subsec:rispro-trilaksono} menjelaskan lebih lanjut mengenai penelitian
+tersebut.
+
+Terdapat 4 tim yang bekerja sama untuk mengembangkan kecerdasan buatan trem
+otonom, yaitu:
+
+\begin{enumerate}
+
+    \item Tim persepsi
+
+    Tim persepsi merupakan tim yang bertanggung jawab untuk mengembangkan model
+    persepsi yang berfungsi untuk mengolah data sensor-sensor (kamera, radar,
+    LIDAR).
+
+    \item Tim \textit{localization} dan \textit{mapping}
+
+    Tim \textit{localization} dan \textit{mapping} merupakan tim yang
+    bertanggung jawab untuk memetakan data lokasi tram dari sensor GPS.
+
+    \item Tim \textit{decision making}
+
+    Tim \textit{decision making} merupakan tim yang bertanggung jawab untuk
+    mengembangkan modul pengambilan keputusan. Modul tersebut berfungsi untuk
+    melakukan \textit{risk assessment} dari hasil persepsi,
+    \textit{localization}, dan \textit{mapping} kemudian menentukan
+    \textit{planning} dan keputusan. Hasil dari modul tersebut adalah perintah
+    aksi untuk mengendalikan/mengemudikan trem.
+
+    \item Tim simulasi
+
+    Tim simulasi merupakan tim yang bertanggung jawab untuk mengembangkan
+    \textit{Software-in-the-Loop Simulation} (SILS) dan
+    \textit{Hardware-in-the-Loop Simulation} (HILS). Simulasi berskema HILS
+    dilakukan menggunakan perangkat keras NVIDIA DRIVE AGX Pegasus untuk
+    memroses \textit{decision making}, memroses persepsi, memroses
+    \textit{localization}, dan memroses \textit{mapping}. SILS menggunakan
+    simulator CARLA yang berada di komputer atau perangkat keras yang berbeda.
+    Simulator ini digunakan untuk menyimulasikan trem dan dunia virtual untuk
+    mendapatkan data sensor virtual. Tim \textit{capstone} Tugas Akhir ini
+    merupakan bagian dari tim simulasi.
+
+\end{enumerate}
 
 Proyek trem otonom menggunakan simulasi untuk mempercepat dan mempermudah
 pengujian dan validasi pengembangan model/algoritma \textit{decision making},
@@ -58,8 +115,8 @@ yang beranggotakan 3 orang bertanggung jawab untuk:
 
 \end{enumerate}
 
-Tugas Akhir ini bertujuan untuk mengimplementasikan objek trem, objek lokal
-lingkungan Indonesia di simulasi menggunakan CARLA agar lingkungan simulasi
+Tugas Akhir ini bertujuan untuk mengimplementasikan objek trem dan objek-objek
+lokal khas Indonesia di simulasi menggunakan CARLA agar dunia simulasi
 menyerupai lingkungan aslinya sehingga mendukung pengembangan pengujian dan
 validasi \textit{decision making} dan persepsi dengan menggunakan simulasi.
 
@@ -157,7 +214,7 @@ program, \textit{binary}, atau yang sudah \textit{packaged}. Dibutuhkan aplikasi
 
 \section{Rancangan Implementasi Objek dan Lingkungan Indonesia di Simulator CARLA}
 
-Proses implementasi objek dan lingkungan di simulator CARLA dilakukan dengan
+Proses implementasi objek dan dunia di simulator CARLA dilakukan dengan
 langkah-langkah sebagai berikut:
 
 \begin{enumerate}
@@ -177,7 +234,7 @@ langkah-langkah sebagai berikut:
 
 	\item Melakukan impor dan edit aset ke dalam editor CARLAUE4.
 
-	Aset yang ingin dimasukkan ke lingkungan simulasi dan diedit harus dilakukan
+	Aset yang ingin dimasukkan ke dunia simulasi dan diedit harus dilakukan
 	dengan aplikasi CARLAUE4.
 
 	% aset carla berbentuk .uasset yang merupakan binary file
@@ -193,10 +250,10 @@ langkah-langkah sebagai berikut:
 
 	\item Melakukan penambahan dan validasi aset yang telah diimpor.
 
-	Aset yang telah diimpor dan diedit dimasukkan ke dalam lingkungan simulasi
-	(\textit{world}). Validasi aset dapat dilakukan dengan menjalankan simulator
-	dan mengamati aset dalam simulasi. Validasi ini dilakukan untuk memastikan
-	aset yang ditambahkan sudah sesuai dan stabil dalam simulasi.
+	Aset yang telah diimpor dan diedit dimasukkan ke dalam dunia simulasi.
+	Validasi aset dapat dilakukan dengan menjalankan simulator dan mengamati
+	aset dalam simulasi. Validasi ini dilakukan untuk memastikan aset yang
+	ditambahkan sudah sesuai dan stabil dalam simulasi.
 
 	\item Melakukan ekspor hasil implementasi agar dapat didistribusikan.
 

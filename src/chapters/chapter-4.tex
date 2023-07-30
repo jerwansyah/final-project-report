@@ -1,9 +1,9 @@
 \chapter{Implementasi dan Evaluasi}
 
-Bab ini membahas hasil implementasi dari rancangan solusi pada Bab
-\ref{chapter-3}. Bab ini juga membahas validasi hasil implementasi untuk
-memastikan bahwa hasil implementasi mencapai tujuan validasi. Selain itu, Bab
-ini membahas mengenai distribusi hasil implementasi dan evaluasi.
+Bab ini membahas hasil implementasi dari rancangan pada Bab \ref{chapter-3}. Bab
+ini juga membahas validasi hasil implementasi untuk memastikan bahwa hasil
+implementasi mencapai tujuan validasi. Selain itu, Bab ini membahas mengenai
+distribusi hasil implementasi dan evaluasi.
 
 \section{Hasil Eksplorasi CARLA}
 
@@ -12,7 +12,7 @@ CARLAUE4), dan mengeksplorasi editor CARLAUE4 diketahui terdapat beberapa fitur
 sebagai berikut:
 
 \begin{enumerate}
-    \item Penambahan kendaraan baru beroda empat dan dua
+    \item Penambahan objek kendaraan baru beroda empat dan dua
     \item Penambahan objek \textit{spline} untuk menambahkan rel
     \item Penambahan objek statis lainnya
 \end{enumerate}
@@ -28,19 +28,19 @@ sebagai objek statis dalam bentuk \textit{spline}.
 
 \subsection{Batasan Implementasi}
 
-Objek lokal dan lingkungan dibuat menggunakan Blender versi 3.3 LTS dan
-diimplementasikan menggunakan CARLA versi 0.9.12 pada sistem operasi Linux
-Ubuntu 18.04 LTS dan CARLA versi 0.9.13 pada sistem operasi Windows 11.
-Implementasi dilakukan pada dua sistem operasi yang berbeda agar memermudah
-proses implementasi karena CARLA di komputer dengan sistem operasi Ubuntu
-digunakan bersama untuk SILS dan CARLA di komputer dengan sistem operasi Windows
-adalah komputer pribadi. Hasil implementasi hanya didistribusikan untuk sistem
-operasi Linux (Ubuntu). Implementasi objek lokal dan lingkungan yang dilakukan
-adalah sebagai berikut:
+Objek-objek 3D dibuat menggunakan Blender versi 3.3 LTS dan diimplementasikan
+menggunakan CARLA versi 0.9.12 pada sistem operasi Linux Ubuntu 18.04 LTS dan
+CARLA versi 0.9.13 pada sistem operasi Windows 11. Implementasi dilakukan pada
+dua sistem operasi yang berbeda agar memermudah proses implementasi karena CARLA
+di komputer dengan sistem operasi Ubuntu digunakan bersama untuk SILS dan CARLA
+di komputer dengan sistem operasi Windows adalah komputer pribadi. Hasil
+implementasi hanya didistribusikan untuk sistem operasi Linux (Ubuntu).
+Implementasi objek-objek lokal dan dunia simulasi yang dilakukan adalah sebagai
+berikut:
 
 \begin{enumerate}
-    \item Trem dan angkot sebagai kendaraan roda 4
-    \item Sepeda onthel, sepeda motor, dan becak sebagai kendaraan roda 2
+    \item Trem dan angkot sebagai objek kendaraan roda 4
+    \item Sepeda onthel, sepeda motor, dan becak sebagai objek kendaraan roda 2
     \item Stasiun Madiun, Stasiun Solokota, dan rambu-rambu lalu lintas sebagai
     objek statis
     \item Rel sebagai objek statis dalam bentuk \textit{spline}
@@ -107,13 +107,13 @@ groups} tersebut diisi dengan titik-titik yang sesuai.
 
 \begin{figure}[!h]
     \centering
-    \includegraphics[width=1\textwidth]{resources/chapter-4/vertices-groups.png}
+    \includegraphics[width=0.7\textwidth]{resources/chapter-4/vertices-groups.png}
     \caption{\textit{Vertices groups} yang telah dibuat}
     \label{fig:vertices-groups}
 \end{figure}
 
 Dilakukan \textit{skinning} dengan cara memasuki \textit{object mode} dan
-menyusun hierarki objek seperti pada Gambar \ref{fig:skinning-hierarchy}
+menyusun hierarki objek 3D seperti pada Gambar \ref{fig:skinning-hierarchy}
 kemudian memilih menu \verb|Object > Parent > Armature Deform with Automatic|
 yang terletak pada \textit{Viewport Header}. Gambar \ref{fig:wheel-skinning}
 menunjukkan roda angkot bagian depan kiri yang sudah dihubungkan dengan
@@ -124,7 +124,7 @@ mode}.
 \begin{figure}[!h]
     \centering
     \includegraphics[width=0.6\textwidth]{resources/chapter-4/skinning-hierarchy.png}
-    \caption{Hierarki objek}
+    \caption{Hierarki objek 3D}
     \label{fig:skinning-hierarchy}
 \end{figure}
 
@@ -338,14 +338,14 @@ Gambar \ref{fig:tram-carla} menunjukkan hasil implementasi trem. Gambar
 \begin{figure}[!h]
     \centering
     \includegraphics[width=0.6\textwidth]{resources/chapter-4/tram-carla.png}
-    \caption{Implementasi trem dalam lingkungan simulasi}
+    \caption{Implementasi trem dalam dunia simulasi}
     \label{fig:tram-carla}
 \end{figure}
 
 \begin{figure}[!h]
     \centering
     \includegraphics[width=0.6\textwidth]{resources/chapter-4/angkot.png}
-    \caption{Implementasi angkot dalam lingkungan simulasi}
+    \caption{Implementasi angkot dalam dunia simulasi}
     \label{fig:angkot-carla}
 \end{figure}
 
@@ -493,7 +493,7 @@ diatur dengan konfigurasi sebagai berikut:
 
 \begin{figure}[!h]
     \centering
-    \includegraphics[width=1\textwidth]{resources/chapter-4/onthel-blueprint-wheels.png}
+    \includegraphics[width=0.47\textwidth]{resources/chapter-4/onthel-blueprint-wheels.png}
     \caption{Konfigurasi roda pada \textit{blueprint} sepeda onthel}
     \label{fig:onthel-blueprint-wheels}
 \end{figure}
@@ -517,17 +517,17 @@ roda 2 dalam simulasi.
 \begin{figure}[!h]
     \centering
     \includegraphics[width=0.6\textwidth]{resources/chapter-4/onthel-carla.png}
-    \caption{Implementasi onthel dalam lingkungan simulasi}
+    \caption{Implementasi onthel dalam dunia simulasi}
     \label{fig:onthel-carla}
 \end{figure}
 
-\subsection{Implementasi Lingkungan}
+\subsection{Implementasi Dunia Simulasi}
 
-Penambahan aset model 3D ke dalam lingkungan simulasi dilakukan dengan membuat
+Penambahan aset model 3D ke dalam dunia simulasi dilakukan dengan membuat
 \textit{folder} baru untuk masing-masing objek/\textit{mesh}/\textit{static
 mesh} dalam \textit{folder} \verb|Static| kemudian mengimpor aset model 3D ke
 dalam masing-masing \textit{folder} tersebut. Objek statis ditambahkan dengan
-cara menarik berkas objek dari \textit{Content Browser} ke dalam
+cara menarik berkas objek tersebut dari \textit{Content Browser} ke dalam
 \textit{Viewport}. Setelah itu, dapat dilakukan penyesuaian skala, posisi, dan
 rotasi \textit{static mesh} pada panel \verb|Details|.
 
@@ -535,7 +535,7 @@ rotasi \textit{static mesh} pada panel \verb|Details|.
 
 Gambar \ref{fig:stasiun-madiun-model} menunjukkan aset model 3D Stasiun Madiun
 yang dibuat. Gambar \ref{fig:stasiun-madiun} menunjukkan implementasi model
-Stasiun Madiun dalam lingkungan simulasi.
+Stasiun Madiun dalam dunia simulasi.
 
 \begin{figure}[!h]
     \centering
@@ -547,13 +547,13 @@ Stasiun Madiun dalam lingkungan simulasi.
 \begin{figure}[!h]
     \centering
     \includegraphics[width=0.6\textwidth]{resources/chapter-4/stasiun-madiun-carla.png}
-    \caption{Implementasi stasiun Madiun dalam lingkungan simulasi}
+    \caption{Implementasi stasiun Madiun dalam dunia simulasi}
     \label{fig:stasiun-madiun}
 \end{figure}
 
 Gambar \ref{fig:stasiun-solokota-model} menunjukkan aset model 3D Stasiun
 Solokota yang dibuat. Gambar \ref{fig:stasiun-solokota} menunjukkan implementasi
-model Stasiun Solokota dalam lingkungan simulasi.
+model Stasiun Solokota dalam dunia simulasi.
 
 \begin{figure}[!h]
     \centering
@@ -565,19 +565,19 @@ model Stasiun Solokota dalam lingkungan simulasi.
 \begin{figure}[!h]
     \centering
     \includegraphics[width=0.6\textwidth]{resources/chapter-4/stasiun-solokota-carla.png}
-    \caption{Implementasi stasiun Solokota dalam lingkungan simulasi}
+    \caption{Implementasi stasiun Solokota dalam dunia simulasi}
     \label{fig:stasiun-solokota}
 \end{figure}
 
 Gambar \ref{fig:road-signs} menunjukkan implementasi rambu-rambu lalu lintas
-dalam lingkungan simulasi.
+dalam dunia simulasi.
 
 \begin{figure}[!h]
     \centering
     \subfloat[]{\includegraphics[width=0.45\textwidth]{resources/chapter-4/rambu-1.png}}
     \hfill
     \subfloat[]{\includegraphics[width=0.45\textwidth]{resources/chapter-4/rambu-2.png}}
-    \caption{Implementasi rambu-rambu lalu lintas dalam lingkungan simulasi}
+    \caption{Implementasi rambu-rambu lalu lintas dalam dunia simulasi}
     \label{fig:road-signs}
 \end{figure}
 
@@ -617,7 +617,7 @@ dalam simulasi.
     \subfloat[Tampilan biasa]{\includegraphics[width=0.47\textwidth]{resources/chapter-4/rel.png}}
     \hfill
     \subfloat[Tampilan segmentasi semantik]{\includegraphics[width=0.47\textwidth]{resources/chapter-4/rel-segmentation-camera.png}}
-    \caption{Implementasi rel dalam lingkungan simulasi}
+    \caption{Implementasi rel dalam dunia simulasi}
     \label{fig:rel}
 \end{figure}
 
@@ -631,7 +631,7 @@ validasi dari hasil implementasi yang telah dilakukan.
 Validasi hasil dilakukan terhadap hasil implementasi objek-objek non-statik atau
 objek yang dapat bergerak, yaitu objek-objek kendaraan. Objek statik yang telah
 diimplementasi tidak perlu divalidasi karena objek statik tidak akan berubah
-selama simulasi berjalan. Berikut adalah tujuan validasi yang ingin dicapai:
+selama simulasi berjalan. Kriteria keberhasilan validasi adalah sebagai berikut:
 
 \begin{enumerate}
     \item Kendaraan stabil saat simulasi berjalan dan tidak berperilaku di luar
@@ -639,6 +639,7 @@ selama simulasi berjalan. Berikut adalah tujuan validasi yang ingin dicapai:
     % \item Kendaraan berperilaku normal seperti kendaraan aslinya
     \item Kendaraan dapat mengikuti kendali yang diberikan pengguna
     \item Kendaraan berjalan dengan baik ketika dikendalikan secara
+    % \item Perilaku kendaraan menyerupai dengan kendaraan yang direpresentasikan.
     \textit{autopilot}
 \end{enumerate}
 
@@ -676,8 +677,9 @@ berikut:
 Hasil validasi trem adalah trem dapat mengikuti kendali pengguna,
 \textit{throttle}, \textit{brake}, dan \textit{steer} dan kendali secara
 \textit{autopilot} dengan baik. Trem beroperasi dengan stabil dan tidak
-melakukan hal yang tidak terduga selama simulasi berjalan. Gambar
-\ref{fig:tram-validation} menunjukkan hasil validasi trem.
+melakukan hal yang tidak terduga selama simulasi berjalan. Hasil implementasi
+trem memenuhi ketiga kriteria keberhasilan. Gambar \ref{fig:tram-validation}
+menunjukkan hasil validasi trem.
 
 \begin{figure}[!h]
     \centering
@@ -691,8 +693,9 @@ melakukan hal yang tidak terduga selama simulasi berjalan. Gambar
 Hasil validasi angkot adalah angkot dapat mengikuti kendali pengguna, yaitu
 \textit{throttle}, \textit{brake}, dan \textit{steer} dan kendali secara
 \textit{autopilot} dengan baik. Angkot beroperasi dengan stabil dan tidak
-melakukan hal yang tidak terduga selama simulasi berjalan. Gambar
-\ref{fig:angkot-validation} menunjukkan hasil validasi angkot.
+melakukan hal yang tidak terduga selama simulasi berjalan. Hasil implementasi
+angkot memenuhi ketiga kriteria keberhasilan. Gambar \ref{fig:angkot-validation}
+menunjukkan hasil validasi angkot.
 
 \begin{figure}[!h]
     \centering
@@ -724,7 +727,8 @@ seharusnya mengikuti rute yang telah ditentukan. Gambar
 \end{figure}
 
 Karena validasi implementasi sepeda onthel tidak berhasil, sepeda motor dan
-becak tidak diimplementasikan sebagai kendaraan. Gambar
+becak tidak diimplementasikan sebagai kendaraan. Hasil implementasi sepeda
+onthel tidak memenuhi ketiga kriteria keberhasilan. Gambar
 \ref{fig:becak-validation} menunjukkan hasil validasi becak menggunakan kendali
 \textit{autopilot} yang tidak berhasil.
 
@@ -757,12 +761,14 @@ ketika editor juga mengalami \textit{crash} ketika digunakan di komputer SILS
 melebihi dari spesifikasi yang direkomendasikan oleh CARLA.
 
 Implementasi kendaraan roda 2 dilakukan berulang-ulang untuk mencoba mengatasi
-kekuranglengkapan dokumentasi. Implementasi kendaraan roda 2 yang dilakukan
-berulang dengan mengubah hal-hal yang memungkinkan kesalahan implementasi atau
-dengan cara \textit{trial-and-error} namun tidak berhasil. Kemungkinan kesalahan
-implementasi terletak pada proses \textit{skinning} karena kekuranglengkapan
-dokumentasi dalam penjelasan bagian apa saja yang harus dihubungkan dengan
-kerangka atau \textit{armature} yang disediakan. Selain itu, implementasi juga
+kekuranglengkapan dan kekurangtepatan dokumentasi. Implementasi kendaraan roda 2
+dilakukan berulang dengan mengubah hal-hal yang memungkinkan kesalahan
+implementasi atau (\textit{trial-and-error}) namun tidak berhasil.
+Ketidaksempuraan implementasi mungkin terletak pada proses \textit{skinning}
+karena dokumentasi kurang lengkap atau kurang jelas pada penjelasan bagian apa
+saja yang harus dihubungkan dengan kerangka atau \textit{armature} yang
+disediakan. Kesalahan implementasi juga mungkin disebabkan oleh kesalahan saat
+konfigurasi roda pada \textit{blueprint} kendaraan. Selain itu, implementasi
 mungkin terganggu oleh dokumentasi yang tidak diperbarui atau tidak sesuai
 dengan editor.
 
@@ -777,7 +783,7 @@ tersebut diimplementasikan sebagai objek statis.
 
 \section{Distribusi Hasil Implementasi}
 
-Setelah semua objek lokal dan lingkungan simulasi selesai dibuat, aset yang
+Setelah semua objek lokal dan dunia simulasi selesai dibuat, aset yang
 telah divalidasi didistribusikan dalam bentuk CARLA versi \textit{packaged}.
 CARLA versi \textit{packaged} tersebut dibuat dengan cara menjalankan perintah
 \verb|make package| pada terminal. Perintah tersebut menghasilkan 2 hal dalam

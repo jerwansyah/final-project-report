@@ -12,7 +12,7 @@ dirancang untuk memonitor keadaan jalan dan berkemudi sendiri tanpa bantuan
 pengemudi. Kendaraan otonom dibuat dengan tujuan mengurangi jumlah kecelakaan,
 mengurangi penggunaan energi, mengurangi polusi, mengurangi kemacetan, dan
 meningkatkan akses transportasi \parencite{av-bagloee}. Trem otonom sangat mirip
-dengan mobil otonom, keduanya beroperasi di lingkungan yang sama dan
+dengan mobil otonom, keduanya beroperasi di jalan atau lingkungan yang sama dan
 berinteraksi dengan objek-objek yang sama pula. Perbedaan keduanya adalah trem
 otonom terikat dengan rel trem sehingga trem tidak dapat berbelok keluar dari
 rel untuk menghindari objek yang berpotensi menjadi halangan ataupun berhenti
@@ -61,13 +61,13 @@ untuk melatih kendaraan otonom \parencite{carla-dosovitskiy}.
 \textit{open-source} yang berguna untuk melakukan simulasi kendaraan otonom dan
 lingkungan urban. CARLA telah dikembangkan untuk mendukung pelatihan, pembuatan
 purwarupa, dan pengujian strategi kemudi otonom, baik dari sisi persepsi maupun
-sisi pengontrolan. CARLA menyediakan model dasar untuk lingkungan simulasi,
-sejumlah kendaraan, rambu lalu lintas, dan pejalan kaki. Selain itu, CARLA juga
+sisi pengontrolan. CARLA menyediakan model dasar untuk dunia simulasi, sejumlah
+kendaraan, rambu lalu lintas, dan pejalan kaki. Selain itu, CARLA juga
 menyediakan keluaran sensor-sensor dan sinyal-sinyal yang dapat digunakan untuk
 melatih strategi kemudi, seperti koordinat GPS, kecepatan, percepatan, data
 detail mengenai tabrakan yang terjadi pada model kendaraan, dan lain-lain.
-Sensor-sensor dan kondisi lingkungan simulasi tersebut dapat diatur sesuai
-dengan kebutuhan \parencite{carla-dosovitskiy}.
+Sensor-sensor dan kondisi dunia simulasi tersebut dapat diatur sesuai dengan
+kebutuhan \parencite{carla-dosovitskiy}.
 
 % \section{\textit{CARLA Simulation Engine}}
 CARLA dikembangkan sedemikian rupa sehingga fleksibel untuk disesuaikan dengan
@@ -84,18 +84,18 @@ tersebut. CARLA dirancang sebagai sistem \textit{server-client} sehingga
 fungsionalitas tersebut dapat direalisasikan. Server CARLA menjalankan dan
 menyimulasikan suasana. \textit{Client} bertanggung jawab untuk mengatur
 interaksi antara aktor dengan server via \textit{socket} dengan mengirimkan
-perintah kepada aktor dan perintah untuk mengatur peraturan lingkungan simulasi
-di server. \textit{Client} akan menerima umpan balik hasil rekaman sensor
+perintah kepada aktor dan perintah untuk mengatur peraturan dunia simulasi di
+server. \textit{Client} akan menerima umpan balik hasil rekaman sensor
 \parencite{carla-dosovitskiy}.
 
-Lingkungan simulasi pada CARLA terdiri atas model-model 3 dimensi (3D) yang
-statik, seperti bangunan, tumbuh-tumbuhan, rambu lalu lintas, dan infrastuktur
-lainnya. Selain itu, terdapat juga model-model dinamis, seperti kendaraan dan
-pejalan kaki. Model-model 3D tersebut telah dibuat sehingga dimensi model-model
-tersebut mencerminkan dimensi objek aslinya di dunia nyata. Model-model tersebut
-dibuat menggunakan model geometrik yang ringan dan dengan tekstur yang sesuai
-sehingga terlihat realistis dan detail serta dapat di-\textit{render} dengan
-cepat. Aset-aset yang telah disediakan CARLA sangat dapat disesuaikan
+Dunia simulasi pada CARLA terdiri atas model-model 3 dimensi (3D) yang statik,
+seperti bangunan, tumbuh-tumbuhan, rambu lalu lintas, dan infrastuktur lainnya.
+Selain itu, terdapat juga model-model dinamis, seperti kendaraan dan pejalan
+kaki. Model-model 3D tersebut telah dibuat sehingga dimensi model-model tersebut
+mencerminkan dimensi objek aslinya di dunia nyata. Model-model tersebut dibuat
+menggunakan model geometrik yang ringan dan dengan tekstur yang sesuai sehingga
+terlihat realistis dan detail serta dapat di-\textit{render} dengan cepat.
+Aset-aset yang telah disediakan CARLA sangat dapat disesuaikan
 \parencite{carla-dosovitskiy}. Aset baru juga dapat ditambahkan
 \parencite{carla-documentation}.
 
@@ -108,7 +108,7 @@ memiliki fitur-fitur untuk membuat konten tiga dimensi yang sangat lengkap
 \parencite{ue-5}. Jika fitur atau ekosistem Unreal Engine kurang sesuai dengan
 kebutuhan pengembang, Unreal Engine menyediakan \textit{source code} yang dapat
 dimodifikasi \parencite{ue-4}. CARLA menggunakan Unreal Engine untuk
-pengembangan lingkungan simulasi \parencite{carla-documentation}.
+pengembangan dunia simulasi \parencite{carla-documentation}.
 
 \subsection{Konsep Dasar CARLA \parencite{carla-documentation}}
 
@@ -143,7 +143,7 @@ tersebut ke dalam simulasi.
 
 % \subsubsection{Map dan Navigasi}
 
-Map atau peta merupakan objek yang merepresentasikan dunia atau lingkungan
+Map atau peta merupakan objek yang merepresentasikan lingkungan atau dunia
 simulasi. Peta pada CARLA direpresentasikan dalam bentuk model 3D dan perincian
 jalan, persimpangan, dan jalur yang ada. CARLA menggunakan OpenDRIVE 1.4 sebagai
 standar definisi jalan. Navigasi pada CARLA dibantu dengan objek rambu lalu
